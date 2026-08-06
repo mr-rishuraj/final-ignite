@@ -1,0 +1,300 @@
+{
+  "exportedAt": "2026-07-13T08:02:24.732Z",
+  "assets": [
+    {
+      "url": "https://framerusercontent.com/images/gGiO1OjqTNwDao97fI0tV3KNA.jpg",
+      "alt": "",
+      "source": "Home / Image / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/fnBf6dEcCC9BV3aTl33BNLCrvk.svg",
+      "alt": "Main Cube Outline Brading Element",
+      "source": "Footer / Cube / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/q5CAbxhi8kSJKB38EtQVvO7VQ9w.webp",
+      "alt": "Building Image",
+      "source": "Home / Building / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/JbPxwvJBrFJUIUnPPorAlnIfpT4.png",
+      "alt": "Event Image",
+      "source": "Home / Event Image 4 / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/YoFfKP2CnRTpOQIpekwzNXZ34.webp",
+      "alt": "Event Image",
+      "source": "Home / Event Image 3 / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/8uIHbH2tUvdXW29Doa9An2Os9o.png",
+      "alt": "Event Image",
+      "source": "Home / Event Image 2 / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/MiDTjWYs5iUgnLUD24TAzGlnjgg.png",
+      "alt": "Event Image",
+      "source": "Home / Event Image 1 / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/U3UWEJ0rFiixMujWaZhxQdeJZVY.svg",
+      "alt": "Sponser Logo",
+      "source": "Home / ComponentInstanceNode / $control__logo"
+    },
+    {
+      "url": "https://framerusercontent.com/images/ze736YGI30StVzZyhVvAd6JYYAM.svg",
+      "alt": "Sponser Logo",
+      "source": "Home / ComponentInstanceNode / $control__logo"
+    },
+    {
+      "url": "https://framerusercontent.com/images/g1JspCWG2yP8BW4YdGf0oywBhA.svg",
+      "alt": "Sponser Logo",
+      "source": "Home / ComponentInstanceNode / $control__logo"
+    },
+    {
+      "url": "https://framerusercontent.com/images/JNfwKVs04XxypCyxC4tPm2POMsY.svg",
+      "alt": "Sponser Logo",
+      "source": "Home / ComponentInstanceNode / $control__logo"
+    },
+    {
+      "url": "https://framerusercontent.com/images/K8zbe1EcvPteDnrdhXi8Vey7X3w.svg",
+      "alt": "Sponser Logo",
+      "source": "Home / ComponentInstanceNode / $control__logo"
+    },
+    {
+      "url": "https://framerusercontent.com/images/7xdhspAvQu1xiTUjQCywqlxDAVM.svg",
+      "alt": "Sponser Logo",
+      "source": "Home / ComponentInstanceNode / $control__logo"
+    },
+    {
+      "url": "https://framerusercontent.com/images/nPiYST4kSAIlWsd6HyguNpaz3k8.svg",
+      "alt": "Sponser Logo",
+      "source": "Home / ComponentInstanceNode / $control__logo"
+    },
+    {
+      "url": "https://framerusercontent.com/images/4TvCmtfM6CUB41EUDv8Vq3qpn1U.svg",
+      "alt": "Sponser Logo",
+      "source": "Home / ComponentInstanceNode / $control__logo"
+    },
+    {
+      "url": "https://framerusercontent.com/images/rZ0gDEy43V4cAnXU93xbi326x0I.svg",
+      "alt": "Sponser Logo",
+      "source": "Home / ComponentInstanceNode / $control__logo"
+    },
+    {
+      "url": "https://framerusercontent.com/images/ssoiXCFILQLtptGuH7EWoE0vB6s.svg",
+      "alt": "Sponser Logo",
+      "source": "Home / ComponentInstanceNode / $control__logo"
+    },
+    {
+      "url": "https://framerusercontent.com/images/LnCQAdhqkvLv8Uo73TRV4xdWBA.svg",
+      "alt": "Sponser Logo",
+      "source": "Home / ComponentInstanceNode / $control__logo"
+    },
+    {
+      "url": "https://framerusercontent.com/images/hjwrCOdE6Tvd8gq4879AreIkZ0.svg",
+      "alt": "Sponser Logo",
+      "source": "Home / ComponentInstanceNode / $control__logo"
+    },
+    {
+      "url": "https://framerusercontent.com/images/vCbNorngFJjc1pLCmsrrrthPc.svg",
+      "alt": "Sponser Logo",
+      "source": "Home / ComponentInstanceNode / $control__logo"
+    },
+    {
+      "url": "https://framerusercontent.com/images/vwTEjPgTDDbuk2ZTMogJiBtbfA.svg",
+      "alt": "Sponser Logo",
+      "source": "Home / ComponentInstanceNode / $control__logo"
+    },
+    {
+      "url": "https://framerusercontent.com/images/Ow4AoJVwl2xpuCj7w4BHRB28ysc.svg",
+      "alt": "Illustration for Designers",
+      "source": "Home / Slider Component / $control__image1"
+    },
+    {
+      "url": "https://framerusercontent.com/images/o5c8ZUWfB40t6RvCTk7KKnM7l5I.svg",
+      "alt": "Illustration for Agency",
+      "source": "Home / Slider Component / $control__image2"
+    },
+    {
+      "url": "https://framerusercontent.com/images/H3QMF2I41FYBAUQa9OyXUquJJxQ.svg",
+      "alt": "Illustration for Founder",
+      "source": "Home / Slider Component / $control__image3"
+    },
+    {
+      "url": "https://framerusercontent.com/images/PmGum1yrMcblvXHfGmaDyT4W7BA.svg",
+      "alt": "Illustration for Leaders",
+      "source": "Home / Slider Component / $control__image4"
+    },
+    {
+      "url": "https://framerusercontent.com/images/6DDT13RjeeQY2aqquxouBBZhKHg.svg",
+      "alt": "Illustration for Developers",
+      "source": "Home / Slider Component / $control__image5"
+    },
+    {
+      "url": "https://framerusercontent.com/images/19wGOlJQp54zgd3vWysk6Wqafk.png",
+      "alt": "Event Conference Speaker",
+      "source": "Home / Image / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/FsNbsa9jCpD7375FjsQuEO8JBw.webp",
+      "alt": "Event Conference Speaker",
+      "source": "Home / Image / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/Novsmjw6IIhKDVyD7ZI2i4sAsE.webp",
+      "alt": "Event Conference Speaker",
+      "source": "Home / Image / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/IVA2zVsD7sWebTDntsDdlviCksQ.webp",
+      "alt": "Event Conference Speaker",
+      "source": "Home / Image / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/yjuULeR3dD13SCHbfLgz9wgls.jpg",
+      "alt": "Event Expert Images",
+      "source": "Home / Event Image-3 / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/AGgTnqv7WNLDD9gJKbVesxEaN7o.jpg",
+      "alt": "Event Expert Images",
+      "source": "Home / Event Image-2 / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/ipAHfDTsRyvhAr0360dua0CI.jpg",
+      "alt": "Event Expert Images",
+      "source": "Home / Split Image Effect / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/886y0ur7yrOni4Bt6HEYsH2zRSA.svg",
+      "alt": "",
+      "source": "Home / Cube image Image / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/4lXgzs85MuZSjicxKXSpjEs9Ao.svg",
+      "alt": "",
+      "source": "Home / FrameNode / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/xKtDqEmS3xoJbhTNvPlnMZguWPk.svg",
+      "alt": "",
+      "source": "Home / Cube image Image / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/Ls1c1AYW9pgwQ55ioERla5xvcU.svg",
+      "alt": "",
+      "source": "Home / FrameNode / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/mEy2WehK7qnEeZJv5N4Y9hpBaU.svg",
+      "alt": "",
+      "source": "Home / FrameNode / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/tsmsMMaZwAL7rsYS7m3hDhUBI.svg",
+      "alt": "",
+      "source": "Home / FrameNode / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/bJAPgGmuVok5Q2qjyNOPS9zdI.svg",
+      "alt": "",
+      "source": "Home / FrameNode / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/PC3xIvp4t7xnAVIp9N5kYIr3sf8.svg",
+      "alt": "",
+      "source": "Home / Cube image Image / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/7358tBBjuBirnYXfuTKhmNvUM.svg",
+      "alt": "",
+      "source": "Home / FrameNode / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/YgBvkDQV4AdpX2f13gFIh6I6NN0.jpg",
+      "alt": "",
+      "source": "Home / Brown Background / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/iQrmo2RaxFDVwsp8Yn1QrqI.svg",
+      "alt": "",
+      "source": "Home / Circle / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/CDhYOBo0RCgwcpOfMlDqVGPRzHo.jpg",
+      "alt": "selective focus photography of man wearing eyeglasses",
+      "source": "Home / FrameNode / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/M7Xh8DUZcRnsPSVjcv1lVqdCtU.jpg",
+      "alt": "woman looking sideways leaning on white wall",
+      "source": "Home / FrameNode / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/LZYY71GfAAmwFGFURcEc4dfpoY.jpg",
+      "alt": "woman staring directly at camera near pink wall",
+      "source": "Home / FrameNode / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/pkvAVridwiY5tz6V3Gj7ASElZI.png",
+      "alt": "Event Logo Text",
+      "source": "Navigation / Event Name / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/V5U3Ioc0nKt69TndD2ukdRh5t70.svg",
+      "alt": "Platform",
+      "source": "Paltform / Platform / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/V00KpUcbO3E0OAwMeJ3RSjHAE.svg",
+      "alt": "Small Cube",
+      "source": "Paltform / Right Cube / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/ypGILMhV6mCLNXWCecfrO7ZVyjU.svg",
+      "alt": "Small Cube",
+      "source": "Paltform / Left Cube / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/QdeTtmGDToMYicaL4YqASnYCcdU.png",
+      "alt": "3D Cube Illustration",
+      "source": "Paltform / Big Cube / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/A8Wev8Q00vjklJKzYiwivtzIEVM.png",
+      "alt": "Speaker Talking in Event",
+      "source": "Line / ComponentInstanceNode / $control__image"
+    },
+    {
+      "url": "https://framerusercontent.com/images/FuVWIbguggxSJn75i9NlcLjASc.png",
+      "alt": "People Sitting in Event",
+      "source": "Line / ComponentInstanceNode / $control__image"
+    },
+    {
+      "url": "https://framerusercontent.com/images/MtnFEBLnoIRm6qLSHDEza33VtQg.svg",
+      "alt": "Core Pass 3d Cube",
+      "source": "Ticket / FrameNode / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/oxVYUGu5fnvPmYPtKKqRv1LEb20.svg",
+      "alt": "Plus Pass Illustration",
+      "source": "Ticket / FrameNode / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/EiaCvXKsU5JQTGRFzM9pDcS4sk.svg",
+      "alt": "Cube Line art",
+      "source": "Footer / Main Cube / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/S3f8Y1L9Wu6uTEZnygDx42YkTvY.svg",
+      "alt": "Event Logo Text",
+      "source": "Navigation / Event Name / fill"
+    },
+    {
+      "url": "https://framerusercontent.com/images/rmiT5wmBuPMXXnCnEgI8lIvkZRg.svg",
+      "alt": "Event Logo Text",
+      "source": "Navigation / Event Name / fill"
+    }
+  ]
+}

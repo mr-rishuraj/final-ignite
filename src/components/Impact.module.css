@@ -1,0 +1,353 @@
+/* ─────────────────────────────────────────────────────────
+   SECTION
+───────────────────────────────────────────────────────── */
+.section {
+  background: #f6f0ea;
+  /* Sits directly under PreviousEditions — they read as one story, so the
+     top padding is light and the section carries the same background. */
+  padding: clamp(24px, 4vw, 40px) 0 calc(var(--section-pad-y) * 1.1);
+  overflow: hidden;
+}
+
+/* ─────────────────────────────────────────────────────────
+   HEADER
+───────────────────────────────────────────────────────── */
+.header {
+  text-align: center;
+  padding: 0 var(--gutter);
+  margin-bottom: clamp(32px, 5vw, 52px);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: #8a1520;
+  margin-bottom: 14px;
+}
+
+.title {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 600;
+  color: #1a0606;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.em {
+  font-style: italic;
+  color: #8a1520;
+}
+
+/* ─────────────────────────────────────────────────────────
+   TICKER
+───────────────────────────────────────────────────────── */
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 64px;
+  border-top:    1px solid rgba(26,6,6,0.1);
+  border-bottom: 1px solid rgba(26,6,6,0.1);
+  padding: 13px 0;
+}
+
+.track {
+  display: inline-block;
+  animation: tickScroll 26s linear infinite;
+}
+
+.tickItem {
+  font-size: clamp(0.82rem, 1.4vw, 1rem);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: #1a0606;
+  padding: 0 28px;
+  border-right: 1px solid rgba(26,6,6,0.14);
+}
+
+@keyframes tickScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }
+}
+
+/* ─────────────────────────────────────────────────────────
+   COLLAGE GRID
+───────────────────────────────────────────────────────── */
+.collage {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ─────────────────────────────────────────────────────────
+   FRAME
+───────────────────────────────────────────────────────── */
+.frame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 7px;
+  box-shadow: 0 2px 16px rgba(26,6,6,0.10);
+  align-self: center;
+  cursor: pointer;
+}
+
+.frame[data-span="2"] {
+  grid-column: span 2;
+  align-self: start;
+}
+
+/* ─────────────────────────────────────────────────────────
+   IMAGE
+───────────────────────────────────────────────────────── */
+.img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  user-select: none;
+}
+
+.frame:hover .img {
+  transform: scale(1.055);
+}
+
+/* ─────────────────────────────────────────────────────────
+   CAPTION OVERLAY  (slides up on open)
+───────────────────────────────────────────────────────── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(15,3,3,0.92) 0%,
+    rgba(15,3,3,0.55) 50%,
+    rgba(15,3,3,0.12) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 20px 18px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.32s ease;
+}
+
+.overlayOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.captionBox {
+  transform: translateY(14px);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.overlayOpen .captionBox {
+  transform: translateY(0);
+}
+
+.captionTag {
+  display: inline-block;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,210,160,0.85);
+  margin-bottom: 8px;
+}
+
+.captionText {
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.88);
+  max-width: 36ch;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ─────────────────────────────────────────────────────────
+   + / × BUTTON
+───────────────────────────────────────────────────────── */
+.plusBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.93);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8a1520;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.75);
+  transition:
+    opacity  0.22s ease,
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.22);
+}
+
+/* Show button on hover or when open */
+.frame:hover .plusBtn,
+.frame:focus-within .plusBtn,
+.plusBtnOpen {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Touch devices never hover, so the only affordance for the caption would
+   otherwise be invisible — keep it permanently on show there. */
+@media (hover: none) {
+  .plusBtn { opacity: 1; transform: scale(1); }
+}
+
+/* Rotate SVG lines to form × when open */
+.plusBtnOpen svg {
+  transform: rotate(45deg);
+  transition: transform 0.25s ease;
+}
+
+.plusBtn svg {
+  transition: transform 0.25s ease;
+}
+
+.plusBtn:hover {
+  background: #fff;
+  transform: scale(1.1);
+}
+
+.plusBtnOpen:hover {
+  background: #fff5ee;
+}
+
+/* ─────────────────────────────────────────────────────────
+   ① CSS SCROLL-DRIVEN ANIMATIONS  (Chrome 115+, Safari 18+)
+
+   KEY FIX: frameExit uses fill-mode "none" so its "before"
+   fill-state doesn't override frameEnter's opacity:0 start.
+   Without this, frameExit's from-state (opacity:1) would
+   cascade on top of frameEnter's hidden state, making all
+   images appear in full colour before they animate in —
+   which caused the desaturated / black-and-white flash.
+───────────────────────────────────────────────────────── */
+@supports (animation-timeline: view()) {
+  .frame {
+    animation-name: frameEnter, frameExit;
+    animation-timing-function: linear, linear;
+    animation-fill-mode: both, none;   /* ← critical: exit = none */
+    animation-timeline: view(), view();
+    animation-range: entry 0% entry 45%, exit 10% exit 90%;
+  }
+
+  @keyframes frameEnter {
+    from {
+      opacity: 0;
+      transform:
+        translateX(var(--tx, 0px))
+        translateY(60px)
+        scale(0.92)
+        rotate(var(--rot, 0deg));
+    }
+    to {
+      opacity: 1;
+      transform:
+        translateX(0)
+        translateY(0)
+        scale(1)
+        rotate(var(--rot, 0deg));
+    }
+  }
+
+  @keyframes frameExit {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1) rotate(var(--rot, 0deg));
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-55px) scale(0.94) rotate(var(--rot, 0deg));
+    }
+  }
+
+  /* Staggered entry — each frame starts 3% later */
+  .frame[data-i="0"] { animation-range: entry  0% entry 45%, exit 10% exit 90%; }
+  .frame[data-i="1"] { animation-range: entry  3% entry 48%, exit 10% exit 90%; }
+  .frame[data-i="2"] { animation-range: entry  6% entry 51%, exit 10% exit 90%; }
+  .frame[data-i="3"] { animation-range: entry  9% entry 54%, exit 10% exit 90%; }
+  .frame[data-i="4"] { animation-range: entry 12% entry 57%, exit 10% exit 90%; }
+  .frame[data-i="5"] { animation-range: entry 15% entry 60%, exit 10% exit 90%; }
+  .frame[data-i="6"] { animation-range: entry 18% entry 63%, exit 10% exit 90%; }
+  .frame[data-i="7"] { animation-range: entry 21% entry 66%, exit 10% exit 90%; }
+  .frame[data-i="8"] { animation-range: entry 24% entry 69%, exit 10% exit 90%; }
+  .frame[data-i="9"] { animation-range: entry 27% entry 72%, exit 10% exit 90%; }
+}
+
+/* ─────────────────────────────────────────────────────────
+   ② IO FALLBACK  (Firefox / older browsers)
+───────────────────────────────────────────────────────── */
+@supports not (animation-timeline: view()) {
+  .frame {
+    opacity: 0;
+    transform:
+      translateX(var(--tx, 0px))
+      translateY(55px)
+      scale(0.93)
+      rotate(var(--rot, 0deg));
+    transition:
+      opacity  0.75s ease,
+      transform 0.9s  cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--io-delay, 0ms);
+  }
+
+  .frame.ioIn {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1) rotate(var(--rot, 0deg));
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .collage {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 0 var(--gutter);
+  }
+  .frame[data-span="2"] {
+    grid-column: span 1;
+    align-self: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .collage {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7px;
+    padding: 0 var(--gutter);
+  }
+  .captionText  { font-size: 0.75rem; max-width: none; }
+  .captionTag   { font-size: 0.58rem; letter-spacing: 1.4px; margin-bottom: 5px; }
+  .overlay      { padding: 14px 12px; }
+  .marquee      { margin-bottom: 40px; }
+  .tickItem     { padding: 0 16px; }
+}
+
+/* One column reads better than two postage stamps */
+@media (max-width: 400px) {
+  .collage { grid-template-columns: 1fr; gap: 10px; }
+}

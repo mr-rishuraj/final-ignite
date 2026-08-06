@@ -1,0 +1,193 @@
+.section {
+  padding: 120px 0 100px;
+  background: #fff8f3;
+  overflow: hidden;
+}
+
+.container {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 40px;
+  text-align: right;
+  color: var(--color-text-muted);
+  letter-spacing: 1.5px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 72px;
+  gap: 40px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  max-width: 560px;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.descBlock { max-width: 400px; }
+
+.desc {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+/* ── Carousel ── */
+.carousel {
+  position: relative;
+  width: 100%;
+  padding-bottom: 52px;
+}
+
+.fadeLeft,
+.fadeRight {
+  position: absolute;
+  top: 0;
+  bottom: 52px;
+  width: 200px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.fadeLeft {
+  left: 0;
+  background: linear-gradient(to right, #fff8f3, transparent);
+}
+
+.fadeRight {
+  right: 0;
+  background: linear-gradient(to left, #fff8f3, transparent);
+}
+
+.stage {
+  position: relative;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Horizontal spacing between adjacent carousel slots — DarkSection.js
+     multiplies this to place each card, so one value retunes the whole fan. */
+  --slot: 270px;
+}
+
+/* ── Card ── */
+.card {
+  position: absolute;
+  width: 280px;
+  height: 320px;
+  border-radius: 20px;
+  padding: 36px 28px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  will-change: transform, opacity;
+  user-select: none;
+}
+
+.cardCenter {
+  background: #fff;
+  border-color: var(--color-accent);
+  box-shadow: 0 20px 60px rgba(217, 64, 32, 0.12);
+}
+
+.num {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 2px;
+  margin-bottom: 32px;
+  opacity: 0.6;
+}
+
+.cardTitle {
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  color: var(--color-text);
+}
+
+.cardDesc {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+/* ── Dots ── */
+.dots {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* The button is padded out to a comfortable tap target; ::after is the visible dot. */
+.dot {
+  width: 30px;
+  height: 26px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-border);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.dotActive::after {
+  background: var(--color-accent);
+  transform: scale(1.5);
+}
+
+@media (max-width: 1024px) {
+  .stage { --slot: 230px; }
+  .title { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+}
+
+@media (max-width: 768px) {
+  .section { padding: var(--section-pad-y) 0; }
+  .content { flex-direction: column; margin-bottom: 48px; }
+  .label   { text-align: left; margin-bottom: 24px; }
+  .card    { width: min(78vw, 260px); height: 300px; padding: 28px 22px; }
+  .stage   { --slot: min(62vw, 220px); height: 340px; }
+  .fadeLeft, .fadeRight { width: 48px; }
+  .num     { margin-bottom: 20px; }
+}
+
+@media (max-width: 480px) {
+  .stage     { --slot: 68vw; height: 320px; }
+  .card      { width: 80vw; height: 288px; }
+  .cardTitle { font-size: 1.25rem; }
+  .fadeLeft, .fadeRight { width: 28px; }
+}
+
+/* Cards are placed with transforms, so the auto-advance is the only way to
+   reach them — keep it running even under reduced-motion, just instantly. */
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none !important; }
+}

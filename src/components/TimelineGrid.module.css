@@ -1,0 +1,193 @@
+.section {
+  padding: var(--section-pad-y) 0;
+  background: var(--color-bg);
+}
+
+.container {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #8a1520;
+  margin-bottom: 14px;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: #1a0606;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.em { font-style: italic; color: #8a1520; }
+
+/* ── Phase label row ── */
+.phaseLabel {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 100px;
+}
+
+.badge[data-mode="online"] {
+  background: rgba(255,200,100,0.15);
+  color: #9a6010;
+  border: 1px solid rgba(200,150,50,0.28);
+}
+
+.badge[data-mode="offline"] {
+  background: rgba(138,21,32,0.08);
+  color: #8a1520;
+  border: 1px solid rgba(138,21,32,0.2);
+}
+
+/* ── Grids ── */
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+/* ── Phase separator ── */
+.phaseSep {
+  height: 1px;
+  background: rgba(26,6,6,0.1);
+  margin: 40px 0;
+}
+
+/* ── Card ── */
+.card {
+  /* Section moved to #fff8f3, so cards lift to plain white for separation */
+  background: #ffffff;
+  border: 1px solid rgba(26,6,6,0.08);
+  border-radius: 12px;
+  padding: 24px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 28px rgba(26,6,6,0.09);
+  transform: translateY(-2px);
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.num {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: rgba(26,6,6,0.22);
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tag {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 100px;
+  background: rgba(26,6,6,0.05);
+  color: rgba(26,6,6,0.45);
+  border: 1px solid rgba(26,6,6,0.08);
+}
+
+.cardTitle {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1a0606;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.cardDesc {
+  font-size: 0.82rem;
+  color: rgba(26,6,6,0.54);
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.detailList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(26,6,6,0.07);
+  margin: 0;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: rgba(26,6,6,0.5);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.dot {
+  flex-shrink: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #8a1520;
+  opacity: 0.5;
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .grid3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .grid2,
+  .grid3 { grid-template-columns: 1fr; }
+}

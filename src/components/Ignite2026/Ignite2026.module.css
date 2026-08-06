@@ -1,0 +1,143 @@
+.section {
+  background: #2a0a06;
+  color: #fff8f3;
+  padding: calc(var(--section-pad-y) * 1.1) 0;
+  overflow: hidden;
+}
+
+.container {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+
+/* ── Copy column ── */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255, 210, 160, 0.75);
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: clamp(1.9rem, 5vw, 3.1rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #fff8f3;
+  margin: 0 0 22px;
+}
+
+.em {
+  font-style: italic;
+  color: #ffd4a0;
+}
+
+.body {
+  font-size: clamp(0.92rem, 1.5vw, 1rem);
+  line-height: 1.85;
+  color: rgba(255, 248, 243, 0.6);
+  max-width: 60ch;
+  margin: 0 0 clamp(28px, 4vw, 40px);
+}
+
+/* ── Marks ── */
+.marks {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 20px);
+  margin: 0;
+}
+
+.mark {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 248, 243, 0.14);
+  min-width: 0;
+}
+
+.markValue {
+  font-size: clamp(1.05rem, 2.2vw, 1.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #fff8f3;
+  line-height: 1.1;
+}
+
+.markLabel {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(255, 248, 243, 0.4);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ── Figure ── */
+.figure {
+  position: relative;
+  margin: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.caption {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  background: rgba(20, 4, 4, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: rgba(255, 248, 243, 0.88);
+}
+
+.captionDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffd4a0;
+  flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  /* Image leads on narrow screens — it sets the scene before the copy */
+  .figure { order: -1; aspect-ratio: 16 / 10; }
+}
+
+@media (max-width: 560px) {
+  .marks { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 14px; }
+  .figure { aspect-ratio: 3 / 2; border-radius: 14px; }
+}

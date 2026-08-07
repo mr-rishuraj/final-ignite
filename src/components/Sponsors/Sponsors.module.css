@@ -92,11 +92,12 @@
 
 .logoWrapper {
   width: clamp(100px, 15vw, 180px);
-  height: clamp(40px, 8vw, 80px);
+  height: clamp(50px, 8vw, 90px);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  position: relative;
 }
 
 .logo {
@@ -107,6 +108,7 @@
   opacity: 0.85;
   transition: opacity 0.3s, filter 0.3s;
   filter: brightness(1);
+  position: absolute;
 }
 
 .logoCard:hover .logo {
@@ -114,11 +116,30 @@
   filter: brightness(1.1);
 }
 
-.fallbackLogo {
+.coloredLogo {
   width: clamp(60px, 10vw, 100px);
-  height: clamp(40px, 8vw, 80px);
-  border-radius: 8px;
-  opacity: 0.6;
+  height: clamp(50px, 8vw, 85px);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logoCard:hover .coloredLogo {
+  opacity: 1;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.logoInitials {
+  font-weight: 700;
+  color: white;
+  font-size: clamp(0.7rem, 2vw, 1.1rem);
+  letter-spacing: 0.5px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
 }
 
 .logoName {

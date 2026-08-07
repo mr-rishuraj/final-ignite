@@ -11,15 +11,23 @@ export default function Sponsors() {
   const LogoItem = ({ logo }) => (
     <div key={logo.name} className={styles.logoCard}>
       <div className={styles.logoWrapper}>
-        <img
-          src={logo.src}
-          alt={logo.alt}
-          className={styles.logo}
-          loading="lazy"
-          onError={(e) => {
-            e.target.parentElement.innerHTML = `<div class="${styles.fallbackLogo}" style="background-color: ${logo.color}"></div>`;
-          }}
-        />
+        {logo.src ? (
+          <img
+            src={logo.src}
+            alt={logo.alt}
+            className={styles.logo}
+            loading="lazy"
+            onError={(e) => {
+              e.target.style.display = 'none';
+            }}
+          />
+        ) : null}
+        <div
+          className={styles.coloredLogo}
+          style={{ backgroundColor: logo.color }}
+        >
+          <span className={styles.logoInitials}>{logo.initials}</span>
+        </div>
       </div>
       <p className={styles.logoName}>{logo.name}</p>
     </div>

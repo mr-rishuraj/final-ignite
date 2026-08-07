@@ -20,7 +20,7 @@ const siteContent = {
     headline: 'Building Tomorrow,',
     headlineAccent: 'Together.',
     description: 'IGNITE is the flagship global innovation and entrepreneurship platform by PIEDS — bringing together visionary founders, investors, industry leaders, and aspiring entrepreneurs to exchange ideas, build connections, and shape the future.',
-    ctaPrimary: { label: 'Become a Partner', href: '#partnership' },
+    ctaPrimary: { label: 'Apply Now', href: '/apply' },
     ctaSecondary: { label: 'Explore Opportunities', href: '#investor-value' },
     stats: [
       { value: '100',  label: 'Selected innovators' },

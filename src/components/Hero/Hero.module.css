@@ -133,52 +133,6 @@
   margin-bottom: 32px;
 }
 
-/* ── Desert silhouettes (transparent PNGs, inverted to white) ── */
-.silhouetteTree,
-.silhouetteCamel,
-.silhouetteCamelFlip {
-  position: absolute;
-  bottom: 12%;
-  z-index: 2;
-  pointer-events: none;
-  user-select: none;
-  /* black silhouette → white, bg is already transparent */
-  filter: invert(1) brightness(0.92) sepia(0.15);
-}
-
-/* Palm tree — tall, anchored to right edge */
-.silhouetteTree {
-  right: 4vw;
-  height: clamp(260px, 52vh, 560px);
-  width: auto;
-  opacity: 0.6;
-  transform-origin: bottom center;
-  animation: treeSway 8s ease-in-out infinite;
-}
-
-@keyframes treeSway {
-  0%, 100% { transform: rotate(-1.5deg); }
-  50%       { transform: rotate(1.5deg);  }
-}
-
-/* Camel 1 — left of the tree, facing left */
-.silhouetteCamel {
-  right: calc(4vw + clamp(120px, 24vw, 320px));
-  height: clamp(100px, 20vh, 220px);
-  width: auto;
-  opacity: 0.55;
-  transform-origin: bottom center;
-}
-
-/* Camel 2 — mirrored, tucked right beside the tree base */
-.silhouetteCamelFlip {
-  right: calc(4vw + clamp(20px, 4vw, 60px));
-  height: clamp(85px, 17vh, 190px);
-  width: auto;
-  opacity: 0.48;
-  transform: scaleX(-1);
-  transform-origin: bottom center;
-}
 
 /* ── Watermark logo — transform/opacity/filter driven by JS on scroll ── */
 .watermark {
@@ -262,11 +216,6 @@
 }
 
 /* ── Responsive ── */
-@media (max-width: 1024px) {
-  /* Tuck the silhouettes in so they stop colliding with the centre column */
-  .silhouetteTree  { height: clamp(200px, 40vh, 400px); }
-  .silhouetteCamel { right: calc(4vw + clamp(90px, 20vw, 220px)); }
-}
 
 @media (max-width: 900px) {
   /* Switch from absolute vertical sidebar to inline horizontal row */
@@ -332,22 +281,11 @@
 
   .scrollCue { display: none; }
 
-  .silhouetteTree,
-  .silhouetteCamel,
-  .silhouetteCamelFlip { display: none; }
-
   .watermark { width: min(80vw, 420px); }
-  .sub       { margin-bottom: 28px; }
-  .ctas      { margin-bottom: 28px; }
 }
 
 @media (max-width: 480px) {
-  .pills       { gap: 7px; margin-bottom: 22px; }
-  .pill        { font-size: 0.68rem; padding: 5px 12px; }
-  .tagline     { font-size: clamp(1.75rem, 9vw, 2.5rem); }
-  .sub         { font-size: 0.88rem; line-height: 1.65; }
-  .proof       { flex-direction: column; gap: 8px; }
-  .proofText   { text-align: center; }
+  .tagline { font-size: clamp(1.75rem, 9vw, 2.5rem); }
 
   /* Full-width CTAs are far easier to hit one-handed */
   .ctas        { flex-direction: column; align-items: stretch; width: 100%; }

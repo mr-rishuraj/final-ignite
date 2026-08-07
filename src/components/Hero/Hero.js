@@ -97,11 +97,6 @@ export default function Hero() {
           }}
         />
 
-        {/* ── Desert silhouettes ── */}
-        <img src="/tree-t.png"  alt="" className={styles.silhouetteTree}      aria-hidden="true" style={{ opacity: 0.6  * contentOpacity }} />
-        <img src="/camel-t.png" alt="" className={styles.silhouetteCamel}     aria-hidden="true" style={{ opacity: 0.55 * contentOpacity }} />
-        <img src="/camel-t.png" alt="" className={styles.silhouetteCamelFlip} aria-hidden="true" style={{ opacity: 0.48 * contentOpacity }} />
-
         {/* ── Left edge: vertical IGNITE + horizontal 2026 ── */}
         <div className={styles.leftTypo} style={{ transform: contentTransform, opacity: contentOpacity }}>
           <h1 className={styles.igniteVert}>IGNITE</h1>

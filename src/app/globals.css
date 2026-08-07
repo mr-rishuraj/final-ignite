@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+
 /*
  * ── Canela font faces ──
  * Uncomment once font files are placed in public/fonts/
@@ -23,6 +25,8 @@
 }
 
 :root {
+  --font-crimson:          'Crimson Text', serif;
+
   --color-bg:              #F5F1ED;
   --color-surface:         #FAF8F6;
   --color-text:            #1a0505;
@@ -87,6 +91,10 @@ h1, h2, h3, h4, p, li, a, span { overflow-wrap: break-word; }
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: 4px;
+}
+
+.font-crimson {
+  font-family: var(--font-crimson);
 }
 
 @media (prefers-reduced-motion: reduce) {

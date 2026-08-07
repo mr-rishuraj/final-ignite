@@ -11,7 +11,10 @@ export default function Sponsors() {
       <div className={styles.marqueeContainer}>
         <div className={styles.marqueeTrack}>
           {duplicatedLogos.map((logo, i) => (
-            <img key={i} src={logo.src} alt={logo.alt} className={styles.logo} loading="lazy" />
+            <div key={i} className={styles.logoCard}>
+              <img src={logo.src} alt={logo.alt} className={styles.logo} loading="lazy" />
+              <p className={styles.logoName}>{logo.name}</p>
+            </div>
           ))}
         </div>
       </div>

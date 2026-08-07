@@ -5,7 +5,7 @@ export default function GetInvolved() {
   const { getInvolved: gi } = siteContent;
 
   return (
-    <section id="get-involved" className={styles.section}>
+    <section id="partnership" className={styles.section}>
       <div className={styles.glow} aria-hidden="true" />
 
       <div className={styles.container}>

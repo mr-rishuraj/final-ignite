@@ -54,22 +54,6 @@ export default function PreviousEditions() {
           ))}
         </ol>
 
-        {/* ── Partner logos ── */}
-        <div className={styles.partners}>
-          <p className={styles.partnersLabel}>Partners &amp; supporters across editions</p>
-          <div className={styles.partnerGrid}>
-            {sponsors.logos.map((logo, i) => (
-              <img
-                key={i}
-                src={logo.src}
-                alt={logo.alt}
-                className={styles.partnerLogo}
-                loading="lazy"
-              />
-            ))}
-          </div>
-        </div>
-
       </div>
     </section>
   );

@@ -4,30 +4,30 @@ const NAV_COLS = [
   {
     heading: 'Event',
     links: [
-      { label: 'About IGNITE',    href: '/#about' },
-      { label: 'IGNITE 2026',     href: '/#ignite-2026' },
-      { label: 'Speakers',        href: '/#speakers' },
-      { label: 'Previous Editions', href: '/#editions' },
-      { label: 'Agenda',          href: '/#agenda' },
-      { label: 'Venue',           href: '/#venue' },
+      { label: 'About IGNITE',      href: '/#about' },
+      { label: 'IGNITE 2026',       href: '/#ignite-2026' },
+      { label: 'Speakers',          href: '/speakers' },
+      { label: 'Previous Editions', href: '/#gallery' },
+      { label: 'Programme',         href: '/#programme' },
+      { label: 'Sponsors',          href: '/sponsors' },
     ],
   },
   {
     heading: 'Participate',
     links: [
-      { label: 'Apply Now',        href: '/#get-involved' },
-      { label: 'Sponsor Us',       href: '#' },
-      { label: 'Become a Mentor',  href: '#' },
+      { label: 'Apply Now',        href: '/apply' },
+      { label: 'Sponsor Us',       href: '/partnership' },
+      { label: 'Become a Mentor',  href: 'mailto:ignite@pieds-bitspilani.org' },
       { label: 'Partner with Us',  href: '/partnership' },
     ],
   },
   {
     heading: 'Connect',
     links: [
-      { label: 'Twitter / X',  href: '#' },
-      { label: 'LinkedIn',     href: '#' },
-      { label: 'Instagram',    href: '#' },
-      { label: 'Contact Us',   href: '#' },
+      { label: 'Twitter / X',  href: 'https://x.com' },
+      { label: 'LinkedIn',     href: 'https://linkedin.com' },
+      { label: 'Instagram',    href: 'https://instagram.com' },
+      { label: 'Contact Us',   href: 'mailto:ignite@pieds-bitspilani.org' },
     ],
   },
 ];
@@ -65,7 +65,13 @@ export default function Footer() {
               <ul className={styles.colLinks}>
                 {col.links.map((l) => (
                   <li key={l.label}>
-                    <a href={l.href} className={styles.colLink}>{l.label}</a>
+                    <a
+                      href={l.href}
+                      className={styles.colLink}
+                      {...(l.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    >
+                      {l.label}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -80,9 +86,12 @@ export default function Footer() {
         <div className={styles.container}>
           <div className={styles.piedsLeft}>
             <span className={styles.piedsLabel}>Organised by</span>
-            <a href="/pieds" className={styles.piedsName}>
-              PIEDS — Pilani Innovation &amp; Entrepreneurship Development Society
-            </a>
+            <div className={styles.piedsNameRow}>
+              <img src="/pieds-image/Group 100.png" alt="PIEDS" className={styles.piedsLogo} />
+              <a href="/pieds" className={styles.piedsName}>
+                PIEDS — Pilani Innovation &amp; Entrepreneurship Development Society
+              </a>
+            </div>
             <p className={styles.piedsDesc}>
               The official innovation &amp; startup body of BITS Pilani, nurturing 300+ startups since 2004.
             </p>
@@ -99,7 +108,7 @@ export default function Footer() {
 
       {/* ── Big wordmark ── */}
       <div className={styles.wordmarkWrap} aria-hidden="true">
-        <span className={styles.wordmark}>IGNITE</span>
+        <span className={styles.wordmark}>IGNITE 2026</span>
       </div>
 
       {/* ── Bottom bar ── */}

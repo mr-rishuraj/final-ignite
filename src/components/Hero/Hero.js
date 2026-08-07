@@ -56,7 +56,7 @@ export default function Hero() {
 
   // Watermark: very gentle scale (1× → 1.8× max), cubic eased
   const watermarkScale   = 1 + pe * 0.8;
-  const watermarkOpacity = 0.055;
+  const watermarkOpacity = 0.09;
 
   return (
     <div className={styles.heroScrollZone}>
@@ -65,11 +65,18 @@ export default function Hero() {
         {/* Warm ivory background */}
         <div className={styles.bg} aria-hidden="true" />
 
+        {/* Group photo — blended into bottom of hero */}
+        <div className={styles.groupPhotoWrap} aria-hidden="true">
+          <img
+            src="/Ignite%20'26%20-%20Dubai/Group%201.png"
+            alt=""
+            className={styles.groupPhoto}
+          />
+        </div>
+
         {/* Bottom vignette */}
         <div className={styles.overlayBottom} aria-hidden="true" />
 
-        {/* Warm sunset glow — bottom of hero */}
-        <div className={styles.bottomGlow} aria-hidden="true" />
 
         {/* Watermark — wrapper animates CSS float, img handles JS scale */}
         <div className={styles.watermarkWrap} aria-hidden="true">

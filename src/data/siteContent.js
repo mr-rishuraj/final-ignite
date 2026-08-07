@@ -8,14 +8,12 @@ const siteContent = {
     logoText: 'IGNITE',
     logoYear: '26',
     links: [
-      { label: 'About',      href: '#about' },
-      { label: 'Programme',  href: '#programme' },
       { label: 'Speakers',   href: '/speakers' },
       { label: 'Partners',   href: '/sponsors' },
       { label: 'PIEDS',      href: '/pieds' },
     ],
     ctaText: 'Apply Now',
-    ctaHref: '#partnership',
+    ctaHref: '/apply',
   },
   hero: {
     badge: 'Dubai · 2026',

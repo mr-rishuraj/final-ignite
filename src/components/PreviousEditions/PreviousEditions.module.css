@@ -1,5 +1,5 @@
 .section {
-  background: #f6f0ea;
+  background: #FAF8F6;
   padding: var(--section-pad-y) 0 clamp(48px, 7vw, 80px);
 }
 

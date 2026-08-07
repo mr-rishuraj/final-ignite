@@ -63,11 +63,11 @@
   gap: 8px;
   padding: 7px 16px;
   border-radius: 100px;
-  border: 1px solid rgba(217, 64, 32, 0.4);
-  background: rgba(217, 64, 32, 0.08);
+  border: 1px solid rgba(255, 61, 79, 0.3);
+  background: rgba(255, 61, 79, 0.08);
   font-size: 0.72rem;
   font-weight: 600;
-  color: rgba(255, 180, 140, 0.9);
+  color: rgba(255, 107, 122, 0.95);
   width: fit-content;
   letter-spacing: 0.3px;
 }
@@ -76,8 +76,8 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #d94020;
-  box-shadow: 0 0 6px #d94020;
+  background: #FF3D4F;
+  box-shadow: 0 0 6px #FF3D4F;
   animation: pulse 2s ease-in-out infinite;
 }
 

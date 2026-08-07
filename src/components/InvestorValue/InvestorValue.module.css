@@ -1,6 +1,6 @@
 .section {
   padding: var(--section-pad-y) 0 calc(var(--section-pad-y) * 1.3);
-  background: #f6f0ea;
+  background: #FAF8F6;
 }
 
 .container {

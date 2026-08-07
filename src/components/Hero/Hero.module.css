@@ -24,7 +24,7 @@
 .bg {
   position: absolute;
   inset: -14%;
-  background: url('/hero-bg.png') center center / cover no-repeat;
+  background: url('/dubai-bg.png') center center / cover no-repeat;
   will-change: transform;
   z-index: 0;
 }
@@ -35,8 +35,8 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(20, 4, 4, 0.68) 0%,
-    rgba(20, 4, 4, 0.25) 38%,
+    rgba(20, 4, 4, 0.45) 0%,
+    rgba(20, 4, 4, 0.12) 38%,
     transparent 60%
   );
   z-index: 1;
@@ -48,8 +48,8 @@
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(20, 4, 4, 0.80) 0%,
-    rgba(20, 4, 4, 0.25) 28%,
+    rgba(20, 4, 4, 0.55) 0%,
+    rgba(20, 4, 4, 0.12) 28%,
     transparent 52%
   );
   z-index: 1;

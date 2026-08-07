@@ -23,15 +23,15 @@
 }
 
 :root {
-  --color-bg:              #fff8f3;
-  --color-surface:         #fff0e8;
+  --color-bg:              #F5F1ED;
+  --color-surface:         #FAF8F6;
   --color-text:            #1a0505;
-  --color-text-secondary:  rgba(26, 5, 5, 0.58);
-  --color-text-muted:      rgba(26, 5, 5, 0.36);
-  --color-accent:          #d94020;
-  --color-accent-dark:     #a01828;
-  --color-accent-light:    #f09060;
-  --color-border:          rgba(217, 64, 32, 0.14);
+  --color-text-secondary:  rgba(26, 5, 5, 0.60);
+  --color-text-muted:      rgba(26, 5, 5, 0.40);
+  --color-accent:          #FF3D4F;
+  --color-accent-dark:     #B91C1C;
+  --color-accent-light:    #FF6B7A;
+  --color-border:          rgba(255, 61, 79, 0.12);
   --color-button-text:     #ffffff;
 
   /* Shared layout rhythm — sections scale their padding from these */

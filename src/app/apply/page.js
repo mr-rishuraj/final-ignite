@@ -11,7 +11,7 @@ export default function ApplyPage() {
   return (
     <>
       <Navbar />
-      <ApplyForm />
+      <h1> COMING SOON </h1>
       <Footer />
     </>
   );

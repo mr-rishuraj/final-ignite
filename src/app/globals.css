@@ -1,22 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
-
-/*
- * ── Canela font faces ──
- * Uncomment once font files are placed in public/fonts/
- * Required files: Canela-Thin, Light, LightItalic, Regular, RegularItalic,
- *                 Medium, Bold, BoldItalic, Black  (.woff2 + .woff)
- *
-@font-face { font-family:'Canela'; src:url('/fonts/Canela-Thin.woff2') format('woff2'),url('/fonts/Canela-Thin.woff') format('woff'); font-weight:100; font-style:normal; font-display:swap; }
-@font-face { font-family:'Canela'; src:url('/fonts/Canela-ThinItalic.woff2') format('woff2'),url('/fonts/Canela-ThinItalic.woff') format('woff'); font-weight:100; font-style:italic; font-display:swap; }
-@font-face { font-family:'Canela'; src:url('/fonts/Canela-Light.woff2') format('woff2'),url('/fonts/Canela-Light.woff') format('woff'); font-weight:300; font-style:normal; font-display:swap; }
-@font-face { font-family:'Canela'; src:url('/fonts/Canela-LightItalic.woff2') format('woff2'),url('/fonts/Canela-LightItalic.woff') format('woff'); font-weight:300; font-style:italic; font-display:swap; }
-@font-face { font-family:'Canela'; src:url('/fonts/Canela-Regular.woff2') format('woff2'),url('/fonts/Canela-Regular.woff') format('woff'); font-weight:400; font-style:normal; font-display:swap; }
-@font-face { font-family:'Canela'; src:url('/fonts/Canela-RegularItalic.woff2') format('woff2'),url('/fonts/Canela-RegularItalic.woff') format('woff'); font-weight:400; font-style:italic; font-display:swap; }
-@font-face { font-family:'Canela'; src:url('/fonts/Canela-Medium.woff2') format('woff2'),url('/fonts/Canela-Medium.woff') format('woff'); font-weight:500; font-style:normal; font-display:swap; }
-@font-face { font-family:'Canela'; src:url('/fonts/Canela-Bold.woff2') format('woff2'),url('/fonts/Canela-Bold.woff') format('woff'); font-weight:700; font-style:normal; font-display:swap; }
-@font-face { font-family:'Canela'; src:url('/fonts/Canela-BoldItalic.woff2') format('woff2'),url('/fonts/Canela-BoldItalic.woff') format('woff'); font-weight:700; font-style:italic; font-display:swap; }
-@font-face { font-family:'Canela'; src:url('/fonts/Canela-Black.woff2') format('woff2'),url('/fonts/Canela-Black.woff') format('woff'); font-weight:900; font-style:normal; font-display:swap; }
-*/
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -25,30 +8,30 @@
 }
 
 :root {
-  --font-crimson:          'Crimson Text', serif;
+  --font-serif:   'Instrument Serif', 'Cormorant Garamond', Georgia, serif;
+  --font-sans:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-crimson: 'Crimson Text', serif;
 
-  --color-bg:              #F5F1ED;
-  --color-surface:         #FAF8F6;
-  --color-text:            #1a0505;
-  --color-text-secondary:  rgba(26, 5, 5, 0.60);
-  --color-text-muted:      rgba(26, 5, 5, 0.40);
-  --color-accent:          #FF3D4F;
-  --color-accent-dark:     #B91C1C;
-  --color-accent-light:    #FF6B7A;
-  --color-border:          rgba(255, 61, 79, 0.12);
+  /* ── New palette ── */
+  --color-bg:              #F8F5F2;
+  --color-surface:         #F0EBE6;
+  --color-text:            #252525;
+  --color-text-secondary:  rgba(37, 37, 37, 0.65);
+  --color-text-muted:      #8A817A;
+  --color-accent:          #C53B48;
+  --color-accent-dark:     #9E2E39;
+  --color-accent-light:    #D96B75;
+  --color-border:          rgba(37, 37, 37, 0.10);
   --color-button-text:     #ffffff;
 
-  /* Shared layout rhythm — sections scale their padding from these */
   --page-max:      1200px;
   --gutter:        clamp(16px, 5vw, 32px);
-  --section-pad-y: clamp(64px, 9vw, 120px);
+  --section-pad-y: clamp(56px, 8vw, 104px);
 }
 
 html {
   scroll-behavior: smooth;
-  /* Fixed navbar is ~68px; keep anchor targets clear of it */
-  scroll-padding-top: 88px;
-  /* Stop iOS/Windows from re-scaling type in landscape */
+  scroll-padding-top: 76px;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
@@ -56,15 +39,13 @@ html {
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: 'Canela', 'Georgia', 'Times New Roman', serif;
+  font-family: var(--font-sans);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Wide children (marquees, collages) must never scroll the page sideways */
   overflow-x: hidden;
 }
 
-/* Locked while the mobile nav overlay is open */
 body[data-scroll-locked='true'] {
   overflow: hidden;
   touch-action: none;
@@ -74,14 +55,10 @@ img { max-width: 100%; display: block; }
 a   { color: inherit; }
 button { font-family: inherit; }
 
-/* Long unbroken words (URLs, org names) must wrap rather than widen the page */
 h1, h2, h3, h4, p, li, a, span { overflow-wrap: break-word; }
 
-/* Touch-target floor. min-height is inert on inline elements, so anchors are
-   promoted to inline-flex first — otherwise a link stays its 16px line-box. */
 @media (pointer: coarse) {
   a { display: inline-flex; align-items: center; min-height: 44px; }
-  /* Links flowing inside prose must stay inline or they break the paragraph */
   p a { display: inline; min-height: 0; }
   button { min-height: 44px; }
   a, button { touch-action: manipulation; }
@@ -93,9 +70,8 @@ h1, h2, h3, h4, p, li, a, span { overflow-wrap: break-word; }
   border-radius: 4px;
 }
 
-.font-crimson {
-  font-family: var(--font-crimson);
-}
+.font-serif  { font-family: var(--font-serif); }
+.font-crimson { font-family: var(--font-crimson); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

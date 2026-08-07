@@ -1,6 +1,6 @@
 .footer {
-  background: #3d1208;
-  color: #fff8f3;
+  background: #1C1916;
+  color: rgba(248, 245, 242, 0.9);
   overflow: hidden;
   position: relative;
 }
@@ -11,12 +11,10 @@
   padding: 0 var(--gutter);
 }
 
-/* ══════════════════════════
-   TOP — brand + nav columns
-══════════════════════════ */
+/* ── TOP ── */
 .top {
   padding: clamp(52px, 8vw, 80px) 0 clamp(48px, 7vw, 72px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(248, 245, 242, 0.07);
 }
 
 .top .container {
@@ -38,21 +36,24 @@
 }
 
 .brandIcon {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
+  opacity: 0.7;
 }
 
 .brandName {
-  font-size: 1.1rem;
-  font-weight: 900;
-  letter-spacing: 2px;
-  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(248, 245, 242, 0.9);
 }
 
 .brandDesc {
-  font-size: 0.875rem;
-  color: rgba(255, 248, 243, 0.45);
+  font-size: 0.88rem;
+  color: rgba(248, 245, 242, 0.38);
   line-height: 1.8;
   max-width: 300px;
 }
@@ -62,28 +63,29 @@
   align-items: center;
   gap: 8px;
   padding: 7px 16px;
-  border-radius: 100px;
-  border: 1px solid rgba(255, 61, 79, 0.3);
-  background: rgba(255, 61, 79, 0.08);
-  font-size: 0.72rem;
+  border-radius: 999px;
+  border: 1px solid rgba(197, 59, 72, 0.28);
+  background: rgba(197, 59, 72, 0.08);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
   font-weight: 600;
-  color: rgba(255, 107, 122, 0.95);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(197, 59, 72, 0.85);
   width: fit-content;
-  letter-spacing: 0.3px;
 }
 
 .badgeDot {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: #FF3D4F;
-  box-shadow: 0 0 6px #FF3D4F;
-  animation: pulse 2s ease-in-out infinite;
+  background: var(--color-accent);
+  animation: pulse 2.4s ease-in-out infinite;
 }
 
 @keyframes pulse {
   0%, 100% { opacity: 1; }
-  50%       { opacity: 0.35; }
+  50%       { opacity: 0.3; }
 }
 
 /* Nav columns */
@@ -94,11 +96,12 @@
 }
 
 .colHeading {
+  font-family: var(--font-sans);
   font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 2px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255, 248, 243, 0.28);
+  color: rgba(248, 245, 242, 0.24);
   margin: 0;
 }
 
@@ -108,8 +111,6 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  /* Row gap is small because each link carries its own vertical padding,
-     which is what makes it a usable tap target. */
   gap: 3px;
 }
 
@@ -117,22 +118,20 @@
   display: inline-block;
   padding: 6px 0;
   font-size: 0.88rem;
-  color: rgba(255, 248, 243, 0.55);
+  color: rgba(248, 245, 242, 0.48);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 400;
   transition: color 0.2s;
 }
 
-.colLink:hover { color: #fff8f3; }
+.colLink:hover { color: rgba(248, 245, 242, 0.88); }
 
-/* ══════════════════════════
-   PIEDS STRIP
-══════════════════════════ */
+/* ── PIEDS STRIP ── */
 .piedsStrip {
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 1px solid rgba(248, 245, 242, 0.07);
+  border-bottom: 1px solid rgba(248, 245, 242, 0.07);
   padding: 28px 0;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(248, 245, 242, 0.02);
 }
 
 .piedsStrip .container {
@@ -149,26 +148,28 @@
 }
 
 .piedsLabel {
+  font-family: var(--font-sans);
   font-size: 0.65rem;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: rgba(255, 248, 243, 0.28);
+  letter-spacing: 0.18em;
+  color: rgba(248, 245, 242, 0.24);
 }
 
 .piedsName {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: rgba(255, 248, 243, 0.75);
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: rgba(248, 245, 242, 0.68);
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.piedsName:hover { color: #fff8f3; }
+.piedsName:hover { color: rgba(248, 245, 242, 0.9); }
 
 .piedsDesc {
-  font-size: 0.78rem;
-  color: rgba(255, 248, 243, 0.35);
+  font-size: 0.8rem;
+  color: rgba(248, 245, 242, 0.28);
   font-weight: 400;
   margin: 0;
   line-height: 1.5;
@@ -178,12 +179,15 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  padding: 10px 22px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: rgba(255, 248, 243, 0.7);
+  height: 40px;
+  padding: 0 20px;
+  border: 1px solid rgba(248, 245, 242, 0.14);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: rgba(248, 245, 242, 0.55);
   text-decoration: none;
   white-space: nowrap;
   transition: border-color 0.2s, color 0.2s, background 0.2s;
@@ -191,34 +195,31 @@
 }
 
 .piedsLink:hover {
-  border-color: rgba(255, 255, 255, 0.35);
-  color: #fff8f3;
-  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(248, 245, 242, 0.32);
+  color: rgba(248, 245, 242, 0.88);
+  background: rgba(248, 245, 242, 0.04);
 }
 
-/* ══════════════════════════
-   BIG WORDMARK
-══════════════════════════ */
+/* ── BIG WORDMARK ── */
 .wordmarkWrap {
   padding: 0 var(--gutter);
   overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(248, 245, 242, 0.05);
 }
 
 .wordmark {
   display: block;
+  font-family: var(--font-serif);
   font-size: clamp(5rem, 15vw, 14rem);
-  font-weight: 900;
+  font-weight: 500;
   letter-spacing: -0.04em;
   line-height: 0.86;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 248, 243, 0.07);
+  -webkit-text-stroke: 1px rgba(248, 245, 242, 0.06);
   user-select: none;
 }
 
-/* ══════════════════════════
-   BOTTOM BAR
-══════════════════════════ */
+/* ── BOTTOM BAR ── */
 .bottom {
   padding: 22px 0;
 }
@@ -233,8 +234,8 @@
 
 .copy {
   font-size: 0.76rem;
-  color: rgba(255, 248, 243, 0.28);
-  font-weight: 500;
+  color: rgba(248, 245, 242, 0.22);
+  font-weight: 400;
   margin: 0;
 }
 
@@ -248,54 +249,43 @@
   display: inline-block;
   padding: 6px 0;
   font-size: 0.76rem;
-  color: rgba(255, 248, 243, 0.28);
+  color: rgba(248, 245, 242, 0.22);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 400;
   transition: color 0.2s;
 }
 
-.legalLink:hover { color: rgba(255, 248, 243, 0.7); }
+.legalLink:hover { color: rgba(248, 245, 242, 0.6); }
 
 .backToTop {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   font-size: 0.76rem;
-  color: rgba(255, 248, 243, 0.4);
+  color: rgba(248, 245, 242, 0.35);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
   transition: color 0.2s;
   white-space: nowrap;
 }
 
-.backToTop:hover { color: #fff8f3; }
+.backToTop:hover { color: rgba(248, 245, 242, 0.75); }
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .top .container {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-  }
+  .top .container { grid-template-columns: 1fr 1fr; gap: 40px; }
   .brand { grid-column: span 2; }
 }
 
 @media (max-width: 700px) {
-  .piedsStrip .container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
-  }
-  .piedsName { font-size: 0.88rem; line-height: 1.45; }
+  .piedsStrip .container { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .piedsName { font-size: 0.9rem; }
 }
 
 @media (max-width: 560px) {
   .top .container { grid-template-columns: 1fr; gap: 34px; }
   .brand { grid-column: span 1; }
   .brandDesc { max-width: none; }
-  .bottom .container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
+  .bottom .container { flex-direction: column; align-items: flex-start; gap: 12px; }
   .legal { gap: 16px; }
 }

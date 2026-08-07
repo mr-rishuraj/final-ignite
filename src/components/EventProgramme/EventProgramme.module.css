@@ -1,0 +1,223 @@
+.section {
+  background: var(--color-bg);
+  padding: var(--section-pad-y) 0 calc(var(--section-pad-y) * 1.2);
+}
+
+.container {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: clamp(48px, 7vw, 72px);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5.2vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+/* ── Phase ── */
+.phase {
+  margin-bottom: clamp(40px, 6vw, 64px);
+}
+
+.phaseLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: clamp(20px, 3vw, 28px);
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+  width: 100%;
+}
+
+.phaseDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+/* ── Grids ── */
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(16px, 2.4vw, 24px);
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2.4vw, 24px);
+}
+
+/* ── Event card ── */
+.card {
+  background: var(--color-surface);
+  border: 1px solid rgba(37, 37, 37, 0.07);
+  border-radius: 16px;
+  padding: clamp(24px, 3vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: rgba(37, 37, 37, 0.14);
+  box-shadow: 0 6px 28px rgba(37, 37, 37, 0.07);
+  transform: translateY(-2px);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.num {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 500;
+  color: rgba(37, 37, 37, 0.12);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  flex-shrink: 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.tag {
+  font-family: var(--font-sans);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  background: rgba(37, 37, 37, 0.06);
+  border: 1px solid rgba(37, 37, 37, 0.08);
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+.cardTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.cardDesc {
+  font-size: clamp(0.88rem, 1.3vw, 0.95rem);
+  color: var(--color-text-secondary);
+  line-height: 1.72;
+  margin: 0;
+  flex: 1;
+}
+
+.bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  border-top: 1px solid rgba(37, 37, 37, 0.07);
+  padding-top: 14px;
+}
+
+.bullet {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* ── "Many more" footer ── */
+.more {
+  margin-top: clamp(40px, 6vw, 60px);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.moreLine {
+  flex: 1;
+  height: 1px;
+  background: rgba(37, 37, 37, 0.10);
+}
+
+.moreText {
+  font-family: var(--font-sans);
+  font-size: clamp(0.85rem, 1.4vw, 0.95rem);
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.65;
+  max-width: 52ch;
+  flex-shrink: 0;
+  font-style: italic;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .grid3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .grid2, .grid3 { grid-template-columns: 1fr; }
+  .more { flex-direction: column; gap: 16px; }
+  .moreLine { width: 48px; height: 1px; flex: none; }
+  .moreText { max-width: none; }
+}

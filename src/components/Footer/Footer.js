@@ -18,7 +18,7 @@ const NAV_COLS = [
       { label: 'Apply Now',        href: '/#get-involved' },
       { label: 'Sponsor Us',       href: '#' },
       { label: 'Become a Mentor',  href: '#' },
-      { label: 'Partner with Us',  href: '#' },
+      { label: 'Partner with Us',  href: '/partnership' },
     ],
   },
   {

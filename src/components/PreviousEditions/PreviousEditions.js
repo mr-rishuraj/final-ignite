@@ -26,33 +26,6 @@ export default function PreviousEditions() {
           ))}
         </dl>
 
-        {/* ── Edition-by-edition timeline ── */}
-        <ol className={styles.timeline}>
-          {pe.timeline.map((ed) => (
-            <li
-              key={ed.year + ed.name}
-              className={`${styles.edition} ${ed.upcoming ? styles.editionUpcoming : ''}`}
-            >
-              <div className={styles.editionYear}>
-                <span className={styles.yearMark} aria-hidden="true" />
-                {ed.year}
-              </div>
-              <div className={styles.editionBody}>
-                <h3 className={styles.editionName}>
-                  {ed.name}
-                  {ed.upcoming && <span className={styles.upcomingTag}>Upcoming</span>}
-                </h3>
-                <p className={styles.editionPlace}>{ed.place}</p>
-                <p className={styles.editionSummary}>{ed.summary}</p>
-                <div className={styles.metrics}>
-                  {ed.metrics.map((m) => (
-                    <span key={m} className={styles.metric}>{m}</span>
-                  ))}
-                </div>
-              </div>
-            </li>
-          ))}
-        </ol>
 
       </div>
     </section>

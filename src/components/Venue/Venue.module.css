@@ -1,5 +1,6 @@
 .section {
   padding: var(--section-pad-y) 0;
+  background: var(--color-bg);
 }
 
 .container {
@@ -15,37 +16,36 @@
 
 .sectionLabel {
   display: inline-block;
-  padding: 8px 20px;
-  border-radius: 100px;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-  color: var(--color-text-secondary);
-  font-size: 0.8rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 24px;
+  letter-spacing: 0.18em;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
 }
 
 .sectionTitle {
-  font-size: clamp(2rem, 5vw, 3.25rem);
-  font-weight: 800;
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 5.8vw, 3.8rem);
+  font-weight: 500;
   color: var(--color-text);
-  line-height: 1.15;
-  margin: 0 0 20px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px;
 }
 
 .titleAccent {
+  font-style: italic;
   color: var(--color-accent);
 }
 
 .description {
-  font-size: 1.05rem;
+  font-size: clamp(1rem, 1.6vw, 1.08rem);
   color: var(--color-text-secondary);
-  line-height: 1.7;
-  max-width: 600px;
+  line-height: 1.72;
+  max-width: 56ch;
   margin: 0 auto;
-  font-weight: 500;
 }
 
 .content {
@@ -58,7 +58,7 @@
 .singleImage {
   position: relative;
   height: clamp(240px, 40vw, 460px);
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
 }
 
@@ -67,19 +67,13 @@
   transition: transform 0.5s ease;
 }
 
-.mainImage:hover .image,
-.smallImage:hover .image {
-  transform: scale(1.05);
-}
-
-.info {
-  padding: 12px 0;
-}
+.info { padding: 12px 0; }
 
 .venueName {
-  font-size: clamp(1.4rem, 3.4vw, 2rem);
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 3.2vw, 1.85rem);
   color: var(--color-text);
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.2;
   margin: 0 0 12px;
 }
@@ -89,7 +83,10 @@
   color: var(--color-text-secondary);
   margin: 0 0 32px;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .featureList {
@@ -106,16 +103,14 @@
   font-size: 0.95rem;
   color: var(--color-text-secondary);
   border-bottom: 1px solid var(--color-border);
-  font-weight: 500;
+  font-weight: 400;
 }
 
-.featureItem:last-child {
-  border-bottom: none;
-}
+.featureItem:last-child { border-bottom: none; }
 
 .featureDot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--color-accent);
   flex-shrink: 0;
@@ -125,26 +120,24 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--color-accent-dark);
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 600;
   transition: gap 0.3s;
 }
 
-.mapLink:hover {
-  gap: 12px;
-}
+.mapLink:hover { gap: 12px; }
 
 @media (max-width: 768px) {
   .content     { grid-template-columns: 1fr; gap: 32px; }
   .singleImage { height: clamp(200px, 52vw, 280px); }
-  .description { font-size: 0.95rem; }
+  .description { font-size: 0.98rem; }
   .venueAddress { margin-bottom: 24px; }
 }
 
 @media (max-width: 480px) {
-  .sectionLabel { font-size: 0.7rem; padding: 7px 16px; }
+  .sectionLabel { font-size: 0.68rem; }
   .featureItem  { align-items: flex-start; font-size: 0.88rem; gap: 12px; }
   .featureDot   { margin-top: 7px; }
 }

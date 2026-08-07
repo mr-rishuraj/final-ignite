@@ -1,14 +1,14 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import siteContent from '@/data/siteContent';
 import styles from './Hero.module.css';
 
 export default function Hero() {
-  const [scrollY, setScrollY] = useState(0);
-  const [mouse, setMouse]     = useState({ x: 0, y: 0 });
-  const [winH, setWinH]       = useState(900);
-  // Below 769px the hero is a normal flow section (see Hero.module.css), so the
-  // sticky scroll choreography is skipped entirely rather than animating nothing.
+  const { hero } = siteContent;
+
+  const [scrollY, setScrollY]   = useState(0);
+  const [winH, setWinH]         = useState(900);
   const [cinematic, setCinematic] = useState(false);
   const rafRef = useRef(null);
 
@@ -25,100 +25,112 @@ export default function Hero() {
     window.addEventListener('resize', onResize);
 
     let tScroll = 0, cScroll = 0;
-    let tMx = 0, tMy = 0, cMx = 0, cMy = 0;
     const lerp = (a, b, t) => a + (b - a) * t;
 
     const tick = () => {
       cScroll = lerp(cScroll, tScroll, 0.07);
-      cMx     = lerp(cMx, tMx, 0.05);
-      cMy     = lerp(cMy, tMy, 0.05);
       setScrollY(cScroll);
-      setMouse({ x: cMx, y: cMy });
       rafRef.current = requestAnimationFrame(tick);
     };
     rafRef.current = requestAnimationFrame(tick);
 
     const onScroll = () => { tScroll = window.scrollY; };
-    const onMouse  = (e) => {
-      tMx = (e.clientX / window.innerWidth  - 0.5) * 24;
-      tMy = (e.clientY / window.innerHeight - 0.5) * 16;
-    };
-
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('mousemove', onMouse);
+
     return () => {
       cancelAnimationFrame(rafRef.current);
       window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('mousemove', onMouse);
       window.removeEventListener('resize', onResize);
       mq.removeEventListener('change', sync);
       reduce.removeEventListener('change', sync);
     };
   }, []);
 
-  // 0 → 1 as user scrolls through the sticky hero zone
-  const p = cinematic ? Math.min(1, Math.max(0, scrollY / winH)) : 0;
-  // ease-in curve so the growth accelerates as you scroll
-  const pe = p * p;
+  const p  = cinematic ? Math.min(1, Math.max(0, scrollY / winH)) : 0;
+  // Cubic easing — very slow start, gradual acceleration
+  const pe = p * p * p;
 
-  const bgTransform      = cinematic
-    ? `translate(${mouse.x * 0.4}px, calc(${scrollY * 0.42}px + ${mouse.y * 0.3}px)) scale(1.14)`
-    : 'none';
-  const contentTransform = cinematic ? `translateY(${-scrollY * 0.1}px)` : 'none';
-  // content fades out in the first 40% of scroll progress
+  // Content drifts upward gently on scroll, fades out at ~40% progress
+  const contentTransform = cinematic ? `translateY(${-scrollY * 0.06}px)` : 'none';
   const contentOpacity   = Math.max(0, 1 - p * 2.5);
 
-  // watermark grows from 1× to 22× with an eased curve
-  const watermarkScale   = 1 + pe * 21;
-  const watermarkOpacity = 0.07 + p * 0.13;
-  const watermarkBlur    = Math.max(0, 1 - p * 3);
+  // Watermark: very gentle scale (1× → 1.8× max), cubic eased
+  const watermarkScale   = 1 + pe * 0.8;
+  const watermarkOpacity = 0.055;
 
   return (
     <div className={styles.heroScrollZone}>
       <section className={styles.hero} id="hero">
 
-        {/* Parallax BG */}
-        <div className={styles.bg} style={{ transform: bgTransform }} aria-hidden="true" />
+        {/* Warm ivory background */}
+        <div className={styles.bg} aria-hidden="true" />
 
-        {/* Overlays */}
-        <div className={styles.overlayTop}    aria-hidden="true" />
+        {/* Bottom vignette */}
         <div className={styles.overlayBottom} aria-hidden="true" />
 
-        {/* ── Watermark logo — grows on scroll ── */}
-        <img
-          src="/ignite-logo.png"
-          alt=""
-          className={styles.watermark}
+        {/* Warm sunset glow — bottom of hero */}
+        <div className={styles.bottomGlow} aria-hidden="true" />
+
+        {/* Watermark — wrapper animates CSS float, img handles JS scale */}
+        <div className={styles.watermarkWrap} aria-hidden="true">
+          <img
+            src="/ignite-logo.png"
+            alt=""
+            className={styles.watermark}
+            style={{
+              transform: `scale(${watermarkScale})`,
+              opacity:   watermarkOpacity,
+            }}
+          />
+        </div>
+
+        {/* ── Main content ── */}
+        <div
+          className={styles.inner}
+          style={{ transform: contentTransform, opacity: contentOpacity }}
+        >
+          {/* Heading */}
+          <h1 className={styles.heading}>
+            <span className={styles.headingMain}>
+              Build Your <em className={styles.headingHighlight}>Startup</em>
+            </span>
+            <span className={styles.headingAccent}>Your Dream, Our Spark</span>
+          </h1>
+
+          {/* CTA */}
+          <a href={hero.ctaPrimary.href} className={styles.cta}>
+            Apply Now
+          </a>
+        </div>
+
+        {/* Architectural curves — sand dune / silk silhouettes */}
+        <div className={styles.curves} aria-hidden="true">
+          <svg
+            viewBox="0 0 1440 180"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0,72 C180,128 420,28 660,88 C900,148 1140,38 1440,96 L1440,180 L0,180 Z"
+              fill="rgba(197,59,72,0.10)"
+            />
+            <path
+              d="M0,110 C280,68 560,152 840,118 C1040,94 1280,148 1440,124 L1440,180 L0,180 Z"
+              fill="rgba(197,59,72,0.07)"
+            />
+            <path
+              d="M0,148 C320,116 680,168 1000,144 C1180,132 1340,158 1440,150 L1440,180 L0,180 Z"
+              fill="rgba(197,59,72,0.04)"
+            />
+          </svg>
+        </div>
+
+        {/* Scroll cue */}
+        <div
+          className={styles.scrollCue}
           aria-hidden="true"
-          style={{
-            transform: `translate(-50%, -50%) scale(${watermarkScale})`,
-            opacity: watermarkOpacity,
-            filter: `blur(${watermarkBlur}px) brightness(2)`,
-          }}
-        />
-
-        {/* ── Left edge: vertical IGNITE + horizontal 2026 ── */}
-        <div className={styles.leftTypo} style={{ transform: contentTransform, opacity: contentOpacity }}>
-          <h1 className={styles.igniteVert}>IGNITE</h1>
-          <span className={styles.yearHoriz}>2026</span>
-        </div>
-
-        {/* ── Centre content ── */}
-        <div className={styles.inner} style={{ transform: contentTransform, opacity: contentOpacity }}>
-
-          {/* Badge */}
-          <span className={styles.badge}>Dubai 2026</span>
-
-          {/* Tagline */}
-          <p className={styles.tagline}>
-            Building Tomorrow,<br /><em className={styles.em}>Together</em>
-          </p>
-
-        </div>
-
-
-        {/* Scroll cue — hide as user starts scrolling */}
-        <div className={styles.scrollCue} aria-hidden="true" style={{ opacity: Math.max(0, 1 - p * 5) }}>
+          style={{ opacity: Math.max(0, 1 - p * 6) }}
+        >
           <div className={styles.scrollLine} />
         </div>
 

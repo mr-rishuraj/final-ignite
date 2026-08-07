@@ -34,7 +34,7 @@ export default function Sponsors() {
   );
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="sponsors">
       <p className={styles.label}>{sponsors.label}</p>
 
       {/* Row 1 */}

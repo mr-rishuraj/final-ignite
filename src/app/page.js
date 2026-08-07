@@ -18,10 +18,10 @@ export default function Home() {
       <IntroWrapper />
       <Navbar />
       <Hero />
-      <Sponsors />
-      <PreviousEditions />
-      <InvestorValue />
       <Features />
+      <PreviousEditions />
+      <Sponsors />
+      <InvestorValue />
       <Ignite2026 />
       <SpeakersGrid />
       <Institutions />

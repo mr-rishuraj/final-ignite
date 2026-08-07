@@ -111,71 +111,24 @@ export default function Hero() {
         {/* ── Centre content ── */}
         <div className={styles.inner} style={{ transform: contentTransform, opacity: contentOpacity }}>
 
-          {/* Pills */}
-          <div className={styles.pills}>
-            <span className={styles.pill}>
-              <span className={styles.liveDot} aria-hidden="true" />
-              Global Summit
-            </span>
-            <span className={styles.pill}>📍 Dubai, UAE</span>
-            <span className={styles.pill}>2026 · By PIEDS × BITS Pilani</span>
-          </div>
+          {/* Badge */}
+          <span className={styles.badge}>Dubai 2026</span>
 
           {/* Tagline */}
           <p className={styles.tagline}>
-            Building Tomorrow,<br /><em className={styles.em}>Together.</em>
+            Building Tomorrow,<br /><em className={styles.em}>Together</em>
           </p>
 
-          {/* Sub */}
-          <p className={styles.sub}>
-            IGNITE is the flagship global platform by PIEDS — connecting founders,
-            investors, and industry leaders to shape the future of entrepreneurship.
-          </p>
-
-          {/* CTAs */}
-          <div className={styles.ctas}>
-            <a href="#get-involved" className={styles.ctaPrimary}>
-              Apply Now
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </a>
-            <a href="#about" className={styles.ctaSecondary}>See how it works</a>
-          </div>
-
-          {/* Social proof */}
-          <div className={styles.proof}>
-            <div className={styles.avatars}>
-              {[
-                'https://framerusercontent.com/images/19wGOlJQp54zgd3vWysk6Wqafk.png',
-                'https://framerusercontent.com/images/FsNbsa9jCpD7375FjsQuEO8JBw.webp',
-                'https://framerusercontent.com/images/Novsmjw6IIhKDVyD7ZI2i4sAsE.webp',
-                'https://framerusercontent.com/images/IVA2zVsD7sWebTDntsDdlviCksQ.webp',
-              ].map((src, i) => (
-                <img key={i} src={src} alt="" className={styles.avatar} style={{ zIndex: 4 - i }} />
-              ))}
-            </div>
-            <p className={styles.proofText}>
-              Joined by <strong>950+ changemakers</strong> across previous editions
-            </p>
-          </div>
+          {/* CTA */}
+          <a href="#partnership" className={styles.ctaPrimary}>
+            Become a Partner
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </a>
 
         </div>
 
-        {/* Stats bar */}
-        <div className={styles.statsBar} style={{ transform: contentTransform, opacity: contentOpacity }}>
-          {[
-            ['6',    'Days of building'],
-            ['100',  'Selected innovators'],
-            ['20+',  'MVPs launched'],
-            ['₹10L+','Equity-free grants'],
-          ].map(([v, l]) => (
-            <div key={l} className={styles.stat}>
-              <span className={styles.statVal}>{v}</span>
-              <span className={styles.statLbl}>{l}</span>
-            </div>
-          ))}
-        </div>
 
         {/* Scroll cue — hide as user starts scrolling */}
         <div className={styles.scrollCue} aria-hidden="true" style={{ opacity: Math.max(0, 1 - p * 5) }}>

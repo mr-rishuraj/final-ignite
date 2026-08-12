@@ -10,78 +10,44 @@ const TICKER = [
   { t: 'Global Stage · Dubai 2026', c: 'var(--color-text)' },
 ];
 
-// 4-col grid: row1=[span2,1,1]  row2=[1,span2,1]  row3=[1,1,1,1]
+// 3-image bento: tall portrait left | landscape top-right + portrait bottom-right
 const FRAMES = [
-  { src: 'https://framerusercontent.com/images/CDhYOBo0RCgwcpOfMlDqVGPRzHo.jpg',
-    span:2, rot:0,    tx:-35, i:0,
-    tag:'IGNITE 2024 · Hyderabad',
-    caption:'Over 200 founders, investors & changemakers gathered for the flagship global summit — 48 hours of pure innovation and connection.' },
-
-  { src: 'https://framerusercontent.com/images/eKnFvqXo8NgeKDp3haIv43lSQw.jpg',
-    span:1, rot:-1.4, tx:25,  i:1,
-    tag:'Keynote Stage',
-    caption:'Visionary speakers took the stage to share frameworks that have shaped global ventures from zero to unicorn.' },
-
-  { src: 'https://framerusercontent.com/images/M7Xh8DUZcRnsPSVjcv1lVqdCtU.jpg',
-    span:1, rot:0,    tx:30,  i:2,
-    tag:'Investor Roundtable',
-    caption:'Curated 1-on-1 sessions between selected founders and active angel investors — deals that started over coffee.' },
-
-  { src: 'https://framerusercontent.com/images/LZYY71GfAAmwFGFURcEc4dfpoY.jpg',
-    span:1, rot:1.1,  tx:-25, i:3,
-    tag:'Community Night',
-    caption:'Late-night ideation and networking — where the most unexpected co-founder pairs were born.' },
-
-  { src: 'https://framerusercontent.com/images/GdwRHopL5PPZoFG3vtKrMi8Obs.jpg',
-    span:2, rot:0,    tx:0,   i:4,
-    tag:'IGNITE 2023 · Startup Pitch Finals',
-    caption:'15 handpicked teams competed on the grand stage for ₹10L in equity-free grants in front of a jury of industry legends.' },
-
-  { src: 'https://framerusercontent.com/images/iRgoQCvGS1zaGMqyv3Tk3caXGc0.jpg',
-    span:1, rot:-0.9, tx:25,  i:5,
-    tag:'Workshop Sessions',
-    caption:'Hands-on workshops on go-to-market strategy, fundraising mechanics, and building for global scale.' },
-
-  { src: 'https://framerusercontent.com/images/EKxofgzJqoUFa12aKNb6w3bdc.jpg',
-    span:1, rot:0.6,  tx:-20, i:6,
-    tag:'BITS Dubai Campus',
-    caption:'The iconic BITS Pilani Dubai campus — home of IGNITE 2026 and gateway to the UAE entrepreneurial ecosystem.' },
-
-  { src: 'https://framerusercontent.com/images/ImPch0d8DDnmh6cRRuwG2q07U.jpg',
-    span:1, rot:0,    tx:0,   i:7,
-    tag:'Panel Discussion',
-    caption:'Policymakers and founders in candid conversation about building innovation-first ecosystems across borders.' },
-
-  { src: 'https://framerusercontent.com/images/kdOSS6oX0QI2MNascXhG4GDp9Y.jpg',
-    span:1, rot:-1.0, tx:0,   i:8,
-    tag:'Mentor Circles',
-    caption:'Intimate mentorship circles — industry veterans sharing hard-won lessons with the next generation of builders.' },
-
-  { src: 'https://framerusercontent.com/images/JXKU3kvLy7cYOGXkzqr5DLHT64w.jpg',
-    span:1, rot:0,    tx:20,  i:9,
-    tag:'Awards Ceremony',
-    caption:"Celebrating the boldest ideas and the teams fearless enough to build them — IGNITE's defining closing moment." },
+  {
+    src: '/gallery/investor-roundtable.jpg',
+    tag: 'Investor Roundtable',
+    caption: 'Curated 1-on-1 sessions between selected founders and active angel investors — deals that started over coffee.',
+    layout: 'tall',
+  },
+  {
+    src: '/gallery/ignite-2024-hyderabad.jpg',
+    tag: 'IGNITE 2024 · Hyderabad',
+    caption: 'Over 200 founders, investors & changemakers gathered for the flagship summit — 48 hours of pure innovation.',
+    layout: 'wide',
+  },
+  {
+    src: '/gallery/community-night.jpg',
+    tag: 'Community Night',
+    caption: 'Late-night ideation and networking — where the most unexpected co-founder pairs were born.',
+    layout: 'square',
+  },
 ];
 
 export default function Impact() {
   const [openIdx, setOpenIdx] = useState(null);
-  // IO fallback for browsers without CSS scroll-driven animation support
-  const [ioVisible, setIoVisible] = useState(false);
-  const colRef = useRef(null);
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (typeof CSS !== 'undefined' && CSS.supports('animation-timeline: view()')) return;
-    const el = colRef.current;
+    const el = sectionRef.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setIoVisible(true); obs.disconnect(); } },
-      { threshold: 0.05 }
+      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold: 0.08 }
     );
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
 
-  // Close popup when clicking outside any frame
   useEffect(() => {
     if (openIdx === null) return;
     const close = (e) => {
@@ -111,26 +77,24 @@ export default function Impact() {
         </div>
       </div>
 
-      <div ref={colRef} className={styles.collage}>
-        {FRAMES.map(({ src, span, rot, tx, i, tag, caption }) => {
+      <div ref={sectionRef} className={`${styles.bento} ${visible ? styles.bentoVisible : ''}`}>
+        {FRAMES.map(({ src, tag, caption, layout }, i) => {
           const isOpen = openIdx === i;
           return (
             <div
               key={i}
-              data-i={i}
-              data-span={span}
-              className={`${styles.frame} ${ioVisible ? styles.ioIn : ''}`}
-              /* Column span lives in CSS (keyed off data-span) so media queries
-                 can collapse it — an inline style here would outrank them. */
-              style={{
-                '--rot':      `${rot}deg`,
-                '--tx':       `${tx}px`,
-                '--io-delay': `${i * 65}ms`,
-              }}
+              data-layout={layout}
+              className={`${styles.frame} ${visible ? styles.frameIn : ''}`}
+              style={{ '--delay': `${i * 120}ms` }}
             >
-              <img src={src} alt={tag} className={styles.img} draggable={false} />
+              <img
+                src={src}
+                alt={tag}
+                className={styles.img}
+                loading={i === 0 ? 'eager' : 'lazy'}
+                draggable={false}
+              />
 
-              {/* Caption overlay — visible when open */}
               <div className={`${styles.overlay} ${isOpen ? styles.overlayOpen : ''}`}>
                 <div className={styles.captionBox}>
                   <span className={styles.captionTag}>{tag}</span>
@@ -138,7 +102,6 @@ export default function Impact() {
                 </div>
               </div>
 
-              {/* + / × button */}
               <button
                 className={`${styles.plusBtn} ${isOpen ? styles.plusBtnOpen : ''}`}
                 onClick={(e) => {
@@ -147,8 +110,8 @@ export default function Impact() {
                 }}
                 aria-label={isOpen ? 'Close info' : 'Show info'}
               >
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                  <path d="M7 1v12M1 7h12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M6 1v10M1 6h10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
                 </svg>
               </button>
             </div>

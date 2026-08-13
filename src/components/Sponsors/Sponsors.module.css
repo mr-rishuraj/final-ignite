@@ -48,19 +48,19 @@
 
 .marqueeTrack {
   display: flex;
-  gap: clamp(32px, 4vw, 64px);
+  gap: clamp(20px, 3vw, 40px);
   align-items: center;
   width: max-content;
-  animation: scroll 60s linear infinite;
-  padding: 12px 0;
+  animation: scroll 50s linear infinite;
+  padding: 10px 0;
 }
 
 .marqueeTrack.reverse {
-  animation: scrollReverse 60s linear infinite;
+  animation: scrollReverse 55s linear infinite;
 }
 
 .marqueeTrack.slow {
-  animation: scroll 80s linear infinite;
+  animation: scroll 65s linear infinite;
 }
 
 @keyframes scroll {
@@ -75,86 +75,54 @@
 
 /* ── Logo card ── */
 .logoCard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 7px;
   flex-shrink: 0;
-  text-align: center;
   transition: transform 0.25s ease;
 }
 
 .logoCard:hover { transform: translateY(-3px); }
 
 .logoWrapper {
-  width: clamp(56px, 7vw, 80px);
-  height: clamp(44px, 5.5vw, 60px);
+  width: clamp(100px, 12vw, 160px);
+  height: clamp(52px, 6vw, 76px);
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+  padding: 10px 16px;
+  transition: box-shadow 0.25s ease;
 }
 
-/* ── SVG icon from simple-icons CDN ── */
+.logoCard:hover .logoWrapper {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+}
+
 .logo {
-  height: clamp(32px, 4.5vw, 52px);
-  width: auto;
-  max-width: clamp(56px, 7vw, 80px);
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  opacity: 0.82;
-  transition: opacity 0.25s;
   display: block;
+  opacity: 0.9;
+  transition: opacity 0.25s;
 }
 
 .logoCard:hover .logo { opacity: 1; }
 
-/* ── Fallback colored box with initials ── */
-.coloredLogo {
-  width: clamp(44px, 5.5vw, 60px);
-  height: clamp(40px, 5vw, 54px);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.88;
-  transition: opacity 0.25s, box-shadow 0.25s;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
-}
-
-.logoCard:hover .coloredLogo {
-  opacity: 1;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-}
-
-.logoInitials {
-  font-weight: 700;
-  color: white;
-  font-size: clamp(0.65rem, 1.6vw, 0.95rem);
-  letter-spacing: 0.5px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-}
-
-.logoName {
-  font-size: clamp(0.7rem, 1.1vw, 0.8rem);
-  font-weight: 600;
-  color: var(--color-text-muted);
-  margin: 0;
-  white-space: nowrap;
-  letter-spacing: 0.2px;
-  line-height: 1.2;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-}
-
 @media (max-width: 768px) {
   .section { padding: clamp(32px, 5vw, 52px) 0; }
-  .marqueeTrack { gap: clamp(24px, 3vw, 40px); }
-
+  .marqueeTrack { gap: clamp(16px, 3vw, 28px); }
   .marqueeContainer::before,
   .marqueeContainer::after { width: clamp(32px, 6vw, 60px); }
+  .logoWrapper {
+    width: clamp(80px, 22vw, 130px);
+    height: clamp(44px, 11vw, 64px);
+    padding: 8px 12px;
+  }
 }
 
 @media (max-width: 480px) {
-  .marqueeTrack { gap: 20px; }
-  .logo { height: 28px; }
-  .logoName { font-size: 0.58rem; }
+  .marqueeTrack { gap: 14px; }
+  .logoWrapper { width: 90px; height: 48px; padding: 8px 10px; }
 }

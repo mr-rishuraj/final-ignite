@@ -84,11 +84,9 @@
   width: clamp(180px, 28vw, 380px);
   height: auto;
   display: block;
-  /* grayscale → sepia → hue-rotate to land on ~#C53B48 (the accent red) */
   filter: grayscale(1) brightness(0.55) sepia(1) saturate(4) hue-rotate(315deg);
   will-change: transform, opacity;
   transform-origin: center center;
-  transition: transform 0.18s ease-out;
 }
 
 @keyframes watermarkFloat {

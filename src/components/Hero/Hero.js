@@ -7,10 +7,15 @@ import styles from './Hero.module.css';
 export default function Hero() {
   const { hero } = siteContent;
 
-  const [scrollY, setScrollY]   = useState(0);
-  const [winH, setWinH]         = useState(900);
+  const [scrollY, setScrollY]     = useState(0);
+  const [winH, setWinH]           = useState(900);
   const [cinematic, setCinematic] = useState(false);
-  const rafRef = useRef(null);
+  const [entryP, setEntryP]       = useState(0);
+  const rafRef      = useRef(null);
+  const mountRef    = useRef(Date.now());
+  const entryDone   = useRef(false);
+
+  const ENTRY_MS = 2000;
 
   useEffect(() => {
     const mq     = window.matchMedia('(min-width: 769px)');
@@ -28,8 +33,19 @@ export default function Hero() {
     const lerp = (a, b, t) => a + (b - a) * t;
 
     const tick = () => {
-      cScroll = lerp(cScroll, tScroll, 0.07);
+      cScroll = lerp(cScroll, tScroll, 0.09);
       setScrollY(cScroll);
+
+      if (!entryDone.current) {
+        const raw   = Math.min(1, (Date.now() - mountRef.current) / ENTRY_MS);
+        // easeInOutQuart: slow start → accelerates → soft settle
+        const eased = raw < 0.5
+          ? 8 * raw * raw * raw * raw
+          : 1 - Math.pow(-2 * raw + 2, 4) / 2;
+        setEntryP(eased);
+        if (raw >= 1) entryDone.current = true;
+      }
+
       rafRef.current = requestAnimationFrame(tick);
     };
     rafRef.current = requestAnimationFrame(tick);
@@ -47,16 +63,23 @@ export default function Hero() {
   }, []);
 
   const p  = cinematic ? Math.min(1, Math.max(0, scrollY / winH)) : 0;
-  // Cubic easing — very slow start, gradual acceleration
   const pe = p * p * p;
 
   // Content drifts upward gently on scroll, fades out at ~40% progress
   const contentTransform = cinematic ? `translateY(${-scrollY * 0.06}px)` : 'none';
   const contentOpacity   = Math.max(0, 1 - p * 2.5);
 
-  // Watermark: very gentle scale (1× → 1.8× max), cubic eased
-  const watermarkScale   = 1 + pe * 0.8;
-  const watermarkOpacity = 0.09;
+  // Entrance: zooms in 0.3× → 1×, fades in 0 → 0.09 over 2s
+  const entryScale   = 0.3 + 0.7 * entryP;
+  const entryOpacity = 0.09 * entryP;
+
+  // Scroll: zooms in 1× → ~5× (fills section) and fades out, quadratic ease
+  const pw            = p * p;
+  const scrollScale   = 1 + pw * 4;
+  const scrollOpacity = Math.max(0, 0.09 * (1 - pw * 1.1));
+
+  const watermarkScale   = entryP < 1 ? entryScale   : scrollScale;
+  const watermarkOpacity = entryP < 1 ? entryOpacity : scrollOpacity;
 
   return (
     <div className={styles.heroScrollZone}>

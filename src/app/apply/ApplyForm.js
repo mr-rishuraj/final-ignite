@@ -29,6 +29,8 @@ export default function ApplyForm() {
   const [errors, setErrors]   = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [dragging, setDragging]   = useState(false);
+  const [loading, setLoading]     = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const fileRef = useRef(null);
 
   const set = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }));
@@ -81,9 +83,33 @@ export default function ApplyForm() {
     setForm((f) => ({ ...f, pitchDeck: file }));
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitError('');
+    setLoading(true);
+
+    const data = new FormData();
+    data.append('founderName',  form.founderName);
+    data.append('email',        form.email);
+    data.append('phone',        form.phone);
+    data.append('startupName',  form.startupName);
+    data.append('stage',        form.stage);
+    data.append('sector',       form.sector);
+    data.append('website',      form.website);
+    data.append('oneLiner',     form.oneLiner);
+    data.append('source',       form.source);
+    if (form.pitchDeck) data.append('pitchDeck', form.pitchDeck);
+
+    try {
+      const res = await fetch('/api/apply', { method: 'POST', body: data });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || 'Submission failed.');
+      setSubmitted(true);
+    } catch (err) {
+      setSubmitError(err.message);
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (submitted) {
@@ -303,7 +329,7 @@ export default function ApplyForm() {
           {/* Navigation */}
           <div className={styles.nav}>
             {step > 0 && (
-              <button type="button" className={styles.navBack} onClick={goBack}>← Back</button>
+              <button type="button" className={styles.navBack} onClick={goBack} disabled={loading}>← Back</button>
             )}
             {step < STEPS.length - 1 ? (
               <button type="button" className={styles.navNext} onClick={goNext}>
@@ -313,12 +339,21 @@ export default function ApplyForm() {
                 </svg>
               </button>
             ) : (
-              <button type="submit" className={styles.navNext}>
-                Submit Application
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
+              <>
+                {submitError && (
+                  <span className={styles.error} style={{ alignSelf: 'center', marginRight: 'auto' }}>
+                    {submitError}
+                  </span>
+                )}
+                <button type="submit" className={styles.navNext} disabled={loading}>
+                  {loading ? 'Submitting…' : 'Submit Application'}
+                  {!loading && (
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  )}
+                </button>
+              </>
             )}
           </div>
 

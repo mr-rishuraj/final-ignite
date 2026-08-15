@@ -13,7 +13,7 @@ export default function Navbar() {
   const [mounted, setMounted]       = useState(false);
   const pathname = usePathname();
   const onHome      = pathname === '/';
-  const darkHero    = ['/pieds', '/speakers', '/sponsors'].includes(pathname);
+  const darkHero    = pathname === '/pieds';
   const useLightNav = darkHero && !scrolled;
 
   useEffect(() => { setMounted(true); }, []);

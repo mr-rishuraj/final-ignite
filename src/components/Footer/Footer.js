@@ -16,9 +16,7 @@ const NAV_COLS = [
     heading: 'Participate',
     links: [
       { label: 'Apply Now',        href: '/apply' },
-      { label: 'Sponsor Us',       href: '/partnership' },
       { label: 'Become a Mentor',  href: 'mailto:ignite@pieds-bitspilani.org' },
-      { label: 'Partner with Us',  href: '/partnership' },
     ],
   },
   {

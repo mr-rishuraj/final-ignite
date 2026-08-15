@@ -24,10 +24,10 @@ const NAV_COLS = [
   {
     heading: 'Connect',
     links: [
-      { label: 'Twitter / X',  href: 'https://x.com' },
-      { label: 'LinkedIn',     href: 'https://linkedin.com' },
-      { label: 'Instagram',    href: 'https://instagram.com' },
-      { label: 'Contact Us',   href: 'mailto:ignite@pieds-bitspilani.org' },
+      { label: 'LinkedIn',   href: 'https://www.linkedin.com/company/pilani-innovation-entrepreneurship-development-society-pieds-bits-pilani/posts/?feedView=all' },
+      { label: 'Instagram',  href: 'https://www.instagram.com/pieds_bitspilani/' },
+      { label: 'PIEDS',      href: 'https://pieds-bitspilani.org/' },
+      { label: 'Contact Us', href: 'mailto:ignite@pieds-bitspilani.org' },
     ],
   },
 ];

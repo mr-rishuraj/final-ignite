@@ -22,7 +22,7 @@ function FlightLayer({ flying, landed }) {
   const [dubX, dubY] = projection(DUBAI);
 
   const cpX = (pilX + dubX) / 2;
-  const cpY = (pilY + dubY) / 2 + 90;
+  const cpY = (pilY + dubY) / 2 - 90;
 
   const flightPath = `M ${pilX.toFixed(1)} ${pilY.toFixed(1)} Q ${cpX.toFixed(1)} ${cpY.toFixed(1)} ${dubX.toFixed(1)} ${dubY.toFixed(1)}`;
 

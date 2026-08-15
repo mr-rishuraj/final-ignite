@@ -392,9 +392,9 @@ const siteContent = {
       { label: 'Code of Conduct', href: '#' },
     ],
     social: [
-      { label: 'Twitter / X', href: '#' },
-      { label: 'LinkedIn',    href: '#' },
-      { label: 'Instagram',   href: '#' },
+      { label: 'LinkedIn',  href: 'https://www.linkedin.com/company/pilani-innovation-entrepreneurship-development-society-pieds-bits-pilani/posts/?feedView=all' },
+      { label: 'Instagram', href: 'https://www.instagram.com/pieds_bitspilani/' },
+      { label: 'PIEDS',     href: 'https://pieds-bitspilani.org/' },
     ],
   },
 };

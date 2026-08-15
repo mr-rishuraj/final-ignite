@@ -67,19 +67,15 @@
 .title   { animation: fadeUp 0.6s ease-out 0.18s both; }
 .desc    { animation: fadeUp 0.6s ease-out 0.32s both; }
 
-/* ── Card: hidden until scrolled into view ── */
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .card {
   display: flex;
   flex-direction: column;
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
-}
-
-.cardVisible {
-  opacity: 1;
-  transform: none;
-  transition-delay: var(--delay, 0ms);
+  animation: cardIn 0.5s ease-out both;
 }
 
 .imgWrap {
@@ -148,6 +144,28 @@
   font-weight: 400;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+/* ── "And many more" ── */
+.moreWrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: clamp(40px, 5vw, 64px);
+}
+
+.moreLine {
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.moreText {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  color: var(--color-text-muted);
+  white-space: nowrap;
 }
 
 /* ── Responsive ── */

@@ -1,17 +1,18 @@
+/* ── Section ──────────────────────────────────────────── */
 .section {
   background: var(--color-bg);
-  padding: var(--section-pad-y) 0 calc(var(--section-pad-y) * 1.3);
+  padding: var(--section-pad-y) 0 var(--section-pad-y);
 }
 
 .container {
-  max-width: 860px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 var(--gutter);
 }
 
-/* ── Header ── */
+/* ── Header ───────────────────────────────────────────── */
 .header {
-  margin-bottom: clamp(52px, 8vw, 80px);
+  margin-bottom: clamp(24px, 3.5vw, 36px);
 }
 
 .eyebrow {
@@ -32,7 +33,7 @@
   line-height: 1.05;
   letter-spacing: -0.025em;
   color: var(--color-text);
-  margin: 0;
+  margin: 0 0 14px;
 }
 
 .em {
@@ -40,128 +41,130 @@
   color: var(--color-accent);
 }
 
-/* ── Phase ── */
-.phase {
-  margin-bottom: clamp(48px, 7vw, 72px);
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(0.88rem, 1.3vw, 0.98rem);
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+  margin: 0;
 }
 
-.phaseHeader {
+/* ── Phase Legend ─────────────────────────────────────── */
+.legend {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: clamp(24px, 3.5vw, 40px);
+}
+
+.legendItem {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: clamp(24px, 3.5vw, 36px);
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
 }
 
-.phaseTag {
-  font-family: var(--font-sans);
-  font-size: 0.64rem;
-  font-weight: 400;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
+.legendDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.legendDotAccent {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* ── Snake Timeline ───────────────────────────────────── */
+.snake {
+  position: relative;
+}
+
+/* ── Row of 2 cards ───────────────────────────────────── */
+.rowPair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(12px, 2vw, 20px);
+}
+
+/* ── Card ─────────────────────────────────────────────── */
+.card {
+  padding: clamp(14px, 2vw, 20px) clamp(16px, 2.2vw, 22px);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 4px;
-  padding: 4px 10px;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.phaseTagAccent {
-  color: var(--color-accent);
-  border-color: rgba(197, 59, 72, 0.25);
-  background: rgba(197, 59, 72, 0.05);
-}
-
-.phaseTitle {
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  color: var(--color-text-secondary);
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.phaseLine {
-  flex: 1;
-  height: 1px;
-  background: var(--color-border);
-}
-
-/* ── Event rows ── */
-.rows {
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.row {
-  display: grid;
-  grid-template-columns: 52px 1fr auto;
-  gap: 0 28px;
-  align-items: start;
-  padding: clamp(20px, 3vw, 28px) 0;
-  border-bottom: 1px solid var(--color-border);
-  position: relative;
-  transition: background 0.2s;
+.card:hover {
+  border-color: rgba(37, 37, 37, 0.22);
+  box-shadow: 0 4px 18px rgba(37, 37, 37, 0.07);
 }
 
-.row::before {
-  content: '';
-  position: absolute;
-  left: -var(--gutter);
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--color-accent);
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-  border-radius: 0 2px 2px 0;
+.cardDubai {
+  border-color: rgba(197, 59, 72, 0.15);
+  background: rgba(197, 59, 72, 0.025);
 }
 
-.row:first-child {
-  border-top: 1px solid var(--color-border);
+.cardDubai:hover {
+  border-color: rgba(197, 59, 72, 0.32);
+  box-shadow: 0 4px 18px rgba(197, 59, 72, 0.09);
 }
 
-.row:hover::before {
-  transform: scaleY(1);
+/* Milestone card (Finalists Announced) */
+.cardMilestone {
+  border-color: rgba(37, 37, 37, 0.18);
+  background: var(--color-surface);
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(16px, 2.5vw, 24px);
 }
 
-/* ── Number ── */
-.rowNum {
+.cardMilestone:hover {
+  border-color: rgba(37, 37, 37, 0.28);
+}
+
+.milestoneWrap {
+  /* full-width, card fills it */
+}
+
+/* Number */
+.cardNum {
   font-family: var(--font-serif);
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
   font-weight: 400;
-  color: rgba(37, 37, 37, 0.13);
+  color: rgba(37, 37, 37, 0.1);
   line-height: 1;
-  padding-top: 4px;
   letter-spacing: -0.02em;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
+  flex-shrink: 0;
 }
 
-.row:hover .rowNum {
-  color: var(--color-accent);
-}
+.card:hover .cardNum   { color: var(--color-accent); }
+.cardDubai .cardNum    { color: rgba(197, 59, 72, 0.14); }
+.cardMilestone .cardNum { color: rgba(37, 37, 37, 0.12); font-size: clamp(2rem, 3.5vw, 2.6rem); }
+.cardMilestone:hover .cardNum { color: var(--color-accent); }
 
-/* ── Body ── */
-.rowBody {
+/* Content stack */
+.cardContent {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
+  flex: 1;
   min-width: 0;
 }
 
-.rowTop {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 10px 16px;
-}
-
-.rowTitle {
+.cardTitle {
   font-family: var(--font-serif);
-  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  font-size: clamp(1rem, 1.8vw, 1.28rem);
   font-weight: 400;
   color: var(--color-text);
   line-height: 1.2;
@@ -169,49 +172,127 @@
   letter-spacing: -0.01em;
 }
 
-.rowTags {
+.cardMilestone .cardTitle {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+}
+
+.cardTags {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  align-items: center;
-  padding-top: 3px;
+  gap: 5px;
 }
 
 .tag {
   font-family: var(--font-sans);
-  font-size: 0.6rem;
+  font-size: 0.58rem;
   font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-text-muted);
   border: 1px solid var(--color-border);
   border-radius: 3px;
-  padding: 2px 8px;
+  padding: 2px 7px;
   white-space: nowrap;
 }
 
-.rowDesc {
-  font-family: var(--font-sans);
-  font-size: clamp(0.86rem, 1.3vw, 0.93rem);
+.tagAccent {
+  color: var(--color-accent);
+  border-color: rgba(197, 59, 72, 0.25);
+  background: rgba(197, 59, 72, 0.04);
+}
+
+.tagMilestone {
   color: var(--color-text-secondary);
-  line-height: 1.75;
+  border-color: rgba(37, 37, 37, 0.18);
+}
+
+.cardDesc {
+  font-family: var(--font-sans);
+  font-size: clamp(0.78rem, 1.1vw, 0.84rem);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
   margin: 0;
 }
 
-/* ── Meta ── */
-.rowMeta {
+.cardMeta {
+  display: block;
   font-family: var(--font-sans);
-  font-size: 0.7rem;
-  font-weight: 400;
+  font-size: 0.68rem;
   color: var(--color-text-muted);
-  white-space: nowrap;
-  padding-top: 6px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
 }
 
-/* ── Footer note ── */
+/* ── Snake Connectors (full-row U-turns) ──────────────── */
+/*
+  Unlike the single-card snake (where the U-turn spanned
+  part of the row), these connectors span the full container
+  width — creating a clean U-turn between each pair of rows.
+*/
+.conn {
+  position: relative;
+  height: 40px;
+}
+
+/* Right U-turn: arc curls on the right side */
+.connR::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-right: 1.5px solid var(--color-border);
+  border-top: 1.5px solid var(--color-border);
+  border-bottom: 1.5px solid var(--color-border);
+  border-radius: 0 20px 20px 0;
+}
+
+/* Left U-turn: arc curls on the left side */
+.connL::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-left: 1.5px solid var(--color-border);
+  border-top: 1.5px solid var(--color-border);
+  border-bottom: 1.5px solid var(--color-border);
+  border-radius: 20px 0 0 20px;
+}
+
+/* ── Phase Transition Divider ─────────────────────────── */
+.phaseTransition {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 6px 0;
+}
+
+.ptLine {
+  flex: 1;
+  height: 1px;
+  background: rgba(197, 59, 72, 0.18);
+}
+
+.ptLabel {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  padding: 5px 14px;
+  border: 1px solid rgba(197, 59, 72, 0.2);
+  border-radius: 20px;
+  background: rgba(197, 59, 72, 0.04);
+  white-space: nowrap;
+}
+
+/* ── Footer note ──────────────────────────────────────── */
 .footer {
-  margin-top: clamp(40px, 5vw, 56px);
+  margin-top: clamp(28px, 4vw, 44px);
   font-family: var(--font-sans);
   font-size: clamp(0.84rem, 1.3vw, 0.92rem);
   color: var(--color-text-muted);
@@ -222,22 +303,32 @@
   border-top: 1px solid var(--color-border);
 }
 
-/* ── Responsive ── */
+/* ── Responsive ───────────────────────────────────────── */
 @media (max-width: 640px) {
-  .row {
-    grid-template-columns: 40px 1fr;
-    grid-template-rows: auto auto;
+  .rowPair {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
-  .rowMeta {
-    grid-column: 2 / 3;
-    padding-top: 0;
+  .cardMilestone {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .phaseHeader { gap: 12px; }
+  .conn {
+    height: 20px;
+  }
+
+  .conn::before {
+    display: none;
+  }
+
+  .phaseTransition {
+    margin: 12px 0 10px;
+  }
 }
 
 @media (max-width: 420px) {
-  .rowNum { font-size: 1.4rem; }
-  .row { gap: 0 16px; }
+  .legend { gap: 16px; }
+  .card { padding: 14px 16px; }
 }

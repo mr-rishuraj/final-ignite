@@ -102,8 +102,8 @@ export default function ApplyForm() {
 
     try {
       const res = await fetch('/api/apply', { method: 'POST', body: data });
-      const json = await res.json();
-      if (!res.ok) throw new Error(json.error || 'Submission failed.');
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(json.error || 'Submission failed. Please try again.');
       setSubmitted(true);
     } catch (err) {
       setSubmitError(err.message);

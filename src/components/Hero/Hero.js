@@ -69,14 +69,17 @@ export default function Hero() {
   const contentTransform = cinematic ? `translateY(${-scrollY * 0.06}px)` : 'none';
   const contentOpacity   = Math.max(0, 1 - p * 2.5);
 
-  // Entrance: zooms in 0.3× → 1×, fades in 0 → 0.09 over 2s
+  // On mobile (cinematic=false) use higher opacity so zoom-in is visible
+  const baseOpacity = cinematic ? 0.09 : 0.22;
+
+  // Entrance: zooms in 0.3× → 1×, fades in 0 → baseOpacity over 2s
   const entryScale   = 0.3 + 0.7 * entryP;
-  const entryOpacity = 0.09 * entryP;
+  const entryOpacity = baseOpacity * entryP;
 
   // Scroll: zooms in 1× → ~5× (fills section) and fades out, quadratic ease
   const pw            = p * p;
   const scrollScale   = 1 + pw * 4;
-  const scrollOpacity = Math.max(0, 0.09 * (1 - pw * 1.1));
+  const scrollOpacity = Math.max(0, baseOpacity * (1 - pw * 1.1));
 
   const watermarkScale   = entryP < 1 ? entryScale   : scrollScale;
   const watermarkOpacity = entryP < 1 ? entryOpacity : scrollOpacity;
@@ -112,6 +115,7 @@ export default function Hero() {
               opacity:   watermarkOpacity,
             }}
           />
+          <span className={styles.watermarkLabel}>IGNITE 2026</span>
         </div>
 
         {/* ── Main content ── */}

@@ -1,6 +1,3 @@
-'use client';
-
-import { useEffect } from 'react';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import siteContent from '@/data/siteContent';
@@ -9,23 +6,6 @@ import styles from './speakers.module.css';
 export default function SpeakersPage() {
   const { speakers } = siteContent;
   const all = [...speakers.row1, ...speakers.row2];
-
-  useEffect(() => {
-    const cards = document.querySelectorAll(`.${styles.card}`);
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(styles.cardVisible);
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.08, rootMargin: '0px 0px -20px 0px' }
-    );
-    cards.forEach(card => obs.observe(card));
-    return () => obs.disconnect();
-  }, []);
 
   return (
     <>
@@ -48,7 +28,7 @@ export default function SpeakersPage() {
               <div
                 key={s.name}
                 className={styles.card}
-                style={{ '--delay': `${(i % 5) * 55}ms` }}
+                style={{ animationDelay: `${(i % 8) * 45}ms` }}
               >
                 <div className={styles.imgWrap}>
                   {s.image ? (
@@ -64,6 +44,12 @@ export default function SpeakersPage() {
                 <p className={styles.company}>{s.company}</p>
               </div>
             ))}
+          </div>
+
+          <div className={styles.moreWrap}>
+            <span className={styles.moreLine} />
+            <p className={styles.moreText}>and many more…</p>
+            <span className={styles.moreLine} />
           </div>
         </div>
       </section>

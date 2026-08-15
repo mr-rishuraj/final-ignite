@@ -181,6 +181,18 @@
   border-color: rgba(255, 255, 255, 0.4);
 }
 
+/* ── Mobile: prevent vertical stretch, use cover crop ── */
+@media (max-width: 640px) {
+  .map {
+    inset: auto;
+    top: 50%;
+    left: 50%;
+    width: 390%;   /* at 375px → 1462px wide → natural height ≈ 812px (exact cover) */
+    height: auto;  /* maintain 9:5 ratio — no stretching */
+    transform: translate(-50%, -50%);
+  }
+}
+
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   .routeDraw   { animation-duration: 0.01s; }

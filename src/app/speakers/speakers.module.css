@@ -15,7 +15,7 @@
   display: inline-block;
   font-family: var(--font-sans);
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-text-muted);
@@ -25,7 +25,7 @@
 .title {
   font-family: var(--font-serif);
   font-size: clamp(2.4rem, 6vw, 4.2rem);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.08;
   letter-spacing: -0.02em;
   color: var(--color-text);
@@ -57,10 +57,29 @@
   gap: clamp(16px, 2.5vw, 28px);
 }
 
-/* ── Card ── */
+/* ── Hero fade-in on load ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.eyebrow { animation: fadeUp 0.5s ease-out 0.05s both; }
+.title   { animation: fadeUp 0.6s ease-out 0.18s both; }
+.desc    { animation: fadeUp 0.6s ease-out 0.32s both; }
+
+/* ── Card: hidden until scrolled into view ── */
 .card {
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.cardVisible {
+  opacity: 1;
+  transform: none;
+  transition-delay: var(--delay, 0ms);
 }
 
 .imgWrap {
@@ -101,14 +120,14 @@
   justify-content: center;
   font-family: var(--font-serif);
   font-size: 2.4rem;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-text-muted);
 }
 
 .name {
   font-family: var(--font-serif);
   font-size: clamp(0.88rem, 1.3vw, 1rem);
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-text);
   margin-bottom: 3px;
   line-height: 1.3;
@@ -126,7 +145,7 @@
   font-family: var(--font-sans);
   font-size: 0.72rem;
   color: var(--color-accent);
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }

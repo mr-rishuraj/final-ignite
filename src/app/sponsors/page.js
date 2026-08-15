@@ -1,53 +1,36 @@
 'use client';
 
+import { useEffect } from 'react';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import siteContent from '@/data/siteContent';
 import styles from './sponsors.module.css';
 
-const groups = [
-  { label: 'Technology & Finance', key: 'row1' },
-  { label: 'Cloud, SaaS & Analytics', key: 'row2' },
-  { label: 'Media, VC & Accelerators', key: 'row3' },
-];
-
-const LogoCard = ({ logo }) => (
-  <div className={styles.card}>
-    <div className={styles.logoWrap}>
-      {logo.src ? (
-        <>
-          <img
-            src={logo.src}
-            alt={logo.alt}
-            className={styles.logo}
-            loading="lazy"
-            onError={(e) => {
-              e.target.style.display = 'none';
-              e.target.nextElementSibling.style.display = 'flex';
-            }}
-          />
-          <div className={styles.fallback} style={{ backgroundColor: logo.color, display: 'none' }}>
-            <span className={styles.initials}>{logo.initials}</span>
-          </div>
-        </>
-      ) : (
-        <div className={styles.fallback} style={{ backgroundColor: logo.color }}>
-          <span className={styles.initials}>{logo.initials}</span>
-        </div>
-      )}
-    </div>
-    <p className={styles.name}>{logo.name}</p>
-  </div>
-);
-
 export default function SponsorsPage() {
   const { sponsors } = siteContent;
+  const allLogos = [...sponsors.row1, ...sponsors.row2, ...sponsors.row3];
+
+  useEffect(() => {
+    const cards = document.querySelectorAll(`.${styles.card}`);
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.cardVisible);
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -20px 0px' }
+    );
+    cards.forEach(card => obs.observe(card));
+    return () => obs.disconnect();
+  }, []);
 
   return (
     <>
       <Navbar />
 
-      {/* Header */}
       <section className={styles.hero}>
         <div className={styles.container}>
           <span className={styles.eyebrow}>Our Global Network</span>
@@ -60,22 +43,21 @@ export default function SponsorsPage() {
         </div>
       </section>
 
-      {/* Groups */}
       <section className={styles.section}>
         <div className={styles.container}>
-          {groups.map(({ label, key }) => (
-            <div key={key} className={styles.group}>
-              <div className={styles.groupHeader}>
-                <span className={styles.groupDot} />
-                <h2 className={styles.groupLabel}>{label}</h2>
+          <div className={styles.grid}>
+            {allLogos.map((src, i) => (
+              <div
+                key={i}
+                className={styles.card}
+                style={{ '--delay': `${(i % 5) * 55}ms` }}
+              >
+                <div className={styles.logoWrap}>
+                  <img src={src} alt="sponsor" className={styles.logo} loading="lazy" />
+                </div>
               </div>
-              <div className={styles.grid}>
-                {sponsors[key].map((logo) => (
-                  <LogoCard key={logo.name} logo={logo} />
-                ))}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 

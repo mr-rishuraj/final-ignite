@@ -15,7 +15,7 @@
 .eyebrow {
   display: inline-block;
   font-size: 0.7rem;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 3.5px;
   text-transform: uppercase;
   color: #8a1520;
@@ -24,7 +24,7 @@
 
 .title {
   font-size: clamp(1.9rem, 4vw, 3rem);
-  font-weight: 600;
+  font-weight: 400;
   color: #1a0606;
   letter-spacing: -0.03em;
   line-height: 1.15;
@@ -53,7 +53,7 @@
 
 .tickItem {
   font-size: clamp(0.82rem, 1.4vw, 1rem);
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.3px;
   color: #1a0606;
   padding: 0 28px;
@@ -174,7 +174,7 @@
 .captionTag {
   display: inline-block;
   font-size: 0.62rem;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: rgba(255,210,160,0.9);

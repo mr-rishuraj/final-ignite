@@ -6,14 +6,14 @@ const online = [
     tags: ['Workshop', 'Mentorship'],
     title: 'Pitch Deck Workshop',
     desc: 'Hands-on session with founders, investors & consultants to build an investor-ready deck. Submit for mentor feedback before Demo Day.',
-    bullets: ['Expert-led walkthroughs', 'Deck review & feedback', 'Pre-Demo Day refinement'],
+    meta: 'Remote · 2 weeks pre-event',
   },
   {
     num: '02',
     tags: ['Gamified', 'Validation'],
     title: 'Virtual Investor Challenge',
     desc: 'Each participant gets 100k Ignite Coins to back shortlisted startups. Score points based on how many panelists invest in your picks on Demo Day.',
-    bullets: ['100k Ignite Coins / participant', '2–3 min pitch video + one-pager', 'Points tallied on Demo Day'],
+    meta: 'Remote · 1 week pre-event',
   },
 ];
 
@@ -23,44 +23,43 @@ const offline = [
     tags: ['Networking', 'Icebreaker'],
     title: 'Mixer Meet',
     desc: 'Human Bingo — mingle to find shared traits and experiences. First to complete the card wins, everyone leaves with real connections.',
-    bullets: ['Structured, playful format', 'Cross-industry founders', 'Prizes for winners'],
+    meta: 'Dubai · Day 1',
   },
   {
     num: '04',
     tags: ['Panel', 'Live Q&A'],
     title: 'Panel Discussion',
     desc: 'Investors, industry leaders, and serial entrepreneurs on the themes shaping the next generation of global startups — open Q&A from the floor.',
-    bullets: ['Curated panelists', 'Audience Q&A', 'Themes TBA'],
+    meta: 'Dubai · Day 2',
   },
   {
     num: '05',
     tags: ['AI', 'Hands-on Build'],
     title: 'AI Integration Sprint',
     desc: 'Work alongside AI experts to ship one meaningful AI-powered feature into your product or MVP in a single focused sprint.',
-    bullets: ['1-on-1 with AI specialists', 'Ship a working feature', 'Demo at the close'],
+    meta: 'Dubai · Day 3',
   },
 ];
 
-const EventCard = ({ event }) => (
-  <div className={styles.card}>
-    <div className={styles.cardTop}>
-      <span className={styles.num}>{event.num}</span>
-      <div className={styles.tags}>
-        {event.tags.map(t => <span key={t} className={styles.tag}>{t}</span>)}
+function EventRow({ event }) {
+  return (
+    <div className={styles.row}>
+      <span className={styles.rowNum}>{event.num}</span>
+      <div className={styles.rowBody}>
+        <div className={styles.rowTop}>
+          <h3 className={styles.rowTitle}>{event.title}</h3>
+          <div className={styles.rowTags}>
+            {event.tags.map((t) => (
+              <span key={t} className={styles.tag}>{t}</span>
+            ))}
+          </div>
+        </div>
+        <p className={styles.rowDesc}>{event.desc}</p>
       </div>
+      <span className={styles.rowMeta}>{event.meta}</span>
     </div>
-    <h3 className={styles.cardTitle}>{event.title}</h3>
-    <p className={styles.cardDesc}>{event.desc}</p>
-    <ul className={styles.bullets}>
-      {event.bullets.map(b => (
-        <li key={b} className={styles.bullet}>
-          <span className={styles.dot} aria-hidden="true" />
-          {b}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+  );
+}
 
 export default function EventProgramme() {
   return (
@@ -71,40 +70,38 @@ export default function EventProgramme() {
         <div className={styles.header}>
           <span className={styles.eyebrow}>Event Programme</span>
           <h2 className={styles.title}>
-            IGNITE 2026 <em className={styles.em}>Events</em>
+            What happens at <em className={styles.em}>IGNITE.</em>
           </h2>
         </div>
 
         {/* Online phase */}
         <div className={styles.phase}>
-          <div className={styles.phaseLabel}>
-            <span className={styles.phaseDot} />
-            Online — Pre-Event
+          <div className={styles.phaseHeader}>
+            <span className={styles.phaseTag}>Online</span>
+            <span className={styles.phaseTitle}>Pre-Event</span>
+            <span className={styles.phaseLine} aria-hidden="true" />
           </div>
-          <div className={styles.grid2}>
-            {online.map(e => <EventCard key={e.num} event={e} />)}
+          <div className={styles.rows}>
+            {online.map((e) => <EventRow key={e.num} event={e} />)}
           </div>
         </div>
 
         {/* Offline phase */}
         <div className={styles.phase}>
-          <div className={styles.phaseLabel}>
-            <span className={styles.phaseDot} style={{ background: '#C53B48' }} />
-            Offline — Dubai
+          <div className={styles.phaseHeader}>
+            <span className={`${styles.phaseTag} ${styles.phaseTagAccent}`}>In-Person</span>
+            <span className={styles.phaseTitle}>Dubai, UAE</span>
+            <span className={styles.phaseLine} aria-hidden="true" />
           </div>
-          <div className={styles.grid3}>
-            {offline.map(e => <EventCard key={e.num} event={e} />)}
+          <div className={styles.rows}>
+            {offline.map((e) => <EventRow key={e.num} event={e} />)}
           </div>
         </div>
 
-        {/* Footer note */}
-        <div className={styles.more}>
-          <span className={styles.moreLine} aria-hidden="true" />
-          <p className={styles.moreText}>
-            And many more curated experiences — workshops, fireside chats, investor dinners, and city tours across Dubai await.
-          </p>
-          <span className={styles.moreLine} aria-hidden="true" />
-        </div>
+        {/* Footer */}
+        <p className={styles.footer}>
+          And many more — fireside chats, investor dinners, startup showcases, and city tours across Dubai.
+        </p>
 
       </div>
     </section>

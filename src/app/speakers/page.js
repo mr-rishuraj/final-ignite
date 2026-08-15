@@ -1,22 +1,36 @@
+'use client';
+
+import { useEffect } from 'react';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import siteContent from '@/data/siteContent';
 import styles from './speakers.module.css';
 
-export const metadata = {
-  title: 'Past Speakers — IGNITE',
-  description: 'Founders, investors, and industry leaders who have shaped the entrepreneurial landscape at IGNITE.',
-};
-
 export default function SpeakersPage() {
   const { speakers } = siteContent;
   const all = [...speakers.row1, ...speakers.row2];
+
+  useEffect(() => {
+    const cards = document.querySelectorAll(`.${styles.card}`);
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.cardVisible);
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -20px 0px' }
+    );
+    cards.forEach(card => obs.observe(card));
+    return () => obs.disconnect();
+  }, []);
 
   return (
     <>
       <Navbar />
 
-      {/* Page header */}
       <section className={styles.hero}>
         <div className={styles.container}>
           <span className={styles.eyebrow}>{speakers.label}</span>
@@ -27,19 +41,18 @@ export default function SpeakersPage() {
         </div>
       </section>
 
-      {/* Full speaker grid */}
       <section className={styles.section}>
         <div className={styles.container}>
           <div className={styles.grid}>
-            {all.map((s) => (
-              <div key={s.name} className={styles.card}>
+            {all.map((s, i) => (
+              <div
+                key={s.name}
+                className={styles.card}
+                style={{ '--delay': `${(i % 5) * 55}ms` }}
+              >
                 <div className={styles.imgWrap}>
                   {s.image ? (
-                    <img
-                      src={s.image}
-                      alt={s.name}
-                      className={styles.img}
-                    />
+                    <img src={s.image} alt={s.name} className={styles.img} />
                   ) : (
                     <div className={styles.initials}>
                       {s.name.split(' ').map(w => w[0]).join('').slice(0, 2)}

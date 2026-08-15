@@ -21,7 +21,7 @@
   background: var(--color-surface);
   color: var(--color-text-secondary);
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 24px;
@@ -29,7 +29,7 @@
 
 .sectionTitle {
   font-size: clamp(2rem, 5vw, 3.25rem);
-  font-weight: 800;
+  font-weight: 400;
   color: var(--color-text);
   line-height: 1.15;
   margin: 0 0 20px;
@@ -45,7 +45,7 @@
   line-height: 1.7;
   max-width: 600px;
   margin: 0 auto;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .grid {
@@ -87,7 +87,7 @@
   padding: 6px 18px;
   border-radius: 100px;
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 0.5px;
 }
 
@@ -100,13 +100,13 @@
 .planName {
   font-size: 1.2rem;
   color: var(--color-text);
-  font-weight: 700;
+  font-weight: 400;
   margin: 0 0 8px;
 }
 
 .price {
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 400;
   color: var(--color-text);
   margin: 0 0 8px;
   line-height: 1;
@@ -117,7 +117,7 @@
   color: var(--color-text-secondary);
   margin: 0 0 28px;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .features {
@@ -134,7 +134,7 @@
   color: var(--color-text-secondary);
   padding: 10px 0;
   border-bottom: 1px solid var(--color-border);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .feature:last-child {
@@ -151,7 +151,7 @@
   padding: 16px;
   border-radius: 14px;
   border: 1px solid var(--color-text);
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1rem;
   cursor: pointer;
   text-align: center;

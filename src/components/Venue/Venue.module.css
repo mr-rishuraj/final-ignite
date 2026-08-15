@@ -18,7 +18,7 @@
   display: inline-block;
   font-family: var(--font-sans);
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--color-text-muted);
@@ -28,7 +28,7 @@
 .sectionTitle {
   font-family: var(--font-serif);
   font-size: clamp(2.4rem, 5.8vw, 3.8rem);
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-text);
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -73,7 +73,7 @@
   font-family: var(--font-serif);
   font-size: clamp(1.3rem, 3.2vw, 1.85rem);
   color: var(--color-text);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.2;
   margin: 0 0 12px;
 }
@@ -123,7 +123,7 @@
   font-size: 0.9rem;
   color: var(--color-accent-dark);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 400;
   transition: gap 0.3s;
 }
 

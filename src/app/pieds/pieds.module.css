@@ -9,7 +9,7 @@
   display: inline-block;
   font-family: var(--font-sans);
   font-size: 0.70rem;
-  font-weight: 600;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--color-text-muted);
@@ -19,7 +19,7 @@
 .sectionTitle {
   font-family: var(--font-serif);
   font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-text);
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -95,7 +95,7 @@
 .heroTag {
   font-family: var(--font-sans);
   font-size: 0.70rem;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(248, 245, 242, 0.30);
@@ -104,7 +104,7 @@
 .heroTitle {
   font-family: var(--font-serif);
   font-size: clamp(3rem, 9vw, 7rem);
-  font-weight: 500;
+  font-weight: 400;
   color: rgba(248, 245, 242, 0.95);
   line-height: 0.95;
   letter-spacing: -0.03em;
@@ -135,7 +135,7 @@
   gap: 10px;
   font-family: var(--font-sans);
   font-size: clamp(0.82rem, 1.2vw, 0.9rem);
-  font-weight: 500;
+  font-weight: 400;
   color: rgba(248, 245, 242, 0.60);
 }
 
@@ -178,7 +178,7 @@
 .heroStatValue {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 500;
+  font-weight: 400;
   color: rgba(248, 245, 242, 0.95);
   letter-spacing: -0.03em;
   line-height: 1;
@@ -188,7 +188,7 @@
   font-family: var(--font-sans);
   font-size: 0.65rem;
   color: rgba(248, 245, 242, 0.30);
-  font-weight: 600;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.16em;
 }
@@ -199,7 +199,7 @@
   bottom: -0.05em;
   font-family: var(--font-serif);
   font-size: clamp(6rem, 15vw, 16rem);
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: -0.04em;
   color: transparent;
   -webkit-text-stroke: 1px rgba(248, 245, 242, 0.04);
@@ -231,7 +231,7 @@
 .schemeChip {
   font-family: var(--font-sans);
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--color-text);
   background: var(--color-bg);
   border: 1px solid var(--color-border);
@@ -318,7 +318,7 @@
 .initiativeLabel {
   font-family: var(--font-sans);
   font-size: 0.82rem;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--color-text);
   letter-spacing: 0.01em;
 }
@@ -385,7 +385,7 @@
 .teamLink {
   font-family: var(--font-sans);
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--color-accent);
   text-decoration: none;
   transition: opacity 0.18s;

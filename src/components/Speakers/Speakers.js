@@ -1,14 +1,33 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import siteContent from '@/data/siteContent';
 import styles from './Speakers.module.css';
 
 export default function Speakers() {
   const { speakers } = siteContent;
+  const [visible, setVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) { setVisible(true); obs.disconnect(); }
+      },
+      { threshold: 0.05 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   return (
-    <section id="speakers" className={styles.section}>
+    <section id="speakers" className={styles.section} ref={sectionRef}>
       <div className={styles.container}>
-        <div className={styles.header}>
+
+        <div className={`${styles.header} ${visible ? styles.headerVisible : ''}`}>
           <span className={styles.sectionLabel}>{speakers.label}</span>
           <h2 className={styles.sectionTitle}>
             {speakers.title}{' '}
@@ -19,7 +38,11 @@ export default function Speakers() {
 
         <div className={styles.grid}>
           {speakers.list.map((speaker, i) => (
-            <div key={i} className={styles.card}>
+            <div
+              key={i}
+              className={`${styles.card} ${visible ? styles.cardVisible : ''}`}
+              style={{ '--delay': `${120 + i * 55}ms` }}
+            >
               <div className={styles.imageWrapper}>
                 <Image
                   src={speaker.image}
@@ -37,6 +60,7 @@ export default function Speakers() {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

@@ -4,7 +4,14 @@ import Footer from '@/components/Footer/Footer';
 
 export const metadata = {
   title: 'PIEDS — Pilani Innovation & Entrepreneurship Development Society',
-  description: 'PIEDS is a leading non-profit technology business incubator established in 2013 at BITS Pilani.',
+  description: 'PIEDS is a leading non-profit technology business incubator established in 2013 at BITS Pilani, powering 75+ startups and ₹5M+ raised.',
+  alternates: { canonical: '/pieds' },
+  openGraph: {
+    title: 'PIEDS — Pilani Innovation & Entrepreneurship Development Society',
+    description: 'Powering 75+ startups and ₹5M+ raised. PIEDS is a student-led non-profit incubator at BITS Pilani, and the organiser behind IGNITE 2026.',
+    url: 'https://final-ignite.vercel.app/pieds',
+    images: [{ url: '/gallery/mentor-circles.jpg', width: 1200, height: 630, alt: 'PIEDS — BITS Pilani Innovation Incubator' }],
+  },
 };
 
 const STATS = [

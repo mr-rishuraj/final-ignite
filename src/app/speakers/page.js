@@ -3,6 +3,18 @@ import Footer from '@/components/Footer/Footer';
 import siteContent from '@/data/siteContent';
 import styles from './speakers.module.css';
 
+export const metadata = {
+  title: 'Speakers',
+  description: 'Meet the visionary founders, investors, and industry leaders speaking at IGNITE 2026 in Dubai — the flagship entrepreneurship summit by PIEDS × BITS Pilani.',
+  alternates: { canonical: '/speakers' },
+  openGraph: {
+    title: 'Speakers — IGNITE 2026',
+    description: 'Meet the visionary founders, investors, and industry leaders speaking at IGNITE 2026 in Dubai.',
+    url: 'https://final-ignite.vercel.app/speakers',
+    images: [{ url: '/gallery/panel-discussion.jpg', width: 1200, height: 630, alt: 'IGNITE 2026 Speakers' }],
+  },
+};
+
 export default function SpeakersPage() {
   const { speakers } = siteContent;
   const all = [...speakers.row1, ...speakers.row2];

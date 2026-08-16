@@ -49,14 +49,14 @@
   filter: sepia(0.28) saturate(1.15) brightness(0.82) contrast(1.08);
 }
 
-/* ── Bottom vignette — fades illustration into page background ── */
+/* ── Bottom vignette — just enough to blend into the page ── */
 .overlayBottom {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 45%;
-  background: linear-gradient(to bottom, transparent 0%, var(--color-bg) 65%);
+  height: 18%;
+  background: linear-gradient(to bottom, transparent 0%, var(--color-bg) 100%);
   z-index: 1;
   pointer-events: none;
 }

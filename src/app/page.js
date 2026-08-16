@@ -12,7 +12,7 @@ import Footer from '@/components/Footer/Footer';
 export const metadata = {
   title: 'IGNITE 2026 — Global Innovation Summit, Dubai',
   description: 'IGNITE is the flagship global innovation and entrepreneurship summit by PIEDS × BITS Pilani. Join 100+ founders, investors, and industry leaders in Dubai 2026.',
-  alternates: { canonical: '/' },
+  alternates: { canonical: 'https://final-ignite.vercel.app' },
 };
 
 const jsonLd = {

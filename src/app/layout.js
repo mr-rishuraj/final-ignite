@@ -19,18 +19,11 @@ export const metadata = {
     siteName: 'IGNITE 2026',
     title: 'IGNITE 2026 — Global Innovation Summit, Dubai',
     description: 'Join 100+ founders, investors, and industry leaders at the IGNITE 2026 summit in Dubai — the flagship entrepreneurship platform by PIEDS × BITS Pilani.',
-    images: [{
-      url: '/gallery/keynote-stage.jpg',
-      width: 1200,
-      height: 630,
-      alt: 'IGNITE 2026 — Global Innovation Summit, Dubai',
-    }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'IGNITE 2026 — Global Innovation Summit, Dubai',
     description: 'Join 100+ founders, investors, and leaders at the IGNITE 2026 summit in Dubai by PIEDS × BITS Pilani.',
-    images: ['/gallery/keynote-stage.jpg'],
   },
   robots: {
     index: true,
@@ -59,6 +52,10 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body suppressHydrationWarning>
         {children}
       </body>

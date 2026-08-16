@@ -6,13 +6,21 @@ import styles from './sponsors.module.css';
 export const metadata = {
   title: 'Partners & Sponsors',
   description: 'Explore the global network of sponsors and partners who have backed IGNITE — including Razorpay, Notion, CNBC, YourStory, and many more.',
-  alternates: { canonical: '/sponsors' },
+  alternates: { canonical: 'https://final-ignite.vercel.app/sponsors' },
   openGraph: {
     title: 'Partners & Sponsors — IGNITE 2026',
     description: 'Explore the global network of sponsors and partners who have backed IGNITE across editions.',
     url: 'https://final-ignite.vercel.app/sponsors',
-    images: [{ url: '/gallery/keynote-stage.jpg', width: 1200, height: 630, alt: 'IGNITE 2026 Partners & Sponsors' }],
   },
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://final-ignite.vercel.app' },
+    { '@type': 'ListItem', position: 2, name: 'Partners & Sponsors', item: 'https://final-ignite.vercel.app/sponsors' },
+  ],
 };
 
 export default function SponsorsPage() {
@@ -21,6 +29,8 @@ export default function SponsorsPage() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+
       <Navbar />
 
       <section className={styles.hero}>

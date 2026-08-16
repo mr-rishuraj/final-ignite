@@ -5,13 +5,34 @@ import Footer from '@/components/Footer/Footer';
 export const metadata = {
   title: 'PIEDS — Pilani Innovation & Entrepreneurship Development Society',
   description: 'PIEDS is a leading non-profit technology business incubator established in 2013 at BITS Pilani, powering 75+ startups and ₹5M+ raised.',
-  alternates: { canonical: '/pieds' },
+  alternates: { canonical: 'https://final-ignite.vercel.app/pieds' },
   openGraph: {
     title: 'PIEDS — Pilani Innovation & Entrepreneurship Development Society',
     description: 'Powering 75+ startups and ₹5M+ raised. PIEDS is a student-led non-profit incubator at BITS Pilani, and the organiser behind IGNITE 2026.',
     url: 'https://final-ignite.vercel.app/pieds',
-    images: [{ url: '/gallery/mentor-circles.jpg', width: 1200, height: 630, alt: 'PIEDS — BITS Pilani Innovation Incubator' }],
   },
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://final-ignite.vercel.app' },
+    { '@type': 'ListItem', position: 2, name: 'PIEDS', item: 'https://final-ignite.vercel.app/pieds' },
+  ],
+};
+
+const organizationLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'PIEDS — Pilani Innovation & Entrepreneurship Development Society',
+  alternateName: 'PIEDS',
+  url: 'https://pieds-bitspilani.org/',
+  logo: 'https://final-ignite.vercel.app/pieds-image/Group 100.png',
+  foundingDate: '2013',
+  description: 'A leading non-profit technology business incubator at BITS Pilani, powering 75+ startups with ₹5M+ raised.',
+  parentOrganization: { '@type': 'CollegeOrUniversity', name: 'BITS Pilani' },
+  sameAs: ['https://pieds-bitspilani.org/'],
 };
 
 const STATS = [
@@ -55,6 +76,9 @@ const INITIATIVES = [
 export default function PiedsPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }} />
+
       <Navbar />
 
       {/* ── Hero (two-column: copy left, stats right) ── */}

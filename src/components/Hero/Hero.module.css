@@ -246,6 +246,12 @@
   transform: translateY(-1px);
 }
 
+/* Desktop CTA (inside .inner) — hidden on mobile */
+.ctaDesktop { display: inline-flex; }
+
+/* Mobile CTA — hidden on desktop, centered over watermark on mobile */
+.ctaMobile  { display: none; }
+
 /* ── Architectural curves at the bottom ── */
 .curves {
   position: absolute;
@@ -317,6 +323,17 @@
   .heading { font-size: clamp(2rem, 8vw, 3rem); }
 
   .curves svg { height: clamp(100px, 22vh, 160px); }
+
+  /* Swap CTAs: hide desktop one, show mobile one over the watermark */
+  .ctaDesktop { display: none; }
+  .ctaMobile {
+    display: inline-flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+  }
 }
 
 /* Small phone */

@@ -118,6 +118,11 @@ export default function Hero() {
           <span className={styles.watermarkLabel}>IGNITE 2026</span>
         </div>
 
+        {/* Mobile-only CTA — floats over the watermark logo */}
+        <a href={hero.ctaPrimary.href} className={`${styles.cta} ${styles.ctaMobile}`}>
+          Apply Now
+        </a>
+
         {/* ── Main content ── */}
         <div
           className={styles.inner}
@@ -131,8 +136,8 @@ export default function Hero() {
             <span className={styles.headingAccent}>Your Dream, Our Spark</span>
           </h1>
 
-          {/* CTA */}
-          <a href={hero.ctaPrimary.href} className={styles.cta}>
+          {/* Desktop CTA */}
+          <a href={hero.ctaPrimary.href} className={`${styles.cta} ${styles.ctaDesktop}`}>
             Apply Now
           </a>
         </div>

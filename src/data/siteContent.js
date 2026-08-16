@@ -220,7 +220,6 @@ const siteContent = {
     ],
     row2: [
       { name: 'Samit Jain',                   role: 'Managing Director',            company: 'Pluss',              image: '/speakers/samit-jain.jpg' },
-      { name: 'Mira Jhala',                   role: 'Founder',                      company: 'Frogo',              image: '/speakers/mira-jhala.png' },
       { name: 'Harshit Agarwal',              role: 'Head of Marketing',            company: 'Sunstone',           image: '/speakers/harshit-agarwal.jpg' },
       { name: 'Pankaj Singh',                 role: 'Co-Founder',                   company: 'SlydS',              image: '/speakers/pankaj-singh.jpg' },
       { name: 'Deepak Kumar',                 role: 'CEO',                          company: 'SlydS',              image: '/speakers/deepak-kumar.jpg' },

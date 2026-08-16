@@ -48,7 +48,7 @@ const steps = [
     tags: ['Networking', 'Day 1'],
     title: 'Mixer Meet',
     desc: 'Human Bingo — mingle to find shared traits and experiences. First to complete the card wins, everyone leaves with real connections.',
-    meta: 'Dubai · Day 1',
+    meta: 'Day 1',
   },
   {
     num: '07',
@@ -56,7 +56,7 @@ const steps = [
     tags: ['Panel', 'Day 2'],
     title: 'Panel Discussion',
     desc: 'Investors, industry leaders, and serial entrepreneurs on themes shaping the next generation of global startups.',
-    meta: 'Dubai · Day 2',
+    meta: 'Day 2',
   },
   {
     num: '08',
@@ -64,7 +64,7 @@ const steps = [
     tags: ['AI', 'Day 3'],
     title: 'AI Integration Sprint',
     desc: 'Work alongside AI experts to ship one meaningful AI-powered feature into your product in a single focused sprint.',
-    meta: 'Dubai · Day 3',
+    meta: 'Day 3',
   },
   {
     num: '09',
@@ -72,34 +72,63 @@ const steps = [
     tags: ['Pitching', 'Day 4'],
     title: 'Demo Day',
     desc: 'Top 20 finalists pitch live to a panel of investors and industry leaders — the culmination of the IGNITE journey.',
-    meta: 'Dubai · Day 4',
+    meta: 'Day 4',
   },
 ];
 
 function Card({ step }) {
   const isDubai = step.phase === 'dubai';
   return (
-    <div className={`${styles.card} ${isDubai ? styles.cardDubai : ''} ${step.milestone ? styles.cardMilestone : ''}`}>
-      <span className={styles.cardNum}>{step.num}</span>
-      <div className={styles.cardContent}>
-        <h3 className={styles.cardTitle}>{step.title}</h3>
-        <div className={styles.cardTags}>
-          {step.tags.map(t => (
-            <span key={t} className={`${styles.tag} ${isDubai ? styles.tagAccent : ''} ${step.milestone ? styles.tagMilestone : ''}`}>{t}</span>
-          ))}
-        </div>
-        <p className={styles.cardDesc}>{step.desc}</p>
-        <span className={styles.cardMeta}>{step.meta}</span>
+    <div className={`${styles.card} ${isDubai ? styles.cardDubai : ''}`}>
+      <div className={styles.cardHeader}>
+        <span className={`${styles.badge} ${isDubai ? styles.badgeDubai : ''}`}>{step.num}</span>
+        <span className={`${styles.cardDate} ${isDubai ? styles.cardDateDubai : ''}`}>{step.meta}</span>
+      </div>
+      <h3 className={styles.cardTitle}>{step.title}</h3>
+      <p className={styles.cardDesc}>{step.desc}</p>
+      <div className={styles.cardTags}>
+        {step.tags.map(t => (
+          <span key={t} className={`${styles.tag} ${isDubai ? styles.tagDubai : ''}`}>{t}</span>
+        ))}
       </div>
     </div>
   );
 }
 
-export default function EventProgramme() {
-  const preRows  = [[steps[0], steps[1]], [steps[3], steps[2]]];
-  const milestone = steps[4];
-  const dubaiRows = [[steps[5], steps[6]], [steps[8], steps[7]]];
+function MilestoneCard({ step }) {
+  return (
+    <div className={styles.cardMilestone}>
+      <div className={styles.milestoneLeft}>
+        <span className={styles.badge}>{step.num}</span>
+        <h3 className={styles.milestoneTitle}>{step.title}</h3>
+      </div>
+      <div className={styles.milestoneRight}>
+        <span className={styles.milestoneDate}>{step.meta}</span>
+        <p className={styles.cardDesc}>{step.desc}</p>
+        <div className={styles.cardTags}>
+          {step.tags.map(t => (
+            <span key={t} className={`${styles.tag} ${styles.tagMilestone}`}>{t}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
+function Row({ left, right }) {
+  const isDubai = left.phase === 'dubai';
+  return (
+    <div className={styles.rowPair}>
+      <Card step={left} />
+      <div className={styles.rowCenter}>
+        <span className={`${styles.dot} ${isDubai ? styles.dotDubai : ''}`} />
+      </div>
+      <Card step={right} />
+    </div>
+  );
+}
+
+export default function EventProgramme() {
   return (
     <section id="programme" className={styles.section}>
       <div className={styles.container}>
@@ -114,51 +143,22 @@ export default function EventProgramme() {
           </p>
         </div>
 
-
-        <div className={styles.snake}>
-
-          {/* Pre-event rows (2 per row) */}
-          {preRows.map((row, ri) => (
-            <div key={ri}>
-              <div className={`${styles.rowPair} ${ri % 2 === 1 ? styles.rowPairReversed : ''}`}>
-                <Card step={row[0]} />
-                <div className={styles.rowConn} />
-                <Card step={row[1]} />
-              </div>
-              <div className={`${styles.conn} ${ri === 0 ? styles.connR : styles.connL}`} />
-            </div>
-          ))}
-
-          {/* Milestone: Finalists Announced (full-width) */}
-          <div className={styles.milestoneWrap}>
-            <Card step={milestone} />
-          </div>
-
-          <div className={styles.connStraightL} />
-
-          {/* Phase transition */}
+        <div className={styles.timeline}>
+          <Row left={steps[0]} right={steps[1]} />
+          <div className={styles.gapLine} />
+          <Row left={steps[2]} right={steps[3]} />
+          <div className={styles.gapLine} />
+          <MilestoneCard step={steps[4]} />
+          <div className={styles.gapLine} />
           <div className={styles.phaseTransition}>
             <span className={styles.ptLine} />
             <span className={styles.ptLabel}>Dubai, UAE</span>
             <span className={styles.ptLine} />
           </div>
-
-          <div className={styles.connStraightL} />
-
-          {/* Dubai rows (2 per row) */}
-          {dubaiRows.map((row, ri) => (
-            <div key={ri}>
-              <div className={`${styles.rowPair} ${ri % 2 === 1 ? styles.rowPairReversed : ''}`}>
-                <Card step={row[0]} />
-                <div className={styles.rowConn} />
-                <Card step={row[1]} />
-              </div>
-              {ri < dubaiRows.length - 1 && (
-                <div className={`${styles.conn} ${styles.connR}`} />
-              )}
-            </div>
-          ))}
-
+          <div className={styles.gapLine} />
+          <Row left={steps[5]} right={steps[6]} />
+          <div className={styles.gapLine} />
+          <Row left={steps[7]} right={steps[8]} />
         </div>
 
         <p className={styles.footer}>

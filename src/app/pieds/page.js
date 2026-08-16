@@ -49,7 +49,7 @@ const INITIATIVES = [
   {
     name: 'Chai Pe Charcha',
     desc: 'A laid-back meet where founders, BITSians, and experts connect over chai — sparking ideas, conversations, and incubation opportunities.',
-    img: '/past-events/event-networking-01.jpg',
+    img: '/past-events/event-workshop.png',
   },
   {
     name: 'Solve For Pilani',
@@ -64,7 +64,7 @@ const INITIATIVES = [
   {
     name: 'Studentpreneur',
     desc: 'Sparks entrepreneurship in school students through hands-on workshops — reaching 1,000+ students in its BITS Pilani-backed pilot and turning classrooms into launchpads.',
-    img: '/past-events/event-workshop.png',
+    img: '/past-events/event-networking-01.jpg',
   },
   {
     name: 'IGNITE 2024',

@@ -57,7 +57,7 @@
 .logoText {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   font-weight: 400;
   letter-spacing: -0.01em;
   color: var(--color-text);
@@ -66,7 +66,7 @@
 
 .logoYear {
   font-family: var(--font-sans);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 400;
   letter-spacing: 0.06em;
   color: var(--color-accent);
@@ -87,7 +87,7 @@
 .navLink {
   position: relative;
   font-family: var(--font-sans);
-  font-size: 0.68rem;
+  font-size: 0.78rem;
   font-weight: 400;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -135,7 +135,7 @@
   background: var(--color-accent);
   color: #fff;
   font-family: var(--font-sans);
-  font-size: 0.64rem;
+  font-size: 0.74rem;
   font-weight: 400;
   letter-spacing: 0.14em;
   text-transform: uppercase;

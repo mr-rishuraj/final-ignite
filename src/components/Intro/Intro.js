@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { feature } from 'topojson-client';
 import {
   ComposableMap,
   Geographies,
@@ -10,7 +11,7 @@ import {
 } from 'react-simple-maps';
 import styles from './Intro.module.css';
 
-const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json';
+const TOPO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json';
 
 const PILANI = [75.6, 28.37]; // BITS Pilani — [lon, lat]
 const DUBAI  = [55.3, 25.2];  // Dubai, UAE
@@ -99,8 +100,15 @@ export default function Intro({ onComplete }) {
   const [phase, setPhase] = useState('zoomIn');
   const [cameraZoom, setCameraZoom] = useState(4.8); // Start zoomed in on Pilani
   const [cameraCenter, setCameraCenter] = useState(PILANI); // Start at Pilani
+  const [topology, setTopology] = useState(null);
   const cb = useRef(onComplete);
   useEffect(() => { cb.current = onComplete; }, [onComplete]);
+
+  useEffect(() => {
+    fetch(TOPO_URL)
+      .then(r => r.json())
+      .then(setTopology);
+  }, []);
 
   useEffect(() => {
     const timers = [
@@ -193,31 +201,44 @@ export default function Intro({ onComplete }) {
         <Sphere stroke="rgba(255,255,255,0.06)" strokeWidth={0.5} fill="none" />
         <Graticule stroke="rgba(255,255,255,0.04)" strokeWidth={0.5} />
 
-        <Geographies geography={GEO_URL}>
-          {({ geographies }) =>
-            geographies.map(geo => {
-              const id = parseInt(geo.id);
-              const isIND = id === 356;
-              const isUAE = id === 784;
-              return (
-                <Geography
-                  key={geo.rsmKey}
-                  geography={geo}
-                  style={{
-                    default: {
-                      fill: isIND || isUAE ? 'rgba(255,210,160,0.11)' : 'rgba(255,255,255,0.05)',
-                      stroke: isIND || isUAE ? 'rgba(255,210,160,0.28)' : 'rgba(255,255,255,0.11)',
-                      strokeWidth: 0.5,
-                      outline: 'none',
-                    },
-                    hover: { outline: 'none' },
-                    pressed: { outline: 'none' },
-                  }}
-                />
-              );
-            })
-          }
-        </Geographies>
+        {/* Physical land — single merged polygon, no country borders */}
+        {topology && (
+          <Geographies geography={{ type: 'FeatureCollection', features: [feature(topology, topology.objects.land)] }}>
+            {({ geographies }) => geographies.map(geo => (
+              <Geography
+                key={geo.rsmKey}
+                geography={geo}
+                style={{
+                  default: { fill: 'rgba(175,155,128,0.18)', stroke: 'none', strokeWidth: 0, outline: 'none' },
+                  hover:   { outline: 'none' },
+                  pressed: { outline: 'none' },
+                }}
+              />
+            ))}
+          </Geographies>
+        )}
+
+        {/* Subtle highlight for India & UAE on top of land */}
+        {topology && (
+          <Geographies geography={{
+            type: 'FeatureCollection',
+            features: feature(topology, topology.objects.countries).features.filter(
+              geo => [356, 784].includes(parseInt(geo.id))
+            ),
+          }}>
+            {({ geographies }) => geographies.map(geo => (
+              <Geography
+                key={geo.rsmKey + '-hl'}
+                geography={geo}
+                style={{
+                  default: { fill: 'rgba(255,210,160,0.16)', stroke: 'none', strokeWidth: 0, outline: 'none' },
+                  hover:   { outline: 'none' },
+                  pressed: { outline: 'none' },
+                }}
+              />
+            ))}
+          </Geographies>
+        )}
 
         <FlightLayer flying={flying} landed={landed} />
       </ComposableMap>

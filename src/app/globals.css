@@ -34,6 +34,7 @@ html {
   scroll-padding-top: 76px;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  overflow-x: hidden; /* iOS Safari: body overflow-x:hidden alone is ignored */
 }
 
 body {

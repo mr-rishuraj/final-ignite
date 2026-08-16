@@ -130,7 +130,7 @@ export default function EventProgramme() {
           {/* Pre-event rows (2 per row) */}
           {preRows.map((row, ri) => (
             <div key={ri}>
-              <div className={styles.rowPair}>
+              <div className={`${styles.rowPair} ${ri % 2 === 1 ? styles.rowPairReversed : ''}`}>
                 <Card step={row[0]} />
                 <div className={styles.rowConn} />
                 <Card step={row[1]} />
@@ -158,7 +158,7 @@ export default function EventProgramme() {
           {/* Dubai rows (2 per row) */}
           {dubaiRows.map((row, ri) => (
             <div key={ri}>
-              <div className={styles.rowPair}>
+              <div className={`${styles.rowPair} ${ri % 2 === 1 ? styles.rowPairReversed : ''}`}>
                 <Card step={row[0]} />
                 <div className={styles.rowConn} />
                 <Card step={row[1]} />

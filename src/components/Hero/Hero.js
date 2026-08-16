@@ -99,7 +99,7 @@ export default function Hero() {
             src="/background-image.png"
             alt=""
             fill
-            style={{ objectFit: 'contain', objectPosition: 'bottom center' }}
+            style={{ objectFit: 'cover', objectPosition: 'bottom center' }}
             priority
           />
         </div>

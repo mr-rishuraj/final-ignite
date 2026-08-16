@@ -36,10 +36,6 @@ export default function Ignite2026() {
               className={styles.image}
               sizes="(max-width: 768px) 100vw, 45vw"
             />
-            <figcaption className={styles.caption}>
-              <span className={styles.captionDot} aria-hidden="true" />
-              Dubai · 2026
-            </figcaption>
           </figure>
         </div>
 

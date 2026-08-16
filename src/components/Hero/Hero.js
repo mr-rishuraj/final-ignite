@@ -112,6 +112,22 @@ export default function Hero() {
         <div className={styles.overlayBottom} aria-hidden="true" />
 
 
+        {/* Watermark — wrapper animates CSS float, img handles JS scale */}
+        <div className={styles.watermarkWrap} aria-hidden="true">
+          <Image
+            src="/ignite-logo.png"
+            alt=""
+            width={400}
+            height={400}
+            className={styles.watermark}
+            style={{
+              transform: `scale(${watermarkScale})`,
+              opacity:   watermarkOpacity,
+            }}
+            priority
+          />
+          <span className={styles.watermarkLabel}>IGNITE 2026</span>
+        </div>
 
         {/* Mobile-only CTA — floats over the watermark logo */}
         <a href={hero.ctaPrimary.href} className={`${styles.cta} ${styles.ctaMobile}`}>

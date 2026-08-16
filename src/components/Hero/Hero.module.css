@@ -25,7 +25,7 @@
   inset: -20% 0;
   background-image: url('/background-image.png');
   background-size: cover;
-  background-position: bottom center;
+  background-position: center 5%;
   background-repeat: no-repeat;
   z-index: 0;
   will-change: transform;
@@ -254,8 +254,16 @@
 /* Mobile CTA — hidden on desktop, centered over watermark on mobile */
 .ctaMobile  { display: none; }
 
-/* ── Architectural curves — hidden; bg image provides the desert ── */
-.curves { display: none; }
+/* ── Architectural curves at the bottom ── */
+.curves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  pointer-events: none;
+  line-height: 0;
+}
 
 .curves svg {
   width: 100%;

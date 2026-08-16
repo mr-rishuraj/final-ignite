@@ -13,8 +13,9 @@ import styles from './Intro.module.css';
 
 const TOPO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json';
 
-const PILANI = [75.6, 28.37]; // BITS Pilani — [lon, lat]
-const DUBAI  = [55.3, 25.2];  // Dubai, UAE
+const PILANI   = [75.6, 28.37]; // BITS Pilani — [lon, lat]
+const DUBAI    = [55.3, 25.2];  // Dubai, UAE
+const MIDPOINT = [(PILANI[0] + DUBAI[0]) / 2, (PILANI[1] + DUBAI[1]) / 2]; // midway for zoom-out frame
 
 function FlightLayer({ flying, landed }) {
   const { projection } = useMapContext();
@@ -142,10 +143,10 @@ export default function Intro({ onComplete }) {
         // Zoom from 4.8 → 0.8 (zoom out)
         setCameraZoom(4.8 - (4.8 - 0.8) * easeProgress);
 
-        // Pan from Pilani → Dubai
+        // Pan from Pilani → MIDPOINT so both cities are in frame when zoomed out
         setCameraCenter([
-          PILANI[0] - (PILANI[0] - DUBAI[0]) * easeProgress,
-          PILANI[1] - (PILANI[1] - DUBAI[1]) * easeProgress,
+          PILANI[0] - (PILANI[0] - MIDPOINT[0]) * easeProgress,
+          PILANI[1] - (PILANI[1] - MIDPOINT[1]) * easeProgress,
         ]);
 
         if (progress < 1) {
@@ -165,9 +166,12 @@ export default function Intro({ onComplete }) {
         // Ease in curve
         const easeProgress = Math.pow(progress, 3);
 
-        // Zoom from 0.8 → 4.8 (zoom in on Dubai)
+        // Zoom from 0.8 → 4.8 and pan from midpoint → Dubai simultaneously
         setCameraZoom(0.8 + (4.8 - 0.8) * easeProgress);
-        setCameraCenter(DUBAI);
+        setCameraCenter([
+          MIDPOINT[0] + (DUBAI[0] - MIDPOINT[0]) * easeProgress,
+          MIDPOINT[1] + (DUBAI[1] - MIDPOINT[1]) * easeProgress,
+        ]);
 
         if (progress < 1) {
           requestAnimationFrame(animate);

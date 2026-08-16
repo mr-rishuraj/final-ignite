@@ -22,12 +22,13 @@
 /* ── Background: Dubai skyline illustration ── */
 .bg {
   position: absolute;
-  inset: 0;
+  inset: -20% 0;
   background-image: url('/background-image.png');
   background-size: cover;
-  background-position: bottom center;
+  background-position: center 5%;
   background-repeat: no-repeat;
   z-index: 0;
+  will-change: transform;
 }
 
 /* ── Group photo — hidden: background-image.png already has the cityscape ── */
@@ -59,8 +60,8 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 220px;
-  background: linear-gradient(to bottom, transparent, var(--color-bg));
+  height: 45%;
+  background: linear-gradient(to bottom, transparent 0%, var(--color-bg) 65%);
   z-index: 1;
   pointer-events: none;
 }
@@ -71,8 +72,8 @@
 .watermarkWrap {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: clamp(24px, 6vw, 80px);
+  transform: translateY(-50%);
   pointer-events: none;
   user-select: none;
   z-index: 1;
@@ -81,17 +82,17 @@
 }
 
 .watermark {
-  width: clamp(180px, 28vw, 380px);
+  width: clamp(260px, 38vw, 560px);
   height: auto;
   display: block;
   filter: grayscale(1) brightness(0.55) sepia(1) saturate(4) hue-rotate(315deg);
   will-change: transform, opacity;
-  transform-origin: center center;
+  transform-origin: left center;
 }
 
 .watermarkLabel {
   display: none;
-  text-align: center;
+  text-align: left;
   font-family: 'Instrument Serif', Georgia, serif;
   font-size: 1.15rem;
   letter-spacing: 0.22em;
@@ -103,9 +104,9 @@
 }
 
 @keyframes watermarkFloat {
-  0%, 100% { transform: translate(-50%, -50%) translateY(0px);   }
-  40%       { transform: translate(-50%, -50%) translateY(-16px); }
-  70%       { transform: translate(-50%, -50%) translateY(-8px);  }
+  0%, 100% { transform: translateY(-50%) translateY(0px);   }
+  40%       { transform: translateY(-50%) translateY(-16px); }
+  70%       { transform: translateY(-50%) translateY(-8px);  }
 }
 
 /* ── Centre IGNITE — decorative background typography ── */
@@ -253,15 +254,9 @@
 /* Mobile CTA — hidden on desktop, centered over watermark on mobile */
 .ctaMobile  { display: none; }
 
-/* ── Architectural curves at the bottom ── */
+/* ── Architectural curves — hidden, replaced by background illustration ── */
 .curves {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  pointer-events: none;
-  line-height: 0;
+  display: none;
 }
 
 .curves svg {
@@ -317,8 +312,14 @@
 
   .bg { position: absolute; inset: 0; }
   .scrollCue { display: none; }
-  .watermark { width: min(52vw, 220px); }
+  .watermark { width: min(65vw, 280px); }
   .watermarkLabel { display: block; }
+  .watermarkWrap { left: 50%; transform: translate(-50%, -50%); }
+  @keyframes watermarkFloat {
+    0%, 100% { transform: translate(-50%, -50%) translateY(0px);   }
+    40%       { transform: translate(-50%, -50%) translateY(-16px); }
+    70%       { transform: translate(-50%, -50%) translateY(-8px);  }
+  }
   .groupPhotoWrap { display: none; }
 
   .heading { font-size: clamp(2rem, 8vw, 3rem); }

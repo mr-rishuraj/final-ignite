@@ -89,8 +89,12 @@ export default function Hero() {
     <div className={styles.heroScrollZone}>
       <section className={styles.hero} id="hero">
 
-        {/* Warm ivory background */}
-        <div className={styles.bg} aria-hidden="true" />
+        {/* Background — parallax: moves at 35% scroll speed so skyline drifts upward */}
+        <div
+          className={styles.bg}
+          aria-hidden="true"
+          style={{ transform: `translateY(${scrollY * 0.35}px)` }}
+        />
 
         {/* Group photo — blended into bottom of hero */}
         <div className={styles.groupPhotoWrap} aria-hidden="true">

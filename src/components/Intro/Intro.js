@@ -34,7 +34,7 @@ function FlightLayer({ flying, landed }) {
         className={`${styles.route} ${flying ? styles.routeDraw : ''}`}
         d={flightPath}
         fill="none"
-        stroke="rgba(255,210,160,0.65)"
+        stroke="rgba(197,59,72,0.7)"
         strokeWidth="1.5"
         strokeDasharray="480"
         strokeDashoffset="480"
@@ -43,8 +43,8 @@ function FlightLayer({ flying, landed }) {
 
       {/* ── Pilani marker ── */}
       <g transform={`translate(${pilX},${pilY})`}>
-        <circle className={styles.pulse} r="6" fill="none" stroke="rgba(255,210,160,0.5)" strokeWidth="1.5" />
-        <circle r="4.5" fill="rgba(255,210,160,0.9)" />
+        <circle className={styles.pulse} r="6" fill="none" stroke="rgba(197,59,72,0.45)" strokeWidth="1.5" />
+        <circle r="4.5" fill="rgba(197,59,72,0.85)" />
         <circle r="2" fill="#fff" />
       </g>
       <text x={pilX + 9} y={pilY - 5} className={styles.cityLabel}>Pilani</text>
@@ -52,8 +52,8 @@ function FlightLayer({ flying, landed }) {
 
       {/* ── Dubai marker ── */}
       <g transform={`translate(${dubX},${dubY})`}>
-        <circle className={`${styles.pulse} ${landed ? styles.pulseLand : ''}`} r="6" fill="none" stroke="rgba(255,210,160,0.5)" strokeWidth="1.5" />
-        <circle r="4.5" fill="rgba(255,210,160,0.9)" />
+        <circle className={`${styles.pulse} ${landed ? styles.pulseLand : ''}`} r="6" fill="none" stroke="rgba(197,59,72,0.45)" strokeWidth="1.5" />
+        <circle r="4.5" fill="rgba(197,59,72,0.85)" />
         <circle r="2" fill="#fff" />
       </g>
       <text x={dubX + 9} y={dubY - 5} className={styles.cityLabel}>Dubai</text>
@@ -80,8 +80,8 @@ function AnimatedPlane({ path }) {
 
   return (
     <g className={styles.plane}>
-      <polygon points="0,-8 16,0 0,5" fill="white" opacity="0.95" />
-      <polygon points="0,-8 0,5 -5,2" fill="rgba(255,210,160,0.8)" />
+      <polygon points="0,-8 16,0 0,5" fill="#252525" opacity="0.9" />
+      <polygon points="0,-8 0,5 -5,2" fill="rgba(197,59,72,0.8)" />
       <animateMotion
         ref={animRef}
         dur="2.3s"
@@ -202,8 +202,8 @@ export default function Intro({ onComplete }) {
           scale: cameraZoom * 450, // Scale multiplier for zoom effect
         }}
       >
-        <Sphere stroke="rgba(255,255,255,0.06)" strokeWidth={0.5} fill="none" />
-        <Graticule stroke="rgba(255,255,255,0.04)" strokeWidth={0.5} />
+        <Sphere stroke="rgba(0,0,0,0.08)" strokeWidth={0.5} fill="none" />
+        <Graticule stroke="rgba(0,0,0,0.05)" strokeWidth={0.5} />
 
         {/* Physical land — single merged polygon, no country borders */}
         {topology && (
@@ -213,9 +213,9 @@ export default function Intro({ onComplete }) {
                 key={geo.rsmKey}
                 geography={geo}
                 style={{
-                  default: { fill: 'rgba(175,155,128,0.18)', stroke: 'none', strokeWidth: 0, outline: 'none' },
-                  hover:   { fill: 'rgba(175,155,128,0.18)', stroke: 'none', outline: 'none' },
-                  pressed: { fill: 'rgba(175,155,128,0.18)', stroke: 'none', outline: 'none' },
+                  default: { fill: 'rgba(37,37,37,0.12)', stroke: 'none', strokeWidth: 0, outline: 'none' },
+                  hover:   { fill: 'rgba(37,37,37,0.12)', stroke: 'none', outline: 'none' },
+                  pressed: { fill: 'rgba(37,37,37,0.12)', stroke: 'none', outline: 'none' },
                 }}
               />
             ))}

@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './Footer.module.css';
 
 const NAV_COLS = [
@@ -120,13 +122,17 @@ export default function Footer() {
             ))}
           </div>
 
-          <a href="#hero" className={styles.backToTop}>
+          <button
+            type="button"
+            className={styles.backToTop}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
             Back to top
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M8 13V3M4 7l4-4 4 4" stroke="currentColor" strokeWidth="1.6"
                 strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </a>
+          </button>
         </div>
       </div>
 

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import siteContent from '@/data/siteContent';
 import styles from './Ignite2026.module.css';
 
@@ -28,11 +29,12 @@ export default function Ignite2026() {
           </div>
 
           <figure className={styles.figure}>
-            <img
+            <Image
               src={ignite2026.image.src}
               alt={ignite2026.image.alt}
+              fill
               className={styles.image}
-              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 45vw"
             />
             <figcaption className={styles.caption}>
               <span className={styles.captionDot} aria-hidden="true" />

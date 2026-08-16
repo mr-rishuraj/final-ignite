@@ -202,13 +202,13 @@
   white-space: nowrap;
 }
 
-/* "Startup" — italic, accent colour */
+/* Highlighted word — italic, accent colour */
 .headingHighlight {
   font-style: italic;
   color: var(--color-accent);
 }
 
-/* "Your Dream, Our Spark" — italic, softly muted */
+/* Second line — italic, softly muted */
 .headingAccent {
   display: block;
   font-style: italic;

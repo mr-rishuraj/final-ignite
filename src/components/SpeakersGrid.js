@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styles from './SpeakersGrid.module.css';
 import siteContent from '@/data/siteContent';
 
@@ -12,7 +13,7 @@ export default function SpeakersGrid() {
     <div className={styles.card}>
       <div className={styles.imgWrapper}>
         {speaker.image
-          ? <img src={speaker.image} alt={speaker.name} className={styles.img} />
+          ? <Image src={speaker.image} alt={speaker.name} width={160} height={160} className={styles.img} />
           : <div className={styles.imgPlaceholder} aria-hidden="true">{speaker.name.charAt(0)}</div>
         }
       </div>

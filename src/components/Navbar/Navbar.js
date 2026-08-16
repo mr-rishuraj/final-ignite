@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import siteContent from '@/data/siteContent';
 import styles from './Navbar.module.css';
 
@@ -98,7 +99,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <a href="/" className={styles.logo}>
-            <img src="/ignite-logo.png" alt="" className={styles.logoIcon} aria-hidden="true" />
+            <Image src="/ignite-logo.png" alt="" width={18} height={18} className={styles.logoIcon} aria-hidden="true" />
             <span className={styles.logoText}>{nav.logoText}</span>
             <span className={styles.logoYear}>'{nav.logoYear}</span>
           </a>

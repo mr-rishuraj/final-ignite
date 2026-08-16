@@ -78,6 +78,7 @@
 
 /* ── Responsive ── */
 @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .section { margin-top: 0; } }
 @media (max-width: 420px) {
   .statValue { font-size: clamp(1.9rem, 9vw, 2.6rem); }
   .stats { border-radius: 12px; }

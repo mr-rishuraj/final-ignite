@@ -32,8 +32,7 @@ export async function POST(request) {
         .upload(fileName, buffer, { contentType: 'application/pdf', upsert: false });
 
       if (uploadError) {
-        console.error('Storage upload error:', uploadError.message);
-        return Response.json({ error: `Pitch deck upload failed: ${uploadError.message}` }, { status: 500 });
+        return Response.json({ error: 'Pitch deck upload failed. Please try again or submit without a deck.' }, { status: 500 });
       }
 
       const { data: urlData } = supabase.storage
@@ -57,13 +56,11 @@ export async function POST(request) {
     });
 
     if (dbError) {
-      console.error('DB insert error:', dbError.message);
-      return Response.json({ error: `Database error: ${dbError.message}` }, { status: 500 });
+      return Response.json({ error: 'Failed to save your application. Please try again.' }, { status: 500 });
     }
 
     return Response.json({ success: true });
-  } catch (err) {
-    console.error('Unhandled error in /api/apply:', err);
+  } catch {
     return Response.json({ error: 'An unexpected error occurred.' }, { status: 500 });
   }
 }

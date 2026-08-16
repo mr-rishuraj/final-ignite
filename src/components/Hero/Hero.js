@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import siteContent from '@/data/siteContent';
 import styles from './Hero.module.css';
 
@@ -93,10 +94,13 @@ export default function Hero() {
 
         {/* Group photo — blended into bottom of hero */}
         <div className={styles.groupPhotoWrap} aria-hidden="true">
-          <img
-            src="/Ignite%20'26%20-%20Dubai/Group%201.png"
+          <Image
+            src="/Ignite '26 - Dubai/Group 1.png"
             alt=""
+            width={2400}
+            height={700}
             className={styles.groupPhoto}
+            priority
           />
         </div>
 
@@ -106,14 +110,17 @@ export default function Hero() {
 
         {/* Watermark — wrapper animates CSS float, img handles JS scale */}
         <div className={styles.watermarkWrap} aria-hidden="true">
-          <img
+          <Image
             src="/ignite-logo.png"
             alt=""
+            width={400}
+            height={400}
             className={styles.watermark}
             style={{
               transform: `scale(${watermarkScale})`,
               opacity:   watermarkOpacity,
             }}
+            priority
           />
           <span className={styles.watermarkLabel}>IGNITE 2026</span>
         </div>
@@ -131,9 +138,12 @@ export default function Hero() {
           {/* Heading */}
           <h1 className={styles.heading}>
             <span className={styles.headingMain}>
-              Build Your <em className={styles.headingHighlight}>Startup</em>
+              {hero.headline.split(' ')[0]}{' '}
+              <em className={styles.headingHighlight}>
+                {hero.headline.split(' ').slice(1).join(' ')}
+              </em>
             </span>
-            <span className={styles.headingAccent}>Your Dream, Our Spark</span>
+            <span className={styles.headingAccent}>{hero.headlineAccent}</span>
           </h1>
 
           {/* Desktop CTA */}

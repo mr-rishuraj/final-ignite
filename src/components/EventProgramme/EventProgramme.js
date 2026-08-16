@@ -114,16 +114,6 @@ export default function EventProgramme() {
           </p>
         </div>
 
-        <div className={styles.legend}>
-          <div className={styles.legendItem}>
-            <span className={styles.legendDot} />
-            <span>Pre-Event · Online</span>
-          </div>
-          <div className={styles.legendItem}>
-            <span className={`${styles.legendDot} ${styles.legendDotAccent}`} />
-            <span>In-Person · Dubai</span>
-          </div>
-        </div>
 
         <div className={styles.snake}>
 

@@ -89,21 +89,13 @@ export default function Hero() {
     <div className={styles.heroScrollZone}>
       <section className={styles.hero} id="hero">
 
-        {/* Background — parallax: moves at 35% scroll speed so skyline drifts upward */}
-        <div
-          className={styles.bg}
-          aria-hidden="true"
-          style={{ transform: `translateY(${scrollY * 0.35}px)` }}
-        />
-
-        {/* Group photo — blended into bottom of hero */}
-        <div className={styles.groupPhotoWrap} aria-hidden="true">
+        {/* Background image — no CSS manipulation, rendered as-is */}
+        <div className={styles.bg} aria-hidden="true">
           <Image
-            src="/Ignite '26 - Dubai/Group 1.png"
+            src="/background-image.png"
             alt=""
-            width={2400}
-            height={700}
-            className={styles.groupPhoto}
+            fill
+            style={{ objectFit: 'cover', objectPosition: 'bottom center' }}
             priority
           />
         </div>
@@ -111,25 +103,7 @@ export default function Hero() {
         {/* Bottom vignette */}
         <div className={styles.overlayBottom} aria-hidden="true" />
 
-
-        {/* Watermark — wrapper animates CSS float, img handles JS scale */}
-        <div className={styles.watermarkWrap} aria-hidden="true">
-          <Image
-            src="/ignite-logo.png"
-            alt=""
-            width={400}
-            height={400}
-            className={styles.watermark}
-            style={{
-              transform: `scale(${watermarkScale})`,
-              opacity:   watermarkOpacity,
-            }}
-            priority
-          />
-          <span className={styles.watermarkLabel}>IGNITE 2026</span>
-        </div>
-
-        {/* Mobile-only CTA — floats over the watermark logo */}
+        {/* Mobile-only CTA */}
         <a href={hero.ctaPrimary.href} className={`${styles.cta} ${styles.ctaMobile}`}>
           Apply Now
         </a>

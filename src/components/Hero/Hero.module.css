@@ -19,16 +19,11 @@
   background: var(--color-bg);
 }
 
-/* ── Background: Dubai skyline illustration ── */
+/* ── Background: container for the bg <Image> ── */
 .bg {
   position: absolute;
-  inset: -20% 0;
-  background-image: url('/background-image.png');
-  background-size: cover;
-  background-position: center 5%;
-  background-repeat: no-repeat;
+  inset: 0;
   z-index: 0;
-  will-change: transform;
 }
 
 /* ── Group photo — hidden: background-image.png already has the cityscape ── */
@@ -255,15 +250,7 @@
 .ctaMobile  { display: none; }
 
 /* ── Architectural curves at the bottom ── */
-.curves {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  pointer-events: none;
-  line-height: 0;
-}
+.curves { display: none; }
 
 .curves svg {
   width: 100%;

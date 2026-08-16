@@ -19,19 +19,20 @@
   background: var(--color-bg);
 }
 
-/* ── Background: warm ivory radial warmth ── */
+/* ── Background: Dubai skyline illustration ── */
 .bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 90% 70% at 55% 25%, rgba(220, 206, 192, 0.38) 0%, transparent 68%),
-    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(210, 198, 186, 0.18) 0%, transparent 60%),
-    var(--color-bg);
+  background-image: url('/background-image.png');
+  background-size: cover;
+  background-position: bottom center;
+  background-repeat: no-repeat;
   z-index: 0;
 }
 
-/* ── Group photo ── */
+/* ── Group photo — hidden: background-image.png already has the cityscape ── */
 .groupPhotoWrap {
+  display: none;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -52,14 +53,14 @@
   filter: sepia(0.28) saturate(1.15) brightness(0.82) contrast(1.08);
 }
 
-/* ── Bottom vignette — lighter so the city reads clearly ── */
+/* ── Bottom vignette — fades illustration into page background ── */
 .overlayBottom {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 160px;
-  background: linear-gradient(to bottom, transparent, rgba(248, 245, 242, 0.55));
+  height: 220px;
+  background: linear-gradient(to bottom, transparent, var(--color-bg));
   z-index: 1;
   pointer-events: none;
 }

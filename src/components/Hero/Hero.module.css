@@ -19,10 +19,10 @@
   background: var(--color-bg);
 }
 
-/* ── Background: container for the bg <Image> ── */
+/* ── Background: extra height absorbs parallax drift ── */
 .bg {
   position: absolute;
-  inset: 0;
+  inset: -20% 0;
   z-index: 0;
 }
 
@@ -72,6 +72,7 @@
   pointer-events: none;
   user-select: none;
   z-index: 0;
+  display: none;
   animation: watermarkFloat 14s ease-in-out infinite;
   will-change: transform;
 }
@@ -303,11 +304,11 @@
     justify-content: flex-start;
   }
 
-  .bg { position: absolute; inset: 0; }
+  .bg { position: absolute; inset: 0; will-change: unset; }
   .scrollCue { display: none; }
   .watermark { width: min(65vw, 280px); }
   .watermarkLabel { display: block; }
-  .watermarkWrap { left: 50%; transform: translate(-50%, -50%); }
+  .watermarkWrap { display: block; left: 50%; transform: translate(-50%, -50%); }
   @keyframes watermarkFloat {
     0%, 100% { transform: translate(-50%, -50%) translateY(0px);   }
     40%       { transform: translate(-50%, -50%) translateY(-16px); }

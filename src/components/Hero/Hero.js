@@ -89,8 +89,12 @@ export default function Hero() {
     <div className={styles.heroScrollZone}>
       <section className={styles.hero} id="hero">
 
-        {/* Background image — no CSS manipulation, rendered as-is */}
-        <div className={styles.bg} aria-hidden="true">
+        {/* Background — parallax layer, drifts at 30% scroll speed */}
+        <div
+          className={styles.bg}
+          aria-hidden="true"
+          style={{ transform: cinematic ? `translateY(${scrollY * 0.3}px)` : 'none' }}
+        >
           <Image
             src="/background-image.png"
             alt=""
@@ -102,6 +106,23 @@ export default function Hero() {
 
         {/* Bottom vignette */}
         <div className={styles.overlayBottom} aria-hidden="true" />
+
+        {/* Watermark — mobile only, centered over the skyline */}
+        <div className={styles.watermarkWrap} aria-hidden="true">
+          <Image
+            src="/ignite-logo.png"
+            alt=""
+            width={400}
+            height={400}
+            className={styles.watermark}
+            style={{
+              transform: `scale(${watermarkScale})`,
+              opacity:   watermarkOpacity,
+            }}
+            priority
+          />
+          <span className={styles.watermarkLabel}>IGNITE 2026</span>
+        </div>
 
         {/* Mobile-only CTA */}
         <a href={hero.ctaPrimary.href} className={`${styles.cta} ${styles.ctaMobile}`}>

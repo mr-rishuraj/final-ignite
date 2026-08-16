@@ -210,8 +210,8 @@ export default function Intro({ onComplete }) {
                 geography={geo}
                 style={{
                   default: { fill: 'rgba(175,155,128,0.18)', stroke: 'none', strokeWidth: 0, outline: 'none' },
-                  hover:   { outline: 'none' },
-                  pressed: { outline: 'none' },
+                  hover:   { fill: 'rgba(175,155,128,0.18)', stroke: 'none', outline: 'none' },
+                  pressed: { fill: 'rgba(175,155,128,0.18)', stroke: 'none', outline: 'none' },
                 }}
               />
             ))}

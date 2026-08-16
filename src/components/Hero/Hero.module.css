@@ -1,8 +1,8 @@
-/* ── Scroll zone: 2× viewport gives room for the cinematic reveal ── */
+/* ── Scroll zone: hero content fades by p=0.4; 1.6× is enough ── */
 .heroScrollZone {
   position: relative;
-  height: 200vh;
-  height: 200svh;
+  height: 160vh;
+  height: 160svh;
 }
 
 /* ── Shell ── */

@@ -1,4 +1,13 @@
-.section { padding: var(--section-pad-y) 0 calc(var(--section-pad-y) * 1.2); background: var(--color-bg); }
+.section {
+  padding: var(--section-pad-y) 0 calc(var(--section-pad-y) * 1.2);
+  background: var(--color-bg);
+  /* Pull up to close the empty zone at the bottom of the hero scroll container.
+     heroScrollZone = 160svh, hero = 100svh → empty gap = 60svh. */
+  margin-top: -60svh;
+  margin-top: -60vh; /* fallback */
+  position: relative;
+  z-index: 1;
+}
 .container { max-width: var(--page-max); margin: 0 auto; padding: 0 var(--gutter); }
 
 /* ── About header — centered ── */

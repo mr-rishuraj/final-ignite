@@ -96,9 +96,9 @@ function Card({ step }) {
 }
 
 export default function EventProgramme() {
-  const preRows  = [[steps[0], steps[1]], [steps[2], steps[3]]];
+  const preRows  = [[steps[0], steps[1]], [steps[3], steps[2]]];
   const milestone = steps[4];
-  const dubaiRows = [[steps[5], steps[6]], [steps[7], steps[8]]];
+  const dubaiRows = [[steps[5], steps[6]], [steps[8], steps[7]]];
 
   return (
     <section id="programme" className={styles.section}>
@@ -131,7 +131,9 @@ export default function EventProgramme() {
           {preRows.map((row, ri) => (
             <div key={ri}>
               <div className={styles.rowPair}>
-                {row.map(step => <Card key={step.num} step={step} />)}
+                <Card step={row[0]} />
+                <div className={styles.rowConn} />
+                <Card step={row[1]} />
               </div>
               <div className={`${styles.conn} ${ri === 0 ? styles.connR : styles.connL}`} />
             </div>
@@ -142,6 +144,8 @@ export default function EventProgramme() {
             <Card step={milestone} />
           </div>
 
+          <div className={styles.connStraightL} />
+
           {/* Phase transition */}
           <div className={styles.phaseTransition}>
             <span className={styles.ptLine} />
@@ -149,11 +153,15 @@ export default function EventProgramme() {
             <span className={styles.ptLine} />
           </div>
 
+          <div className={styles.connStraightL} />
+
           {/* Dubai rows (2 per row) */}
           {dubaiRows.map((row, ri) => (
             <div key={ri}>
               <div className={styles.rowPair}>
-                {row.map(step => <Card key={step.num} step={step} />)}
+                <Card step={row[0]} />
+                <div className={styles.rowConn} />
+                <Card step={row[1]} />
               </div>
               {ri < dubaiRows.length - 1 && (
                 <div className={`${styles.conn} ${styles.connR}`} />

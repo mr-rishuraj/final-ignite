@@ -1,5 +1,6 @@
 .container {
   max-width: var(--page-max);
+  width: 100%;
   margin: 0 auto;
   padding: 0 var(--gutter);
 }
@@ -136,7 +137,7 @@
 /* ── Responsive ── */
 @media (max-width: 1024px) { .grid { grid-template-columns: repeat(4, 1fr); } }
 @media (max-width: 700px)  { .grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 360px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px)  { .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
 
 @media (max-width: 640px) {
   .hero {
@@ -145,6 +146,7 @@
   .title { font-size: clamp(1.8rem, 8vw, 2.6rem); }
   .section {
     padding: calc(var(--section-pad-y) * 0.75) 0 calc(var(--section-pad-y) * 0.9);
+    overflow-x: hidden;
   }
   .card { padding: 10px 12px; border-radius: 8px; }
 }

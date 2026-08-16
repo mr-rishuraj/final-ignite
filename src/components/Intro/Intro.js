@@ -10,7 +10,7 @@ import {
 } from 'react-simple-maps';
 import styles from './Intro.module.css';
 
-const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
+const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json';
 
 const PILANI = [75.6, 28.37]; // BITS Pilani — [lon, lat]
 const DUBAI  = [55.3, 25.2];  // Dubai, UAE

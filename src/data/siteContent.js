@@ -58,7 +58,7 @@ const siteContent = {
     label: 'IGNITE 2026',
     title: 'The Global Summit',
     titleAccent: 'in Dubai.',
-    body: 'Six days of unparalleled opportunity. A carefully curated gathering of 100+ pre-vetted innovators, industry leaders, investors, and founders from across the globe, all converging in Dubai to forge partnerships and launch the next wave of startups.',
+    body: 'Three days of unparalleled opportunity. A carefully curated gathering of 100+ pre-vetted innovators, industry leaders, investors, and founders from across the globe, all converging in Dubai to forge partnerships and launch the next wave of startups.',
     marks: [
       { value: 'Dubai',  label: 'Host city, UAE' },
       { value: '2026',   label: 'Edition' },

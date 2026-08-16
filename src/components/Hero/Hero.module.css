@@ -183,7 +183,7 @@
 /* ── Heading ── */
 .heading {
   font-family: 'Instrument Serif', Georgia, serif;
-  font-size: clamp(2.4rem, 5.2vw, 4.8rem);
+  font-size: clamp(2rem, 3.6vw, 3.4rem);
   font-weight: 400;
   line-height: 0.9;
   letter-spacing: -0.01em;
@@ -245,7 +245,7 @@
 }
 
 /* Desktop CTA (inside .inner) — hidden on mobile */
-.ctaDesktop { display: inline-flex; }
+.ctaDesktop { display: none; }
 
 /* Mobile CTA — hidden on desktop, centered over watermark on mobile */
 .ctaMobile  { display: none; }
@@ -287,9 +287,9 @@
   .headingMain { white-space: normal; }
 }
 
-/* Tablet: keep desktop sticky layout, shrink heading slightly */
+/* Tablet */
 @media (max-width: 900px) {
-  .heading { font-size: clamp(2.2rem, 5.5vw, 4rem); }
+  .heading { font-size: clamp(2rem, 5vw, 3.4rem); }
 }
 
 /* Mobile layout: ≤640px */
@@ -315,7 +315,7 @@
   }
   .groupPhotoWrap { display: none; }
 
-  .heading { font-size: clamp(2rem, 8vw, 3rem); }
+  .heading { font-size: clamp(3rem, 11vw, 4.2rem); }
 
   .curves svg { height: clamp(100px, 22vh, 160px); }
 
@@ -333,7 +333,7 @@
 
 /* Small phone */
 @media (max-width: 430px) {
-  .heading { font-size: clamp(1.9rem, 9vw, 2.6rem); }
+  .heading { font-size: clamp(2.6rem, 10vw, 3.6rem); }
 }
 
 /* Landscape phone */

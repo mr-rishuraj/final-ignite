@@ -17,7 +17,7 @@ const siteContent = {
   },
   hero: {
     badge: 'Dubai · 2026',
-    headline: 'Building Tomorrow,',
+    headline: 'Building tomorrow,',
     headlineAccent: 'Together.',
     description: 'IGNITE is the flagship global innovation and entrepreneurship platform by PIEDS — bringing together visionary founders, investors, industry leaders, and aspiring entrepreneurs to exchange ideas, build connections, and shape the future.',
     ctaPrimary: { label: 'Apply Now', href: '/apply' },

@@ -218,27 +218,6 @@ export default function Intro({ onComplete }) {
           </Geographies>
         )}
 
-        {/* Subtle highlight for India & UAE on top of land */}
-        {topology && (
-          <Geographies geography={{
-            type: 'FeatureCollection',
-            features: feature(topology, topology.objects.countries).features.filter(
-              geo => [356, 784].includes(parseInt(geo.id))
-            ),
-          }}>
-            {({ geographies }) => geographies.map(geo => (
-              <Geography
-                key={geo.rsmKey + '-hl'}
-                geography={geo}
-                style={{
-                  default: { fill: 'rgba(255,210,160,0.16)', stroke: 'none', strokeWidth: 0, outline: 'none' },
-                  hover:   { outline: 'none' },
-                  pressed: { outline: 'none' },
-                }}
-              />
-            ))}
-          </Geographies>
-        )}
 
         <FlightLayer flying={flying} landed={landed} />
       </ComposableMap>

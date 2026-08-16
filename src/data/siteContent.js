@@ -62,7 +62,7 @@ const siteContent = {
     marks: [
       { value: 'Dubai',  label: 'Host city, UAE' },
       { value: '2026',   label: 'Edition' },
-      { value: '6 Days', label: 'Of building' },
+      { value: '3 Days', label: 'Of building' },
       { value: 'Global', label: 'Delegate cohort' },
     ],
     image: { src: '/bits-dubai.jpg', alt: 'BITS Pilani Dubai Campus — host of IGNITE 2026' },

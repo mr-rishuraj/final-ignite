@@ -52,10 +52,6 @@ export default function Footer() {
               The flagship global innovation and entrepreneurship platform by PIEDS —
               building tomorrow, together, from Dubai&nbsp;2026.
             </p>
-            <div className={styles.badge}>
-              <span className={styles.badgeDot} />
-              Applications open · Dubai 2026
-            </div>
           </div>
 
           {/* Nav cols */}

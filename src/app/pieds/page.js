@@ -5,11 +5,17 @@ import Footer from '@/components/Footer/Footer';
 export const metadata = {
   title: 'PIEDS — Pilani Innovation & Entrepreneurship Development Society',
   description: 'PIEDS is a leading non-profit technology business incubator established in 2013 at BITS Pilani, powering 75+ startups and ₹5M+ raised.',
-  alternates: { canonical: 'https://final-ignite.vercel.app/pieds' },
+  keywords: ['PIEDS', 'Pilani Innovation Entrepreneurship Development Society', 'BITS Pilani incubator', 'startup incubator India', 'NIDHI SISFS', 'student startup incubator', 'BITS Pilani entrepreneurship', 'PIEDS IGNITE 2026'],
+  alternates: { canonical: 'https://ignite.pieds-st.in/pieds' },
   openGraph: {
     title: 'PIEDS — Pilani Innovation & Entrepreneurship Development Society',
     description: 'Powering 75+ startups and ₹5M+ raised. PIEDS is a student-led non-profit incubator at BITS Pilani, and the organiser behind IGNITE 2026.',
-    url: 'https://final-ignite.vercel.app/pieds',
+    url: 'https://ignite.pieds-st.in/pieds',
+    images: [{ url: 'https://ignite.pieds-st.in/pieds/opengraph-image', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['https://ignite.pieds-st.in/pieds/opengraph-image'],
   },
 };
 
@@ -17,8 +23,8 @@ const breadcrumbLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://final-ignite.vercel.app' },
-    { '@type': 'ListItem', position: 2, name: 'PIEDS', item: 'https://final-ignite.vercel.app/pieds' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ignite.pieds-st.in' },
+    { '@type': 'ListItem', position: 2, name: 'PIEDS', item: 'https://ignite.pieds-st.in/pieds' },
   ],
 };
 
@@ -28,7 +34,7 @@ const organizationLd = {
   name: 'PIEDS — Pilani Innovation & Entrepreneurship Development Society',
   alternateName: 'PIEDS',
   url: 'https://pieds-bitspilani.org/',
-  logo: 'https://final-ignite.vercel.app/pieds-image/Group 100.png',
+  logo: 'https://ignite.pieds-st.in/pieds-image/Group 100.png',
   foundingDate: '2013',
   description: 'A leading non-profit technology business incubator at BITS Pilani, powering 75+ startups with ₹5M+ raised.',
   parentOrganization: { '@type': 'CollegeOrUniversity', name: 'BITS Pilani' },

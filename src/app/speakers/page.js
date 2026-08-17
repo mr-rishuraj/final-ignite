@@ -7,11 +7,17 @@ import styles from './speakers.module.css';
 export const metadata = {
   title: 'Speakers',
   description: 'Meet the visionary founders, investors, and industry leaders speaking at IGNITE 2026 in Dubai — the flagship entrepreneurship summit by PIEDS × BITS Pilani.',
-  alternates: { canonical: 'https://final-ignite.vercel.app/speakers' },
+  keywords: ['IGNITE 2026 speakers', 'startup summit speakers Dubai', 'entrepreneurship conference speakers', 'innovation summit keynotes', 'investor speakers Dubai 2026', 'BITS Pilani IGNITE', 'PIEDS speakers'],
+  alternates: { canonical: 'https://ignite.pieds-st.in/speakers' },
   openGraph: {
     title: 'Speakers — IGNITE 2026',
     description: 'Meet the visionary founders, investors, and industry leaders speaking at IGNITE 2026 in Dubai.',
-    url: 'https://final-ignite.vercel.app/speakers',
+    url: 'https://ignite.pieds-st.in/speakers',
+    images: [{ url: 'https://ignite.pieds-st.in/speakers/opengraph-image', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['https://ignite.pieds-st.in/speakers/opengraph-image'],
   },
 };
 
@@ -23,8 +29,8 @@ export default function SpeakersPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://final-ignite.vercel.app' },
-      { '@type': 'ListItem', position: 2, name: 'Speakers', item: 'https://final-ignite.vercel.app/speakers' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ignite.pieds-st.in' },
+      { '@type': 'ListItem', position: 2, name: 'Speakers', item: 'https://ignite.pieds-st.in/speakers' },
     ],
   };
 

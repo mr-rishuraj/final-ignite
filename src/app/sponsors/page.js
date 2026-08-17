@@ -6,11 +6,17 @@ import styles from './sponsors.module.css';
 export const metadata = {
   title: 'Partners & Sponsors',
   description: 'Explore the global network of sponsors and partners who have backed IGNITE — including Razorpay, Notion, CNBC, YourStory, and many more.',
-  alternates: { canonical: 'https://final-ignite.vercel.app/sponsors' },
+  keywords: ['IGNITE 2026 sponsors', 'startup summit partners Dubai', 'Razorpay', 'Notion', 'CNBC', 'YourStory', 'PIEDS sponsors', 'IGNITE 2026 partners', 'innovation summit sponsors'],
+  alternates: { canonical: 'https://ignite.pieds-st.in/sponsors' },
   openGraph: {
     title: 'Partners & Sponsors — IGNITE 2026',
     description: 'Explore the global network of sponsors and partners who have backed IGNITE across editions.',
-    url: 'https://final-ignite.vercel.app/sponsors',
+    url: 'https://ignite.pieds-st.in/sponsors',
+    images: [{ url: 'https://ignite.pieds-st.in/sponsors/opengraph-image', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['https://ignite.pieds-st.in/sponsors/opengraph-image'],
   },
 };
 
@@ -18,8 +24,8 @@ const breadcrumbLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://final-ignite.vercel.app' },
-    { '@type': 'ListItem', position: 2, name: 'Partners & Sponsors', item: 'https://final-ignite.vercel.app/sponsors' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ignite.pieds-st.in' },
+    { '@type': 'ListItem', position: 2, name: 'Partners & Sponsors', item: 'https://ignite.pieds-st.in/sponsors' },
   ],
 };
 
@@ -55,7 +61,7 @@ export default function SponsorsPage() {
                 style={{ animationDelay: `${(i % 10) * 35}ms` }}
               >
                 <div className={styles.logoWrap}>
-                  <img src={src} alt="sponsor" className={styles.logo} loading="lazy" />
+                  <img src={src} alt={`IGNITE 2026 sponsor logo ${i + 1}`} className={styles.logo} loading="lazy" />
                 </div>
               </div>
             ))}

@@ -1,4 +1,4 @@
-const BASE_URL = 'https://final-ignite.vercel.app';
+const BASE_URL = 'https://ignite.pieds-st.in';
 
 export default function sitemap() {
   return [

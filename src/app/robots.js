@@ -3,6 +3,6 @@ export default function robots() {
     rules: [
       { userAgent: '*', allow: '/', disallow: '/api/' },
     ],
-    sitemap: 'https://final-ignite.vercel.app/sitemap.xml',
+    sitemap: 'https://ignite.pieds-st.in/sitemap.xml',
   };
 }

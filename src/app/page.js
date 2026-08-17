@@ -12,22 +12,21 @@ import Footer from '@/components/Footer/Footer';
 export const metadata = {
   title: 'IGNITE 2026 — Global Innovation Summit, Dubai',
   description: 'IGNITE is the flagship global innovation and entrepreneurship summit by PIEDS × BITS Pilani. Join 100+ founders, investors, and industry leaders in Dubai 2026.',
-  alternates: { canonical: 'https://final-ignite.vercel.app' },
+  alternates: { canonical: 'https://ignite.pieds-st.in' },
 };
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Event',
   name: 'IGNITE 2026',
-  description: 'The flagship global innovation and entrepreneurship summit by PIEDS × BITS Pilani, bringing together founders, investors, and industry leaders.',
-  url: 'https://final-ignite.vercel.app',
-  startDate: '2026-01-01',
-  endDate: '2026-12-31',
+  description: 'The flagship global innovation and entrepreneurship summit by PIEDS × BITS Pilani, bringing together 100+ founders, investors, and industry leaders in Dubai.',
+  url: 'https://ignite.pieds-st.in',
+  startDate: '2026',
   eventStatus: 'https://schema.org/EventScheduled',
   eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
   location: {
     '@type': 'Place',
-    name: 'Dubai, UAE',
+    name: 'BITS Pilani Dubai Campus, Dubai, UAE',
     address: { '@type': 'PostalAddress', addressLocality: 'Dubai', addressCountry: 'AE' },
   },
   organizer: {
@@ -35,13 +34,20 @@ const jsonLd = {
     name: 'PIEDS — BITS Pilani',
     url: 'https://pieds-bitspilani.org/',
   },
-  image: 'https://final-ignite.vercel.app/gallery/keynote-stage.jpg',
+  image: 'https://ignite.pieds-st.in/bits-dubai.jpg',
   offers: {
     '@type': 'Offer',
-    url: 'https://final-ignite.vercel.app/apply',
+    url: 'https://ignite.pieds-st.in/apply',
     availability: 'https://schema.org/InStock',
-    validFrom: '2026-01-01',
+    price: '0',
+    priceCurrency: 'INR',
+    description: 'Equity-free grants available for selected founders.',
   },
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Founders, Investors, Entrepreneurs, Industry Leaders',
+  },
+  typicalAgeRange: '18-',
 };
 
 export default function Home() {

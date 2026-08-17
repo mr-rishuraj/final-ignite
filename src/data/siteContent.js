@@ -2,7 +2,7 @@ const siteContent = {
   meta: {
     title: 'IGNITE 2026 — Building Tomorrow, Together',
     description: 'IGNITE is the flagship global innovation and entrepreneurship platform by PIEDS, bringing together visionary founders, investors, and industry leaders to shape the future.',
-    ogImage: 'https://framerusercontent.com/images/7nSs7VnwPoPuE8VzDBzu3tvMi8.jpg',
+    ogImage: 'https://ignite.pieds-st.in/opengraph-image',
   },
   nav: {
     logoText: 'IGNITE',

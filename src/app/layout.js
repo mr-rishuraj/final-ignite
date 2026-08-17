@@ -33,6 +33,9 @@ export const metadata = {
     description: 'Join 100+ founders, investors, and leaders at the IGNITE 2026 summit in Dubai by PIEDS × BITS Pilani.',
     images: [OG_IMAGE],
   },
+  verification: {
+    google: '2nKjzkjehs6nfY14hPV2xqmMXvJEYPc_QkjAdZKxpI0',
+  },
   robots: {
     index: true,
     follow: true,

@@ -21,6 +21,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
+    alternateLocale: ['en_AE', 'en_GB'],
     url: BASE_URL,
     siteName: 'IGNITE 2026',
     title: 'IGNITE 2026 — Global Innovation Summit, Dubai',
@@ -29,6 +30,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@pieds_bitspilani',
+    creator: '@pieds_bitspilani',
     title: 'IGNITE 2026 — Global Innovation Summit, Dubai',
     description: 'Join 100+ founders, investors, and leaders at the IGNITE 2026 summit in Dubai by PIEDS × BITS Pilani.',
     images: [OG_IMAGE],
@@ -48,9 +51,11 @@ export const metadata = {
     },
   },
   icons: {
-    icon: '/ignite-logo.png',
+    icon: [
+      { url: '/ignite-logo.png', type: 'image/png' },
+    ],
     shortcut: '/ignite-logo.png',
-    apple: '/ignite-logo.png',
+    apple: [{ url: '/ignite-logo.png', sizes: '180x180', type: 'image/png' }],
   },
 };
 
@@ -59,6 +64,19 @@ export const viewport = {
   initialScale: 1,
   viewportFit: 'cover',
   themeColor: '#fff8f3',
+};
+
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'IGNITE 2026',
+  url: BASE_URL,
+  description: 'The flagship global innovation and entrepreneurship summit by PIEDS × BITS Pilani, Dubai 2026.',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${BASE_URL}/speakers?q={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
 };
 
 const organizationLd = {
@@ -71,13 +89,12 @@ const organizationLd = {
   foundingDate: '2013',
   description: 'A leading non-profit technology business incubator at BITS Pilani, organiser of IGNITE — the flagship global entrepreneurship summit.',
   parentOrganization: { '@type': 'CollegeOrUniversity', name: 'BITS Pilani' },
-  sameAs: ['https://pieds-bitspilani.org/'],
-  event: {
-    '@type': 'Event',
-    name: 'IGNITE 2026',
-    url: BASE_URL,
-    location: { '@type': 'Place', name: 'Dubai, UAE', address: { '@type': 'PostalAddress', addressLocality: 'Dubai', addressCountry: 'AE' } },
-  },
+  sameAs: [
+    'https://pieds-bitspilani.org/',
+    'https://www.linkedin.com/company/pilani-innovation-entrepreneurship-development-society-pieds-bits-pilani/',
+    'https://www.instagram.com/pieds_bitspilani/',
+    'https://www.bits-pilani.ac.in/',
+  ],
 };
 
 export default function RootLayout({ children }) {
@@ -86,6 +103,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }} />
       </head>
       <body suppressHydrationWarning>

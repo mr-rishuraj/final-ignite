@@ -136,6 +136,7 @@ export default function Hero() {
         >
           {/* Heading */}
           <h1 className={styles.heading}>
+            <span className="sr-only">IGNITE 2026 — Global Innovation Summit, Dubai: </span>
             <span className={styles.headingMain}>
               {hero.headline.split(' ')[0]}{' '}
               <em className={styles.headingHighlight}>

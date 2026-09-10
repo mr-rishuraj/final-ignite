@@ -62,6 +62,8 @@ const eventLd = {
       availability: 'https://schema.org/InStock',
       price: '0',
       priceCurrency: 'AED',
+      validFrom: '2026-01-01T00:00:00+04:00',
+      priceValidUntil: '2026-10-29T09:00:00+04:00',
       description: 'Equity-free grants of ₹10L+ available for selected founders.',
     },
     {
@@ -71,6 +73,8 @@ const eventLd = {
       availability: 'https://schema.org/InStock',
       price: '299',
       priceCurrency: 'USD',
+      validFrom: '2026-01-01T00:00:00+04:00',
+      priceValidUntil: '2026-10-29T09:00:00+04:00',
       description: 'Full access to the IGNITE 2026 global summit.',
     },
     {
@@ -80,6 +84,8 @@ const eventLd = {
       availability: 'https://schema.org/InStock',
       price: '599',
       priceCurrency: 'USD',
+      validFrom: '2026-01-01T00:00:00+04:00',
+      priceValidUntil: '2026-10-29T09:00:00+04:00',
       description: 'Premium access with investor interactions and mentorship.',
     },
   ],

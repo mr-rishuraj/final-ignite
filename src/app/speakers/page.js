@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import siteContent from '@/data/siteContent';
@@ -52,8 +53,14 @@ export default function SpeakersPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakersLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd).replace(/</g, '\\u003c') }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(speakersLd).replace(/</g, '\\u003c') }}
+      />
 
       <Navbar />
 
@@ -61,6 +68,7 @@ export default function SpeakersPage() {
         <div className={styles.container}>
           <span className={styles.eyebrow}>{speakers.label}</span>
           <h1 className={styles.title}>
+            <span className="sr-only">IGNITE 2026 Speakers: </span>
             {speakers.title} <em className={styles.em}>{speakers.titleAccent}</em>
           </h1>
           <p className={styles.desc}>{speakers.description}</p>
@@ -80,7 +88,7 @@ export default function SpeakersPage() {
                   {s.image ? (
                     <Image
                       src={s.image}
-                      alt={s.name}
+                      alt={`${s.name} - ${s.role} at ${s.company}`}
                       fill
                       sizes="(max-width: 580px) 45vw, (max-width: 860px) 30vw, (max-width: 1100px) 22vw, 18vw"
                       className={styles.img}
@@ -103,6 +111,19 @@ export default function SpeakersPage() {
             <p className={styles.moreText}>and many more…</p>
             <span className={styles.moreLine} />
           </div>
+        </div>
+      </section>
+
+      {/* Internal funnel CTA */}
+      <section className={styles.ctaSection}>
+        <div className={styles.container}>
+          <h2 className={styles.ctaTitle}>Want to meet or pitch to these leaders?</h2>
+          <p className={styles.ctaDesc}>
+            Join 100+ innovators, investors, and founders in Dubai for IGNITE 2026. Submit your startup for equity-free grants and global mentorship.
+          </p>
+          <Link href="/apply" className={styles.ctaBtn}>
+            Apply to IGNITE 2026 →
+          </Link>
         </div>
       </section>
 

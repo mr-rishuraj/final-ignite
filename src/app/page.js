@@ -7,7 +7,10 @@ import Ignite2026 from '@/components/Ignite2026/Ignite2026';
 import SpeakersGrid from '@/components/SpeakersGrid';
 import EventsCollage from '@/components/EventsCollage/EventsCollage';
 import EventProgramme from '@/components/EventProgramme/EventProgramme';
+import FAQ from '@/components/FAQ/FAQ';
 import Footer from '@/components/Footer/Footer';
+import siteContent from '@/data/siteContent';
+import { FAQ_ITEMS } from '@/data/faqData';
 
 export const metadata = {
   title: 'IGNITE 2026 — Global Innovation Summit, Dubai',
@@ -15,38 +18,80 @@ export const metadata = {
   alternates: { canonical: 'https://ignite.pieds-st.in' },
 };
 
+const allSpeakers = [...siteContent.speakers.row1, ...siteContent.speakers.row2];
+
 const eventLd = {
   '@context': 'https://schema.org',
   '@type': 'Event',
-  name: 'IGNITE 2026',
+  name: 'IGNITE 2026 — Global Innovation Summit, Dubai',
+  alternateName: 'IGNITE 2026',
   description: 'The flagship global innovation and entrepreneurship summit by PIEDS × BITS Pilani, bringing together 100+ founders, investors, and industry leaders in Dubai.',
   url: 'https://ignite.pieds-st.in',
-  startDate: '2026-10-29',
-  endDate: '2026-10-31',
+  startDate: '2026-10-29T09:00:00+04:00',
+  endDate: '2026-10-31T18:00:00+04:00',
   eventStatus: 'https://schema.org/EventScheduled',
   eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
   location: {
     '@type': 'Place',
-    name: 'BITS Pilani Dubai Campus, Dubai, UAE',
-    address: { '@type': 'PostalAddress', addressLocality: 'Dubai', addressCountry: 'AE' },
+    name: 'BITS Pilani Dubai Campus',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Dubai International Academic City',
+      addressLocality: 'Dubai',
+      addressRegion: 'Dubai',
+      postalCode: '345055',
+      addressCountry: 'AE',
+    },
   },
   organizer: {
     '@type': 'Organization',
     name: 'PIEDS — BITS Pilani',
     url: 'https://pieds-bitspilani.org/',
+    logo: 'https://ignite.pieds-st.in/ignite-logo.png',
   },
   image: [
     'https://ignite.pieds-st.in/bits-dubai.jpg',
     'https://ignite.pieds-st.in/background-image.png',
+    'https://ignite.pieds-st.in/opengraph-image',
   ],
-  offers: {
-    '@type': 'Offer',
-    url: 'https://ignite.pieds-st.in/apply',
-    availability: 'https://schema.org/InStock',
-    price: '0',
-    priceCurrency: 'AED',
-    description: 'Equity-free grants available for selected founders.',
-  },
+  offers: [
+    {
+      '@type': 'Offer',
+      name: 'Founder Application (Equity-free grants)',
+      url: 'https://ignite.pieds-st.in/apply',
+      availability: 'https://schema.org/InStock',
+      price: '0',
+      priceCurrency: 'AED',
+      description: 'Equity-free grants of ₹10L+ available for selected founders.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Delegate Pass',
+      url: 'https://ignite.pieds-st.in/apply',
+      availability: 'https://schema.org/InStock',
+      price: '299',
+      priceCurrency: 'USD',
+      description: 'Full access to the IGNITE 2026 global summit.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Founder Pass',
+      url: 'https://ignite.pieds-st.in/apply',
+      availability: 'https://schema.org/InStock',
+      price: '599',
+      priceCurrency: 'USD',
+      description: 'Premium access with investor interactions and mentorship.',
+    },
+  ],
+  performer: allSpeakers.map((s) => ({
+    '@type': 'Person',
+    name: s.name,
+    jobTitle: s.role,
+    worksFor: {
+      '@type': 'Organization',
+      name: s.company,
+    },
+  })),
   audience: {
     '@type': 'Audience',
     audienceType: 'Founders, Investors, Entrepreneurs, Industry Leaders',
@@ -57,63 +102,27 @@ const eventLd = {
 const faqLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What is IGNITE 2026?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'IGNITE 2026 is the flagship global innovation and entrepreneurship summit hosted in Dubai by PIEDS × BITS Pilani. It brings together 100+ pre-vetted founders, investors, and industry leaders for three days of networking, pitching, and collaboration.',
-      },
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
     },
-    {
-      '@type': 'Question',
-      name: 'How can I apply to IGNITE 2026?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'You can apply to IGNITE 2026 through the official application form at https://ignite.pieds-st.in/apply. Selected startups receive equity-free grants, investor access, and global exposure.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Where is IGNITE 2026 being held?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'IGNITE 2026 is held at the BITS Pilani Dubai Campus in Dubai, UAE.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Who can attend IGNITE 2026?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'IGNITE 2026 is open to startup founders, investors, venture capitalists, industry leaders, and aspiring entrepreneurs. Applications are evaluated and curated for quality.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is PIEDS?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'PIEDS (Pilani Innovation & Entrepreneurship Development Society) is a leading non-profit technology business incubator established in 2013 at BITS Pilani. It has powered 75+ startups and facilitated ₹5M+ in funding, and is the organiser behind IGNITE.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Are there equity-free grants at IGNITE 2026?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. IGNITE 2026 offers equity-free grants of ₹10L+ to selected startups through PIEDS, with no equity or repayment required.',
-      },
-    },
-  ],
+  })),
 };
 
 export default function Home() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(eventLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventLd).replace(/</g, '\\u003c') }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd).replace(/</g, '\\u003c') }}
+      />
       <IntroWrapper />
       <Navbar />
       <Hero />
@@ -123,6 +132,7 @@ export default function Home() {
       <EventProgramme />
       <Sponsors />
       <SpeakersGrid />
+      <FAQ />
       <Footer />
     </>
   );

@@ -133,8 +133,8 @@ const siteContent = {
         year: '2026',
         name: 'IGNITE 2026',
         place: 'Dubai, UAE',
-        summary: 'The summit goes global — six days connecting founders, investors, policymakers, and industry leaders across borders and ecosystems.',
-        metrics: ['6-day programme', 'Global cohort', 'Investor panels'],
+        summary: 'The summit goes global — three days connecting founders, investors, policymakers, and industry leaders at BITS Pilani Dubai Campus.',
+        metrics: ['3-day summit', 'Global cohort', 'Investor panels'],
         upcoming: true,
       },
     ],
@@ -184,7 +184,7 @@ const siteContent = {
       },
       {
         title: 'Brand Visibility',
-        description: 'Premium sponsorship placement across 6-day event in Dubai\'s most connected hub.',
+        description: 'Premium sponsorship placement across summit events in Dubai\'s most connected hub.',
         icon: 'https://framerusercontent.com/images/H3QMF2I41FYBAUQa9OyXUquJJxQ.svg',
       },
       {
@@ -386,9 +386,9 @@ const siteContent = {
     tagline: 'Building Tomorrow, Together.',
     copyright: '© 2026 IGNITE · A PIEDS × BITS Pilani Event. All rights reserved.',
     links: [
-      { label: 'Privacy Policy',  href: '#' },
-      { label: 'Terms of Service', href: '#' },
-      { label: 'Code of Conduct', href: '#' },
+      { label: 'Privacy Policy',  href: '/privacy' },
+      { label: 'Terms of Service', href: '/terms' },
+      { label: 'Code of Conduct', href: '/code-of-conduct' },
     ],
     social: [
       { label: 'LinkedIn',  href: 'https://www.linkedin.com/company/pilani-innovation-entrepreneurship-development-society-pieds-bits-pilani/posts/?feedView=all' },

@@ -1,23 +1,26 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 import siteContent from '@/data/siteContent';
 import styles from './Navbar.module.css';
+
+const subscribe = () => () => {};
+const getSnapshot = () => true;
+const getServerSnapshot = () => false;
 
 export default function Navbar() {
   const { nav } = siteContent;
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled]     = useState(false);
-  const [mounted, setMounted]       = useState(false);
+  const mounted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const pathname = usePathname();
   const onHome      = pathname === '/';
   const darkHero    = pathname === '/pieds';
   const useLightNav = darkHero && !scrolled;
-
-  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 32);
@@ -50,10 +53,10 @@ export default function Navbar() {
       aria-hidden={!mobileOpen}
     >
       <div className={styles.mobileHeader}>
-        <a href="/" className={styles.mobileLogo} onClick={() => setMobileOpen(false)}>
+        <Link href="/" className={styles.mobileLogo} onClick={() => setMobileOpen(false)}>
           <span className={styles.mobileLogoText}>{nav.logoText}</span>
-          <span className={styles.mobileLogoYear}>'{nav.logoYear}</span>
-        </a>
+          <span className={styles.mobileLogoYear}>&apos;{nav.logoYear}</span>
+        </Link>
         <button
           className={styles.mobileClose}
           onClick={() => setMobileOpen(false)}
@@ -65,7 +68,7 @@ export default function Navbar() {
 
       <nav className={styles.mobileLinks}>
         {nav.links.map((link, i) => (
-          <a
+          <Link
             key={link.label}
             href={resolveHref(link.href)}
             className={styles.mobileLink}
@@ -74,18 +77,18 @@ export default function Navbar() {
           >
             <span className={styles.mobileLinkNum}>0{i + 1}</span>
             {link.label}
-          </a>
+          </Link>
         ))}
       </nav>
 
-      <a
+      <Link
         href={resolveHref(nav.ctaHref)}
         className={styles.mobileCta}
         style={{ transitionDelay: mobileOpen ? `${nav.links.length * 60 + 100}ms` : '0ms' }}
         onClick={() => setMobileOpen(false)}
       >
         {nav.ctaText}
-      </a>
+      </Link>
     </div>
   );
 
@@ -98,32 +101,32 @@ export default function Navbar() {
         <div className={styles.container}>
 
           {/* Logo */}
-          <a href="/" className={styles.logo}>
-            <Image src="/ignite-logo.png" alt="" width={18} height={18} className={styles.logoIcon} aria-hidden="true" />
+          <Link href="/" className={styles.logo} aria-label="IGNITE 2026 Home">
+            <Image src="/ignite-logo.png" alt="IGNITE logo" width={18} height={18} className={styles.logoIcon} />
             <span className={styles.logoText}>{nav.logoText}</span>
-            <span className={styles.logoYear}>'{nav.logoYear}</span>
-          </a>
+            <span className={styles.logoYear}>&apos;{nav.logoYear}</span>
+          </Link>
 
           {/* Nav links — centered */}
           <div className={styles.navLinks}>
             {nav.links.map((link) => {
               const active = pathname === link.href;
               return (
-                <a
+                <Link
                   key={link.label}
                   href={resolveHref(link.href)}
                   className={`${styles.navLink} ${active ? styles.navLinkActive : ''}`}
                 >
                   {link.label}
-                </a>
+                </Link>
               );
             })}
           </div>
 
           {/* CTA */}
-          <a href={resolveHref(nav.ctaHref)} className={styles.ctaBtn}>
+          <Link href={resolveHref(nav.ctaHref)} className={styles.ctaBtn}>
             {nav.ctaText}
-          </a>
+          </Link>
 
           {/* Hamburger */}
           <button

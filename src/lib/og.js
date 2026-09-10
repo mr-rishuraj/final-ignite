@@ -27,12 +27,12 @@ export async function makeOGImage({ eyebrow = 'IGNITE 2026 · DUBAI', line1, lin
       >
         {/* Brand */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-          <img src={logoSrc} width={38} height={38} style={{ borderRadius: '50%' }} />
+          <img src={logoSrc} alt="" width={38} height={38} style={{ borderRadius: '50%' }} />
           <span style={{ color: '#F8F5F2', fontSize: 22, letterSpacing: '0.22em', fontWeight: 300 }}>
             IGNITE
           </span>
           <span style={{ color: '#C53B48', fontSize: 16, fontWeight: 700, letterSpacing: '0.05em' }}>
-            '26
+            &apos;26
           </span>
         </div>
 

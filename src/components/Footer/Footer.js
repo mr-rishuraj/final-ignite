@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import styles from './Footer.module.css';
 
 const NAV_COLS = [
@@ -32,7 +33,11 @@ const NAV_COLS = [
   },
 ];
 
-const LEGAL = ['Privacy Policy', 'Terms of Service', 'Code of Conduct'];
+const LEGAL = [
+  { label: 'Privacy Policy',  href: '/privacy' },
+  { label: 'Terms of Service', href: '/terms' },
+  { label: 'Code of Conduct', href: '/code-of-conduct' },
+];
 
 export default function Footer() {
   return (
@@ -45,7 +50,7 @@ export default function Footer() {
           {/* Brand col */}
           <div className={styles.brand}>
             <div className={styles.brandLogo}>
-              <img src="/ignite-logo.png" alt="IGNITE" className={styles.brandIcon} />
+              <img src="/ignite-logo.png" alt="IGNITE 2026" className={styles.brandIcon} />
               <span className={styles.brandName}>IGNITE</span>
             </div>
             <p className={styles.brandDesc}>
@@ -61,13 +66,19 @@ export default function Footer() {
               <ul className={styles.colLinks}>
                 {col.links.map((l) => (
                   <li key={l.label}>
-                    <a
-                      href={l.href}
-                      className={styles.colLink}
-                      {...(l.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                    >
-                      {l.label}
-                    </a>
+                    {l.href.startsWith('http') || l.href.startsWith('mailto:') ? (
+                      <a
+                        href={l.href}
+                        className={styles.colLink}
+                        {...(l.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      >
+                        {l.label}
+                      </a>
+                    ) : (
+                      <Link href={l.href} className={styles.colLink}>
+                        {l.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -84,21 +95,21 @@ export default function Footer() {
             <span className={styles.piedsLabel}>Organised by</span>
             <div className={styles.piedsNameRow}>
               <img src="/pieds-image/Group 100.png" alt="PIEDS" className={styles.piedsLogo} />
-              <a href="/pieds" className={styles.piedsName}>
+              <Link href="/pieds" className={styles.piedsName}>
                 PIEDS — Pilani Innovation &amp; Entrepreneurship Development Society
-              </a>
+              </Link>
             </div>
             <p className={styles.piedsDesc}>
-              The official innovation &amp; startup body of BITS Pilani, nurturing 300+ startups since 2004.
+              The official innovation &amp; startup body of BITS Pilani, nurturing 300+ startups since 2013.
             </p>
           </div>
-          <a href="/pieds" className={styles.piedsLink}>
+          <Link href="/pieds" className={styles.piedsLink}>
             About PIEDS
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6"
                 strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -114,7 +125,9 @@ export default function Footer() {
 
           <div className={styles.legal}>
             {LEGAL.map((l) => (
-              <a key={l} href="#" className={styles.legalLink}>{l}</a>
+              <Link key={l.label} href={l.href} className={styles.legalLink}>
+                {l.label}
+              </Link>
             ))}
           </div>
 

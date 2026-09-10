@@ -1,10 +1,12 @@
 const BASE_URL = 'https://ignite.pieds-st.in';
 
 export default function sitemap() {
+  const currentDate = new Date().toISOString().split('T')[0];
+
   return [
     {
       url: BASE_URL,
-      lastModified: '2025-09-01',
+      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 1.0,
       images: [
@@ -15,15 +17,18 @@ export default function sitemap() {
     },
     {
       url: `${BASE_URL}/apply`,
-      lastModified: '2025-09-01',
-      changeFrequency: 'monthly',
-      priority: 0.9,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.95,
+      images: [
+        `${BASE_URL}/ignite-logo.png`,
+      ],
     },
     {
       url: `${BASE_URL}/speakers`,
-      lastModified: '2025-09-01',
+      lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.8,
+      priority: 0.9,
       images: [
         `${BASE_URL}/speakers/abhishek-shah.png`,
         `${BASE_URL}/speakers/amit-singhal.jpg`,
@@ -59,18 +64,41 @@ export default function sitemap() {
     },
     {
       url: `${BASE_URL}/sponsors`,
-      lastModified: '2025-09-01',
-      changeFrequency: 'monthly',
-      priority: 0.7,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+      images: [
+        `${BASE_URL}/past-logos/PEAK_XV_PARTNERS_Logo_POS_RGB.jpg`,
+        `${BASE_URL}/ignite-logo.png`,
+      ],
     },
     {
       url: `${BASE_URL}/pieds`,
-      lastModified: '2025-09-01',
+      lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: 0.8,
       images: [
         `${BASE_URL}/pieds-image/student-team.jpeg`,
+        `${BASE_URL}/pieds-image/Group 100.png`,
       ],
+    },
+    {
+      url: `${BASE_URL}/privacy`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/terms`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/code-of-conduct`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.3,
     },
   ];
 }

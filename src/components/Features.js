@@ -17,7 +17,8 @@ const DURATION = 1600;
 const easeOut  = (t) => 1 - Math.pow(1 - t, 4);
 
 export default function Features() {
-  const [counts, setCounts] = useState(PARSED.map(() => 0));
+  // Initialize with full numbers so search engine bots (SSR) index real values
+  const [counts, setCounts] = useState(PARSED.map(({ num }) => num));
   const statsRef = useRef(null);
   const started  = useRef(false);
 

@@ -1,23 +1,24 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './SpeakersGrid.module.css';
 import siteContent from '@/data/siteContent';
 
 export default function SpeakersGrid() {
   const { speakers } = siteContent;
 
-  // Duplicate each row enough times for a seamless infinite loop
-  const row1Items = [...speakers.row1, ...speakers.row1, ...speakers.row1];
-  const row2Items = [...speakers.row2, ...speakers.row2, ...speakers.row2];
-
-  const Card = ({ speaker }) => (
-    <div className={styles.card}>
+  const Card = ({ speaker, isDuplicate = false }) => (
+    <div className={styles.card} aria-hidden={isDuplicate ? 'true' : undefined}>
       <div className={styles.imgWrapper}>
         {speaker.image
-          ? <Image src={speaker.image} alt={speaker.name} width={160} height={160} className={styles.img} />
+          ? <Image src={speaker.image} alt={isDuplicate ? '' : `${speaker.name} - ${speaker.role} at ${speaker.company}`} width={160} height={160} className={styles.img} />
           : <div className={styles.imgPlaceholder} aria-hidden="true">{speaker.name.charAt(0)}</div>
         }
       </div>
-      <h3 className={styles.name}>{speaker.name}</h3>
+      {isDuplicate ? (
+        <span className={styles.name}>{speaker.name}</span>
+      ) : (
+        <h3 className={styles.name}>{speaker.name}</h3>
+      )}
       <p className={styles.role}>{speaker.role}{speaker.company ? `, ${speaker.company}` : ''}</p>
     </div>
   );
@@ -41,8 +42,11 @@ export default function SpeakersGrid() {
         <div className={styles.fadeLeft}  aria-hidden="true" />
         <div className={styles.fadeRight} aria-hidden="true" />
         <div className={styles.track}>
-          {row1Items.map((s, i) => (
-            <Card key={`r1-${i}`} speaker={s} />
+          {speakers.row1.map((s, i) => (
+            <Card key={`r1-orig-${i}`} speaker={s} isDuplicate={false} />
+          ))}
+          {[...speakers.row1, ...speakers.row1].map((s, i) => (
+            <Card key={`r1-dup-${i}`} speaker={s} isDuplicate={true} />
           ))}
         </div>
       </div>
@@ -52,10 +56,19 @@ export default function SpeakersGrid() {
         <div className={styles.fadeLeft}  aria-hidden="true" />
         <div className={styles.fadeRight} aria-hidden="true" />
         <div className={`${styles.track} ${styles.trackReverse}`}>
-          {row2Items.map((s, i) => (
-            <Card key={`r2-${i}`} speaker={s} />
+          {speakers.row2.map((s, i) => (
+            <Card key={`r2-orig-${i}`} speaker={s} isDuplicate={false} />
+          ))}
+          {[...speakers.row2, ...speakers.row2].map((s, i) => (
+            <Card key={`r2-dup-${i}`} speaker={s} isDuplicate={true} />
           ))}
         </div>
+      </div>
+
+      <div className={styles.btnWrap}>
+        <Link href="/speakers" className={styles.viewAllBtn}>
+          View All Speakers &amp; Panelists →
+        </Link>
       </div>
     </section>
   );

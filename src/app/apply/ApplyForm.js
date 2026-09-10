@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import Link from 'next/link';
 import styles from './apply.module.css';
 
 const STAGES  = ['Idea', 'Prototype / MVP', 'Early Revenue', 'Growth Stage', 'Scaling'];
@@ -123,7 +124,7 @@ export default function ApplyForm() {
             for <strong>{form.startupName}</strong> and will be in touch at{' '}
             <strong>{form.email}</strong> soon.
           </p>
-          <a href="/" className={styles.successBack}>← Back to home</a>
+          <Link href="/" className={styles.successBack}>← Back to home</Link>
         </div>
       </div>
     );
@@ -137,13 +138,15 @@ export default function ApplyForm() {
         <div className={styles.leftInner}>
 
           <div className={styles.leftTop}>
-            <img src="/ignite-logo.png" alt="IGNITE" className={styles.logoMark} />
+            <img src="/ignite-logo.png" alt="IGNITE 2026 Logo" className={styles.logoMark} />
             <span className={styles.eyebrow}>IGNITE 2026 · Dubai</span>
           </div>
 
+          <h1 className="sr-only">Apply to IGNITE 2026 — Dubai Startup Summit</h1>
+
           <div className={styles.stepMeta} key={step}>
             <span className={styles.stepNum}>{STEPS[step].num} / 04</span>
-            <h1 className={styles.heading}>{STEPS[step].title}</h1>
+            <h2 className={styles.heading}>{STEPS[step].title}</h2>
             <p className={styles.subtext}>{STEPS[step].desc}</p>
           </div>
 

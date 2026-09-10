@@ -1,10 +1,34 @@
+import { Inter, Instrument_Serif, Crimson_Text } from 'next/font/google';
 import './globals.css';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+});
+
+const instrumentSerif = Instrument_Serif({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-serif',
+  display: 'swap',
+});
+
+const crimsonText = Crimson_Text({
+  weight: ['400', '600'],
+  subsets: ['latin'],
+  variable: '--font-crimson',
+  display: 'swap',
+});
 
 const BASE_URL = 'https://ignite.pieds-st.in';
 const OG_IMAGE = `${BASE_URL}/opengraph-image`;
 
 export const metadata = {
   metadataBase: new URL(BASE_URL),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: 'IGNITE 2026 — Global Innovation Summit, Dubai',
     template: '%s | IGNITE 2026',
@@ -72,10 +96,11 @@ const websiteLd = {
   name: 'IGNITE 2026',
   url: BASE_URL,
   description: 'The flagship global innovation and entrepreneurship summit by PIEDS × BITS Pilani, Dubai 2026.',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: `${BASE_URL}/speakers?q={search_term_string}`,
-    'query-input': 'required name=search_term_string',
+  publisher: {
+    '@type': 'Organization',
+    name: 'PIEDS — BITS Pilani',
+    url: 'https://pieds-bitspilani.org/',
+    logo: `${BASE_URL}/ignite-logo.png`,
   },
 };
 
@@ -99,12 +124,16 @@ const organizationLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${instrumentSerif.variable} ${crimsonText.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd).replace(/</g, '\\u003c') }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd).replace(/</g, '\\u003c') }}
+        />
       </head>
       <body suppressHydrationWarning>
         {children}

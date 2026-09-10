@@ -28,19 +28,6 @@ const breadcrumbLd = {
   ],
 };
 
-const organizationLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'PIEDS — Pilani Innovation & Entrepreneurship Development Society',
-  alternateName: 'PIEDS',
-  url: 'https://pieds-bitspilani.org/',
-  logo: 'https://ignite.pieds-st.in/pieds-image/Group 100.png',
-  foundingDate: '2013',
-  description: 'A leading non-profit technology business incubator at BITS Pilani, powering 75+ startups with ₹5M+ raised.',
-  parentOrganization: { '@type': 'CollegeOrUniversity', name: 'BITS Pilani' },
-  sameAs: ['https://pieds-bitspilani.org/'],
-};
-
 const STATS = [
   { value: '75+',     label: 'Startups' },
   { value: '$5M+',    label: 'Raised' },
@@ -82,8 +69,10 @@ const INITIATIVES = [
 export default function PiedsPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd).replace(/</g, '\\u003c') }}
+      />
 
       <Navbar />
 

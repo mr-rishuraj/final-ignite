@@ -90,6 +90,67 @@
   100% { transform: translateX(0); }
 }
 
+@keyframes marqueeRight {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.header {
+  text-align: center;
+  padding: 0 var(--gutter);
+  margin-bottom: clamp(24px, 3.5vw, 36px);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.headerVisible {
+  opacity: 1;
+  transform: none;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.8vw, 2.5rem);
+  font-weight: 400;
+  color: var(--color-text);
+  margin-top: 8px;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.btnWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(28px, 4vw, 40px);
+}
+
+.viewAllBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  border: 1px solid rgba(197, 59, 72, 0.3);
+  background: var(--color-bg);
+  padding: 10px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.viewAllBtn:hover {
+  background: var(--color-accent);
+  color: var(--color-button-text);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
 /* ── Logo card ── */
 .logoCard {
   flex-shrink: 0;

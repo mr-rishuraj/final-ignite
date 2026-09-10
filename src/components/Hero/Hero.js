@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import siteContent from '@/data/siteContent';
 import styles from './Hero.module.css';
 
@@ -13,12 +14,13 @@ export default function Hero() {
   const [cinematic, setCinematic] = useState(false);
   const [entryP, setEntryP]       = useState(0);
   const rafRef      = useRef(null);
-  const mountRef    = useRef(Date.now());
+  const mountRef    = useRef(null);
   const entryDone   = useRef(false);
 
   const ENTRY_MS = 2000;
 
   useEffect(() => {
+    mountRef.current = Date.now();
     const mq     = window.matchMedia('(min-width: 769px)');
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
     const sync   = () => setCinematic(mq.matches && !reduce.matches);
@@ -26,7 +28,6 @@ export default function Hero() {
     mq.addEventListener('change', sync);
     reduce.addEventListener('change', sync);
 
-    setWinH(window.innerHeight);
     const onResize = () => setWinH(window.innerHeight);
     window.addEventListener('resize', onResize);
 
@@ -125,9 +126,9 @@ export default function Hero() {
         </div>
 
         {/* Mobile-only CTA */}
-        <a href={hero.ctaPrimary.href} className={`${styles.cta} ${styles.ctaMobile}`}>
+        <Link href={hero.ctaPrimary.href} className={`${styles.cta} ${styles.ctaMobile}`}>
           Apply Now
-        </a>
+        </Link>
 
         {/* ── Main content ── */}
         <div
@@ -147,9 +148,9 @@ export default function Hero() {
           </h1>
 
           {/* Desktop CTA */}
-          <a href={hero.ctaPrimary.href} className={`${styles.cta} ${styles.ctaDesktop}`}>
+          <Link href={hero.ctaPrimary.href} className={`${styles.cta} ${styles.ctaDesktop}`}>
             Apply Now
-          </a>
+          </Link>
         </div>
 
         {/* Architectural curves — sand dune / silk silhouettes */}

@@ -111,7 +111,6 @@ const siteContent = {
       { value: '60+',   label: 'Active investors' },
       { value: '300+',  label: 'Startups incubated' },
       { value: '₹10L+', label: 'Equity-free grants' },
-      { value: '12+',   label: 'Countries represented' },
       { value: '40+',   label: 'Speakers & panelists' },
     ],
     timeline: [

@@ -23,6 +23,10 @@ export default function Features() {
   const started  = useRef(false);
 
   useEffect(() => {
+    setCounts(PARSED.map(({ num }) => num));
+  }, []);
+
+  useEffect(() => {
     const el = statsRef.current;
     if (!el) return;
 
